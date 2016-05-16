@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>Sean Doyle</title>
+		<style>
+			html {
+				font-family: "Trebuchet MS","sans-serif";
+				text-align:center;
+			}
+			a {
+				text-decoration:none;
+				color:black;
+			}
+			.banner {
+				text-align:center;
+			}
+			h1.banner {
+				font-size:60;
+			}
+			p.banner {
+				font-size:20;
+			}
+			#main {
+				display:flex;
+				flex-direction:row;
+			}
+			#main > middle {
+				order:2;
+				margin:20;
+			}
+			#main > bar {
+				order:1;
+				background:#cccccc;
+				flex:1 1 100px;
+				min-height:100%;
+			}
+			
+			/*@media all and (max-width: 640px) {
+				#main {
+					flex-direction:column;
+				}
+				#main > bar{
+					order:1;
+				}
+				#navigation {
+					flex-direction:row;
+				}
+				#navigation > button1, button2, button3 {
+				flex: 1 1 10px;
+				margin:15; 
+				}
+			}*/
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<middle>
+				<h1 class="banner"><a href="index_unused.html">pokemonrevolution.me</a></h1>
+				<p class="banner"><i>"Having nothing to do with Pokemon since 2015."</i></p><br/>
+				<table style="margin-left:10%;margin-right:10%;"><tr><td style="background-color:black;width:2000;"></td></tr></table><br/>
+
+				website
+			</middle>
+
+
+			<bar><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				<a href="me.html"><img src="img/me_icon.png" width=90% onmouseover="this.src='img/me_icon_light.png'" onmouseout="this.src='img/me_icon.png'"/>about me</a><br/><br/><br/>
+				<a href="website.html"><img src="img/website_icon.png" width=90% onmouseover="this.src='img/website_icon_light.png'" onmouseout="this.src='img/website_icon.png'"/>this website</a><br/><br/><br/>
+				<a href="projects.html"><img src="img/projects_icon.png" width=90% onmouseover="this.src='img/projects_icon_light.png'" onmouseout="this.src='img/projects_icon.png'"/>projects</a><br/><br/><br/>
+			</bar>
+		</div>
+	</body>
+</html>

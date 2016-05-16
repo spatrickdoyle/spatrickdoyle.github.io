@@ -1,0 +1,114 @@
+body {
+	font-family: "Trebuchet MS","sans-serif";
+	display: flex;
+	flex-flow: row wrap;
+	text-align: center;
+}
+
+a {
+	text-decoration:none;
+	color:black;
+}
+
+banner {
+	order: 1;
+	width: 90%;
+}
+
+banner > h1 {
+	font-size: 60;
+}
+
+banner > i {
+	font-size: 20;
+}
+
+#bar_block {
+	background: #cccccc;
+	height: 240px;
+	width: 95px;
+}
+
+bar {
+	order: 2;
+	flex: 0 95px;
+	background: #cccccc;
+}
+
+bar > a > img {
+	margin-top: 30px;
+}
+
+profile {
+	order: 3;
+	width: 35%;
+	height: 35%;
+	margin-top: 20px;
+	margin-left: 8%;
+	margin-right: 8%;
+}
+
+main {
+	order: 4;
+}
+
+#card {
+	background: #cccccc;
+	height: 200px;
+	width: 360px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #999999;
+}
+
+#card > p {
+	font-size: 60;
+	text-align: center;
+}
+
+#space {
+	height: 180px;
+}
+
+
+@media all and (max-width: 980px) {
+	body {
+		flex-flow: column;
+		align-items: center;
+	}
+
+	#bar_block {
+		order: 0;
+		background: #cccccc;
+		height: 30px;
+		width: 100%;
+	}
+
+	bar > a {
+		font-size: 3em;
+	}
+
+	bar > a > img {
+		width: 40px;
+		margin-top: 20px;
+	}
+
+	profile {
+		width: 80%;
+		height: 80%;
+		margin-left: 8%;
+		margin-right: 8%;
+	}
+
+	main {
+		width: 80%;
+	}
+
+	#card {
+		width: 100%;
+	}
+
+	#space {
+		height: 20px;
+	}
+}
