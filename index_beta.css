@@ -94,18 +94,18 @@ main {
 	}
 
 	profile {
-		width: 80%;
-		height: 80%;
+		width: 50%;
+		height: 50%;
 		margin-left: 8%;
 		margin-right: 8%;
 	}
 
 	main {
-		width: 60%;
+		width: 80%;
 	}
 
 	#card {
-		width: 60%;
+		width: 100%;
 	}
 
 	#space {
