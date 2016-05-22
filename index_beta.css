@@ -25,14 +25,15 @@ banner > i {
 
 #bar_block {
 	background: #cccccc;
-	height: 240px;
 	width: 95px;
+	height: 240px;
 }
 
 bar {
 	order: 2;
 	flex: 0 95px;
 	background: #cccccc;
+	height: 600px;
 }
 
 bar > a > img {
@@ -53,9 +54,9 @@ main {
 }
 
 #card {
-	background: #cccccc;
 	height: 200px;
 	width: 360px;
+	background: #cccccc;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #999999;
@@ -68,6 +69,23 @@ main {
 
 #space {
 	height: 180px;
+}
+
+#photo {
+	width: 20%;
+	margin-top: 30px;
+}
+
+#text {
+	margin-top: 30px;
+	text-align:justify;
+	font-size:25;
+	width: 72%;
+
+	background: #cccccc;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #999999;
 }
 
 

@@ -1,0 +1,14 @@
+Picked a laptop
+acquired old laptop for testing
+installed xp
+tried to install ubuntu and overwrite with arch - good thing i did this, i overwrote the proper grub configuration information
+tried again, copied /boot/grub onto a flash drive and gave it all the permissions, installed grub and copied the config directory into /boot, and modified grub.cfg to change every instance of 'ubuntu' to 'arch'
+didn't work, modified grub.cfg again to reflect the new partition
+it booted, but it appeared to have some problems. I got back into chroot from the usb drive to install dialog, iw, and wpa_supplicant because i forgot to before and the internet was being sketchy
+i also forgot to make a user and add me to the sudoers file
+pgp keys were messed up, fixed it but it was hanging so i had to bang on the keyboard
+didnt reboot at first, gave an error, probably a result of fogetting sudo
+was getting a device warning on boot, fixed by changing 3 instances of ro to rw in grub.cfg
+getting another device warning at boot, but the internet says it is harmless, so...
+X wouldn't start, turned out I installed the wrong drivers (I'm lame)
+But after all that it works!
