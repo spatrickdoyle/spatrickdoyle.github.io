@@ -158,8 +158,9 @@ main {
 	}
 
 	#project_item {
-		margin-left: 21%;
-		margin-right: 26%;
+		width: 78%;
+		margin-left: 6%;
+		margin-right: 11%;
 	}
 
 	#project_item.right {
