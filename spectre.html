@@ -12,3 +12,19 @@ was getting a device warning on boot, fixed by changing 3 instances of ro to rw 
 getting another device warning at boot, but the internet says it is harmless, so...
 X wouldn't start, turned out I installed the wrong drivers (I'm lame)
 But after all that it works!
+
+Tried out windows, it runs fine
+Disabled fast boot
+Entered uefi menu by pressing shift, disabled secure boot
+changed boot order to usb first
+Shrunk the main windows partition to create space
+booted ubuntu
+partitioned out 98 Gb for / and 2 for swap
+installed ubuntu
+copied /boot/grub to flash drive
+installed arch and grub
+copied /boot/grub in and changed grub.cfg
+booting drops me into grub recovery console without an error
+apparently this won't work in UEFI because it needs an EFI partition...
+went about dual booting the old fashioned way - adding a custom menu entry to /etc/grub.d/40_custom
+it worked!

@@ -33,7 +33,7 @@ bar {
 	order: 2;
 	flex: 0 95px;
 	background: #cccccc;
-	height: 600px;
+	height: 800px;
 }
 
 bar > a > img {
