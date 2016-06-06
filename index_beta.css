@@ -95,7 +95,8 @@ main {
 
 #project_item {
 	width: 45%;
-	margin: 25px;
+	height: 45%;
+	margin: 1%;
 	font-size: 160%;
 
 	background: #cccccc;
@@ -146,6 +147,10 @@ code {
 
 	bar {
 		font-size: 70%;
+	}
+
+	#project_item {
+		height: 34%;
 	}
 }
 
@@ -211,6 +216,7 @@ code {
 
 	#project_item {
 		width: 78%;
+		height: 24%;
 		margin-left: 6%;
 		margin-right: 11%;
 	}

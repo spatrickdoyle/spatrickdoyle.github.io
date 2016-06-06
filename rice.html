@@ -1,72 +1,57 @@
 <html>
 	<head>
+		<link rel="stylesheet" href="index_beta.css">
 		<title>Sean Doyle</title>
-		<style>
-			html {
-				font-family: "Trebuchet MS","sans-serif";
-				text-align:center;
-			}
-			a {
-				text-decoration:none;
-				color:black;
-			}
-			.banner {
-				text-align:center;
-			}
-			h1.banner {
-				font-size:60;
-			}
-			p.banner {
-				font-size:20;
-			}
-			#main {
-				display:flex;
-				flex-direction:row;
-			}
-			#main > middle {
-				order:2;
-				margin:20;
-			}
-			#main > bar {
-				order:1;
-				background:#cccccc;
-				flex:1 1 100px;
-				min-height:100%;
-			}
-			
-			/*@media all and (max-width: 640px) {
-				#main {
-					flex-direction:column;
-				}
-				#main > bar{
-					order:1;
-				}
-				#navigation {
-					flex-direction:row;
-				}
-				#navigation > button1, button2, button3 {
-				flex: 1 1 10px;
-				margin:15; 
-				}
-			}*/
-		</style>
 	</head>
+
 	<body>
-		<div id="main">
-			<middle>
-				<h1 class="banner"><a href="index_unused.html">pokemonrevolution.me</a></h1>
-				<p class="banner"><i>"Having nothing to do with Pokemon since 2015."</i></p><br/>
-				<table style="margin-left:10%;margin-right:10%;"><tr><td style="background-color:black;width:2000;"></td></tr></table><br/>
+		<div id="bar_block" style="order:0"></div>
 
-				website
-			</middle>
+		<banner><br/>
+			<h1><a href="index_beta.html">spatrickdoyle.com</a></h1>
+			<i>"Having nothing to do with Pokemon since 2015."</i><br/><br/><br/>
+			<table style="margin-left:10%;margin-right:10%;"><tr><td style="background-color:black;width:2000;"></td></tr></table>
+		</banner>
 
+		<bar style="height:2000px">
+			<div id="baritem"><a href="me_beta.html"><img src="img/me_icon.png" width=80% onmouseover="this.src='img/me_icon_light.png'" onmouseout="this.src='img/me_icon.png'"/> about me</a>&nbsp</div>
+			<div id="baritem"><a href="website_beta.html"><img src="img/website_icon.png" width=80% onmouseover="this.src='img/website_icon_light.png'" onmouseout="this.src='img/website_icon.png'"/> this website</a>&nbsp</div>
+			<div id="baritem"><a href="projects_beta.html"><img src="img/projects_icon.png" width=80% onmouseover="this.src='img/projects_icon_light.png'" onmouseout="this.src='img/projects_icon.png'"/> projects</a>&nbsp</div>
+		</bar>
 
-			<bar><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-				<a href="me.html"><img src="img/me_icon.png" width=90% onmouseover="this.src='img/me_icon_light.png'" onmouseout="this.src='img/me_icon.png'"/>about me</a><br/><br/><br/>
-				<a href="website.html"><img src="img/website_icon.png" width=90% onmouseover="this.src='img/website_icon_light.png'" onmouseout="this.src='img/website_icon.png'"/>this website</a><br/><br/><br/>
-				<a href="projects.html"><img src="img/projects_icon.png" width=90% onmouseover="this.src='img/projects_icon_light.png'" onmouseout="this.src='img/projects_icon.png'"/>projects</a><br/><br/><br/>
-			</bar>
-		</div>
+		<main style="flex: 0 77%;margin-left:8%;margin-right:10%;text-align:left">
+			<div id="text" style="font-size:1.7vw"><b>My Arch Linux Desktop</b>&nbsp-&nbsp-&nbsp<i>I spent so much time on this</i></div><br/>
+
+			<p>
+			Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/>
+
+			Duis luctus cursus sapien nec venenatis. Nulla nibh ex, aliquet sit amet fermentum et, ultricies id leo. Nunc vitae nisl porta, malesuada ex nec, rutrum enim. Phasellus quam metus, lobortis ac augue et, tincidunt accumsan ipsum. Maecenas luctus posuere consectetur. Phasellus egestas id nunc vel venenatis. Phasellus at laoreet nisl. Integer sit amet elit bibendum, dapibus arcu et, ultrices nibh. Aenean porta, velit ac interdum aliquam, nibh urna suscipit magna, non feugiat urna felis eu libero. Proin non massa eu nisl dignissim semper non non dui. Donec blandit mattis nisl. Suspendisse vitae eros tortor.<br/><br/>
+
+			Fusce elementum, magna dapibus fermentum aliquet, lorem nisi imperdiet sapien, ac convallis erat lectus eu dolor. Vivamus mollis risus quis diam lacinia cursus. Quisque sem nulla, lacinia in sagittis et, fringilla nec sapien. In neque dolor, mattis sit amet mauris non, aliquam commodo orci. Vivamus elit enim, consectetur at luctus in, elementum eget tortor. Sed eu sapien ac diam aliquet vestibulum. Aliquam sed sem erat. Aliquam vitae mauris risus. Pellentesque nec rhoncus elit, sodales molestie urna. Donec sit amet ante sollicitudin, imperdiet magna in, tincidunt dolor. Aenean mollis non mi vel euismod.<br/><br/>
+
+			<img src="scrot.png" width="80%" border="1px"/>
+			<div id="text" style="font-size:17;padding:2px"><i>This is a caption for this picture</i></div><br/>
+
+			Ut quis eros at dui vestibulum bibendum. Praesent laoreet placerat nulla quis mollis. Vestibulum quis mi venenatis, iaculis arcu ac, dapibus dui. Maecenas aliquam massa vel justo blandit, sed volutpat massa vehicula. In hac habitasse platea dictumst. Etiam bibendum, velit fermentum maximus accumsan, ipsum purus euismod sapien, sed ornare nibh dui vitae velit. Fusce eu lorem vel sapien consequat molestie quis id leo. Ut rhoncus risus eu ipsum pharetra vehicula. Etiam lorem purus, tempus sit amet vehicula nec, interdum at mauris. Donec malesuada sapien vel nunc venenatis, condimentum congue odio elementum. Mauris in dictum velit, at vulputate lectus. Pellentesque eu odio luctus leo pulvinar cursus. In euismod vulputate lectus, quis viverra lacus suscipit sit amet. Duis iaculis, risus quis sollicitudin consequat, tellus elit eleifend tortor, non faucibus tellus nisi nec justo. Integer consectetur lobortis ipsum, eu euismod nulla dignissim ut. Vestibulum sed tincidunt nisi.<br/><br/>
+
+			Donec et purus mattis, sollicitudin est eu, hendrerit tortor. Sed ultricies feugiat eros, in efficitur urna venenatis sed. Donec sollicitudin nisl ex, eu tempus ante accumsan ac. Aenean fringilla congue dui quis lacinia. Donec maximus leo non diam efficitur, sed tincidunt tortor vehicula. Mauris ligula lacus, egestas nec nisl sed, dictum mollis felis. Curabitur arcu neque, lacinia vitae tortor rutrum, lobortis euismod ante. Aliquam posuere tincidunt sollicitudin. Praesent nec feugiat tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. In a felis augue. In posuere, mauris quis egestas sodales, nibh lacus placerat leo, aliquam aliquam ligula ligula vitae ipsum. Pellentesque eu est quis dolor fermentum semper eu non velit. Duis ultricies nibh ac elit posuere euismod. Duis vitae rhoncus enim. Curabitur sit amet blandit eros.<br/><br/>
+
+			Vestibulum sed volutpat lacus, a tempus sapien. Duis sit amet sem ac nibh feugiat malesuada ac vel ante. Morbi viverra facilisis augue, vitae finibus nisl condimentum ac. Vivamus in lobortis tortor. Morbi at facilisis nunc. Curabitur sed urna scelerisque, faucibus nibh eget, ornare diam. Sed et dignissim turpis.
+			</p><br/>
+
+			<div id="text" style="font-size:20;padding:5px">Another paragraph</div><br/>
+			<p>		
+			Praesent ac gravida dui. Mauris velit est, tempus eget leo eget, pretium dapibus neque. Praesent quis interdum augue. Suspendisse feugiat est a orci dapibus pellentesque. Donec finibus bibendum feugiat. Nullam tempus blandit mauris, eget bibendum quam. Vestibulum imperdiet, ligula nec efficitur mattis, dolor purus blandit justo, vitae dictum mi dui vel nisl. Cras lacinia nunc vel sem dapibus porttitor. Donec ultrices viverra eleifend. Sed semper egestas ex, id pulvinar metus tincidunt nec. Vivamus ullamcorper risus quis magna congue vestibulum. Maecenas ornare neque sed dui efficitur, ac cursus massa eleifend. Vestibulum lobortis sit amet turpis vel hendrerit. Ut placerat finibus porta. Ut non faucibus leo.<br/><br/>
+
+			Ut ultrices varius laoreet. Suspendisse mollis justo non aliquam congue. Fusce nec tempus mi. Cras lobortis magna cursus lorem tincidunt efficitur. Sed a aliquet enim. Etiam odio orci, sagittis ut viverra eu, venenatis in erat. Aenean rutrum leo et sem tincidunt lacinia. Nunc nisi risus, condimentum non hendrerit ac, auctor a metus. Nullam mi est, viverra ac aliquam sed, cursus a tellus. Cras ornare viverra volutpat. Quisque in placerat nulla. Integer consectetur ac ligula non lobortis. Sed purus augue, tincidunt ut facilisis id, vestibulum ut est. Nullam et pulvinar lectus. Nullam nec blandit dolor, a mollis nulla.<br/><br/>
+
+			Mauris molestie laoreet ipsum, sed placerat augue molestie varius. Vestibulum blandit tortor sodales enim volutpat fringilla. Vivamus dignissim lectus ex, ut malesuada eros imperdiet fringilla. Quisque rutrum tristique pretium. Nunc nec neque finibus metus elementum placerat. Donec venenatis diam et vehicula feugiat. Fusce convallis, lectus et condimentum posuere, mi neque consequat eros, sed pellentesque est dolor eget orci. Phasellus iaculis placerat vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed imperdiet, odio in pellentesque scelerisque, dolor sapien consectetur nulla, vitae malesuada odio neque vel massa. Pellentesque scelerisque diam sit amet eleifend hendrerit. Cras condimentum condimentum ullamcorper. Mauris luctus risus lorem, in eleifend ipsum posuere vitae. Curabitur ac nulla at risus vehicula ultrices nec in nisi. Maecenas vitae metus eget eros imperdiet tristique.<br/><br/>
+
+			Cras volutpat magna in mi pellentesque pellentesque. Donec elementum libero vel elementum fermentum. Donec volutpat mi non faucibus mollis. Nunc nec mollis diam. Duis vulputate, turpis vitae mollis pretium, massa lacus ultrices metus, commodo convallis justo erat in nisl. In eros augue, dignissim a cursus sed, sodales a lacus. Mauris pellentesque eu nulla gravida lacinia. In eu odio faucibus, congue nisi nec, porta sem. Vestibulum fringilla scelerisque ligula, et pretium justo laoreet euismod. Nulla laoreet enim a mauris pretium, vitae aliquet neque feugiat. Ut libero tellus, congue in ipsum vel, tempor lobortis mi.<br/><br/>
+
+			Quisque auctor sit amet sapien ut iaculis. Curabitur volutpat lacus et dolor cursus iaculis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce et leo non mi tincidunt scelerisque. Sed at pharetra arcu, quis hendrerit nulla. Curabitur id ex risus. Cras at hendrerit velit. Donec eget magna blandit, malesuada elit bibendum, pellentesque enim. Nam non viverra urna. Quisque tempor ex in justo dignissim scelerisque.
+			</p>
+
+		</main>
 	</body>
 </html>

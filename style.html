@@ -20,40 +20,9 @@
 		</bar>
 
 		<main style="flex: 0 77%;margin-left:8%;margin-right:10%;text-align:left">
-			<div id="text" style="font-size:1.7vw"><b>Duel Booting Windows 10 and Arch Linux</b>&nbsp-&nbsp-&nbsp<i>on the HP Spectre</i></div><br/>
+			<div id="text" style="font-size:1.7vw"><b>Smartphone on tie</b>&nbsp-&nbsp-&nbsp<i>it plays animations and looks cool</i></div><br/>
 
 			<p>
-			Picked a laptop
-			acquired old laptop for testing
-			installed xp
-			tried to install ubuntu and overwrite with arch - good thing i did this, i overwrote the proper grub configuration information
-			tried again, copied /boot/grub onto a flash drive and gave it all the permissions, installed grub and copied the config directory into /boot, and modified grub.cfg to change every instance of 'ubuntu' to 'arch'
-			didn't work, modified grub.cfg again to reflect the new partition
-			it booted, but it appeared to have some problems. I got back into chroot from the usb drive to install dialog, iw, and wpa_supplicant because i forgot to before and the internet was being sketchy
-			i also forgot to make a user and add me to the sudoers file
-			pgp keys were messed up, fixed it but it was hanging so i had to bang on the keyboard
-			didnt reboot at first, gave an error, probably a result of fogetting sudo
-			was getting a device warning on boot, fixed by changing 3 instances of ro to rw in grub.cfg
-			getting another device warning at boot, but the internet says it is harmless, so...
-			X wouldn't start, turned out I installed the wrong drivers (I'm lame)
-			But after all that it works!
-
-			Tried out windows, it runs fine
-			Disabled fast boot
-			Entered uefi menu by pressing shift, disabled secure boot
-			changed boot order to usb first
-			Shrunk the main windows partition to create space
-			booted ubuntu
-			partitioned out 98 Gb for / and 2 for swap
-			installed ubuntu
-			copied /boot/grub to flash drive
-			installed arch and grub
-			copied /boot/grub in and changed grub.cfg
-			booting drops me into grub recovery console without an error
-			apparently this won't work in UEFI because it needs an EFI partition...
-			went about dual booting the old fashioned way - adding a custom menu entry to /etc/grub.d/40_custom
-			it worked!<br/><br/>
-
 			Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/>
 
 			Duis luctus cursus sapien nec venenatis. Nulla nibh ex, aliquet sit amet fermentum et, ultricies id leo. Nunc vitae nisl porta, malesuada ex nec, rutrum enim. Phasellus quam metus, lobortis ac augue et, tincidunt accumsan ipsum. Maecenas luctus posuere consectetur. Phasellus egestas id nunc vel venenatis. Phasellus at laoreet nisl. Integer sit amet elit bibendum, dapibus arcu et, ultrices nibh. Aenean porta, velit ac interdum aliquam, nibh urna suscipit magna, non feugiat urna felis eu libero. Proin non massa eu nisl dignissim semper non non dui. Donec blandit mattis nisl. Suspendisse vitae eros tortor.<br/><br/>
