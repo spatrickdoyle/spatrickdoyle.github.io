@@ -14,12 +14,13 @@
 		</banner>
 
 		<bar style="height:2000px">
-			<div id="baritem"><a href="me_beta.html"><img src="img/me_icon.png" width=80% onmouseover="this.src='img/me_icon_light.png'" onmouseout="this.src='img/me_icon.png'"/> about me</a>&nbsp</div>
-			<div id="baritem"><a href="website_beta.html"><img src="img/website_icon.png" width=80% onmouseover="this.src='img/website_icon_light.png'" onmouseout="this.src='img/website_icon.png'"/> this website</a>&nbsp</div>
-			<div id="baritem"><a href="projects_beta.html"><img src="img/projects_icon.png" width=80% onmouseover="this.src='img/projects_icon_light.png'" onmouseout="this.src='img/projects_icon.png'"/> projects</a>&nbsp</div>
+			<div class="baritem"><a href="me_beta.html"><img src="img/me_icon.png" width=80% onmouseover="this.src='img/me_icon_light.png'" onmouseout="this.src='img/me_icon.png'"/> about me</a>&nbsp</div>
+			<div class="baritem"><a href="website_beta.html"><img src="img/website_icon.png" width=80% onmouseover="this.src='img/website_icon_light.png'" onmouseout="this.src='img/website_icon.png'"/> this website</a>&nbsp</div>
+			<div class="baritem"><a href="projects_beta.html"><img src="img/projects_icon.png" width=80% onmouseover="this.src='img/projects_icon_light.png'" onmouseout="this.src='img/projects_icon.png'"/> projects</a>&nbsp</div>
+			<div class="baritem" id="contact_button" style="margin-top:60px"><img src="img/message.png" width=80% onmouseover="this.src='img/message_light.png'" onmouseout="this.src='img/message.png'"/> contact me&nbsp</div>
 		</bar>
 
-		<main style="flex: 0 77%;margin-left:8%;margin-right:10%;text-align:left">
+		<main style="flex: 0 77%;margin-left:8%;margin-right:10%;text-align:left;line-height:30px">
 			<div id="text" style="font-size:1.7vw"><b>My Arch Linux Desktop</b>&nbsp-&nbsp-&nbsp<i>I spent so much time on this</i></div><br/>
 
 			<p>
@@ -53,5 +54,16 @@
 			</p>
 
 		</main>
+
+		<div id="modal-bg">
+			<div id="modal">
+				<a href="http://www.facebook.com/spatrickdoyle">Shoot me a Facebook message!</a><br/>
+				<a href="mailto:thebonaestest@gmail.com">Or email me!</a><br/>
+				Or you can call/text me: 913-530-6297<br/>
+				Or I guess you could, like, send me a pull request or something, <a href="http://www.github.com/thebonaestest">if you want to do that.</a><br/>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="index.js"></script>
 	</body>
 </html>
