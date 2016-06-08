@@ -162,10 +162,10 @@ code {
 #modal-bg {
 	display: none;
 	background: rgb(0,255,0,0);
-	width: 100%;
+	width: 94%;
 	position: absolute;
 	z-index: 1;
-	left: 0;
+	left: 6%;
 	top: 0;
 }
 
@@ -176,13 +176,13 @@ code {
 	border-color: #999999;
 
 	position: relative;
-	left: 6%;
+	left: 0%;
 	top: calc(30vw + 130px);
 
 	width: 500px;
 	font-size: 20;
 	margin-top: 30px;
-	text-align: left;
+	text-align: center;
 	height: 150;
 	float: left;
 	margin-left: 0px;
@@ -257,7 +257,10 @@ code {
 
 	bar > div > a > img {
 		width: 40px;
-		margin-top: 10px;
+		/*margin-top: 10px;
+		background: #ff0000;*/
+		position: relative;
+		top: 7px;
 	}
 
 	profile {
@@ -285,6 +288,7 @@ code {
 		height: 24%;
 		margin-left: 6%;
 		margin-right: 11%;
+		margin-top: 30px;
 	}
 
 	#project_item.right {
@@ -333,5 +337,15 @@ code {
 
 	code {
 		font-size: 20;
+	}
+
+	#modal-bg {
+		left: 0px;
+		width: 100%;
+	}
+
+	#modal {
+		left: 21.5%;
+		top: 520px;
 	}
 }
