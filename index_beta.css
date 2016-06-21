@@ -30,7 +30,7 @@ banner > i {
 }
 
 bar {
-	width: 5%;
+	width: 5vw;
 	height: 98vh;
 	left: 8px;
 	top: 8px;
@@ -128,9 +128,32 @@ main {
 	border-color: #999999;
 }
 
+#title {
+	margin-top: 50px;
+	font-size: 2vw;
+	padding: 13px;
+
+	background: #cccccc;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #999999;
+}
+
+#paragraph {
+	font-size: 1.3vw;
+	width: 72%;
+	padding: 2px;
+	text-align: left;
+
+	background: #cccccc;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #999999;
+}
+
 #project_item {
 	width: 45%;
-	height: 46%;
+	height: 30vw;
 	margin: 1%;
 	font-size: 160%;
 
@@ -175,7 +198,7 @@ code {
 	background: rgb(0,255,0,0);
 	width: 94%;
 	height: 100vh;
-	position: absolute;
+	position: fixed;
 	z-index: 1;
 	left: 6%;
 	top: 0;
@@ -187,9 +210,9 @@ code {
 	border-width: 1px;
 	border-color: #999999;
 
-	position: relative;
-	left: 0%;
-	top: calc(30vw + 130px);
+	position: fixed;
+	left: 6%;
+	top: calc(12vw + 25vh + 128px);
 
 	width: 500px;
 	font-size: 20;
@@ -201,8 +224,8 @@ code {
 	padding: 15px;
 }
 
-img + #text {
-	/*visibility: hidden;*/
+img + #paragraph {
+	visibility: hidden;
 	position: fixed;
 	width: 93%;
 	margin-top: 0px;
@@ -210,9 +233,12 @@ img + #text {
 	bottom: -7vh;
 	left: 6%;
 	transition:all 0.5s ease-in-out;
+
+	font-size: 17px;
+	padding: 2px;
 }
 
-img:hover + #text {
+img:hover + #paragraph {
 	visibility: visible;
 	bottom: 1.1vh;
 	margin-left: 0px;
@@ -238,6 +264,18 @@ img:hover + #text {
 	bar {
 		font-size: 70%;
 	}
+
+	#project_item {
+		height: 35vw;
+	}
+
+	#title {
+		font-size: 3vw;
+	}
+
+	#paragraph {
+		font-size: 2vw;
+	}
 }
 
 
@@ -258,6 +296,7 @@ img:hover + #text {
 		position: static !important;
 		width: 70%;
 		background: #ffffff;
+		margin-top: 0px;
 	}
 
 	.baritem {
@@ -269,7 +308,7 @@ img:hover + #text {
 		padding: 2px;
 		padding-bottom: 11px;
 
-		margin-top: 20px !important;
+		margin-top: 2vw !important;
 		width: 100%;
 	}
 
@@ -306,12 +345,12 @@ img:hover + #text {
 	}
 
 	#space {
-		height: 20px;
+		height: 2vw;
 	}
 
 	#project_item {
 		width: 78%;
-		height: 24%;
+		height: 53vw;
 		margin-left: 6%;
 		margin-right: 11%;
 		margin-top: 30px;
@@ -358,11 +397,19 @@ img:hover + #text {
 	}
 
 	#text {
-		font-size: 36;
+		font-size: 3vw;
 	}
 
 	code {
 		font-size: 20;
+	}
+
+	#title {
+		font-size: 3.5vw;
+	}
+
+	#paragraph {
+		font-size: 2.7vw;
 	}
 
 	#modal-bg {
@@ -371,15 +418,25 @@ img:hover + #text {
 	}
 
 	#modal {
-		left: 21.5%;
-		top: 520px;
+		position: relative;
+		left: 0px;
+		top: 45vh;
+		margin-left: 8%;
+		margin-right: 10%;
+		width: 80%;
 	}
 
-	img + #text {
+	img + #paragraph {
 		bottom: -15vh;
 	}
 
-	img:hover + #text {
+	img:hover + #paragraph {
 		bottom: 2vh;
+	}
+}
+
+@media all and (max-width: 615px) {
+	#project_item {
+		height: 69vw;
 	}
 }

@@ -6,7 +6,7 @@ var vw = document.documentElement.clientWidth;
 btn.onmouseover = function() {
 	vw = document.documentElement.clientWidth;
 
-	if (vw > 980) {
+	if (vw >= 980) {
 		modal.style.display = "block";
 	}
 }
