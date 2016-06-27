@@ -244,6 +244,90 @@ img:hover + #paragraph {
 	margin-left: 0px;
 }
 
+form {
+	font-size: 2vw;
+}
+
+textarea {
+	resize: none;
+	outline: none;
+	font-size: 1.5vw;
+	width: 50vw;
+	height: 10vw;
+
+	background: #f2f2f2;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #999999;
+	border-radius: 0px;
+}
+
+input {
+	outline: none;
+	font-size: 1.5vw;
+
+	background: #f2f2f2;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #999999;
+	border-radius: 0px;
+}
+
+#comment_button {
+	width: 10vw;
+	text-align: center;
+	font-size: 2vw;
+	padding: 10px;
+
+	background: #f2f2f2;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #999999;
+	border-radius: 0px;
+}
+
+#comment_button:hover {
+	background: #cccccc;
+}
+
+#comment_button:active {
+	background: #999999;
+}
+
+#comment {
+	padding: 5px;
+	width: 50vw;
+	font-size: 1.4vw;
+
+	background: #eeeeee;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #999999;
+	border-radius: 0px;
+}
+
+span {
+	font-size: 2.6vw;
+}
+
+#help {
+	font-size: 1.7vw;
+	line-height: 4vw;
+	padding-bottom: 2vw;
+}
+
+#help + div {
+	display: none;
+	font-size: 1.5vw;
+}
+
+#help:hover + div {
+	display: block;
+}
+
+#paragraph:hover {
+	display: block;
+}
 
 @media all and (max-width: 1305px) {
 	#card {
@@ -432,6 +516,19 @@ img:hover + #paragraph {
 
 	img:hover + #paragraph {
 		bottom: 2vh;
+	}
+
+	#comment {
+		width: 70vw;
+		font-size: 1.7vw;
+	}
+
+	span {
+		font-size: 3.2vw;
+	}
+
+	textarea {
+		width: 70vw;
 	}
 }
 
