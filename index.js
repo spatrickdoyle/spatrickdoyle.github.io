@@ -108,34 +108,42 @@ function post_comment() {
 
 
 var git_int = true;
-var page = document.getElementById('page_name').value;
+var load_comments = true;
+try {
+	var page = document.getElementById('page_name').value;
+}
+catch (e) {
+	load_comments = false;
+}
 
-var retrieve = new XMLHttpRequest();
-retrieve.onreadystatechange = function() {
-	if (retrieve.readyState == 4 && retrieve.status == 200) {
-		document.getElementById('comments').innerHTML = "";
-		var comment_history = JSON.parse(retrieve.responseText);
-		for (var i = comment_history.length-1; i >= 0; i--) {
-			if (comment_history[i]['page_name'] == page) {
-				var date_time = new Date();
-				var time_date = comment_history[i]['timestamp'].split('T');
-				document.getElementById('comments').innerHTML += "<br/>\
-				<div id='comment'><table><tr><td>\
-					<img height='70vw' border=1px src='"+comment_history[i]['avatar']+"'/></td>\
-					<td><span>\
-						&nbsp"+comment_history[i]['name']+"\
-					</span><br/>\
-					<code style='font-size:1.2vw'>\
-						&nbsp"+comment_history[i]['location']+' - '+local_time(time_date[0]+' '+time_date[1].split('.')[0],date_time.getTimezoneOffset())+'\
-					</code></td></tr></table><br/>\
-					'+comment_history[i]['comment_body']+"<br/><br/>\
-				</div>";
+if (load_comments) {
+	var retrieve = new XMLHttpRequest();
+	retrieve.onreadystatechange = function() {
+		if (retrieve.readyState == 4 && retrieve.status == 200) {
+			document.getElementById('comments').innerHTML = "";
+			var comment_history = JSON.parse(retrieve.responseText);
+			for (var i = comment_history.length-1; i >= 0; i--) {
+				if (comment_history[i]['page_name'] == page) {
+					var date_time = new Date();
+					var time_date = comment_history[i]['timestamp'].split('T');
+					document.getElementById('comments').innerHTML += "<br/>\
+					<div id='comment'><table><tr><td>\
+						<img height='70vw' border=1px src='"+comment_history[i]['avatar']+"'/></td>\
+						<td><span>\
+							&nbsp"+comment_history[i]['name']+"\
+						</span><br/>\
+						<code style='font-size:1.2vw'>\
+							&nbsp"+comment_history[i]['location']+' - '+local_time(time_date[0]+' '+time_date[1].split('.')[0],date_time.getTimezoneOffset())+'\
+						</code></td></tr></table><br/>\
+						'+comment_history[i]['comment_body']+"<br/><br/>\
+					</div>";
+				}
 			}
 		}
 	}
+	retrieve.open("GET",'http://data.sparkfun.com/output/5JJqEo43NJc4mDQadYjR.json',true);
+	retrieve.send(null);
 }
-retrieve.open("GET",'http://data.sparkfun.com/output/5JJqEo43NJc4mDQadYjR.json',true);
-retrieve.send(null);
 
 
 var modal = document.getElementById('modal-bg');
