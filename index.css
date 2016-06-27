@@ -379,7 +379,7 @@ span {
 	bar {
 		position: static !important;
 		width: 70%;
-		height: calc(10vh + 220px);
+		height: calc(10vh + 248px);
 		background: #ffffff;
 		margin-top: 0px;
 	}
