@@ -31,7 +31,7 @@ banner > i {
 
 bar {
 	width: 5vw;
-	height: 9vh;
+	height: 98vh;
 	left: 8px;
 	top: 8px;
 
@@ -379,6 +379,7 @@ span {
 	bar {
 		position: static !important;
 		width: 70%;
+		height: calc(8vh + 188px);
 		background: #ffffff;
 		margin-top: 0px;
 	}
