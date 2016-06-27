@@ -11,7 +11,7 @@ banner {
 }
 
 banner > h1 {
-	font-size: 60;
+	font-size: 60px;
 }
 
 banner > h1 > a {
@@ -20,7 +20,7 @@ banner > h1 > a {
 }
 
 banner > i {
-	font-size: 20;
+	font-size: 20px;
 }
 
 #bar_block {
@@ -72,10 +72,10 @@ main {
 
 #card.contact {
 	width: 50%;
-	font-size: 20;
+	font-size: 20px;
 	margin-top: 30px;
 	text-align: left;
-	height: 200;
+	height: 200px;
 	float: left;
 	margin-left: 0px;
 	padding: 15px;
@@ -93,7 +93,7 @@ main {
 }
 
 #card > p {
-	font-size: 60;
+	font-size: 60px;
 	text-align: center;
 }
 
@@ -189,7 +189,7 @@ main {
 }
 
 code {
-	font-size: 20;
+	font-size: 20px;
 	font-size: 1.1vw;
 }
 
@@ -201,7 +201,7 @@ code {
 	position: fixed;
 	z-index: 1;
 	left: 6%;
-	top: 0;
+	top: 0px;
 }
 
 #modal {
@@ -215,10 +215,10 @@ code {
 	top: calc(12vw + 25vh + 128px);
 
 	width: 500px;
-	font-size: 20;
+	font-size: 20px;
 	margin-top: 30px;
 	text-align: center;
-	height: 150;
+	height: 150px;
 	float: left;
 	margin-left: 0px;
 	padding: 15px;
@@ -337,7 +337,7 @@ span {
 
 	#card.contact {
 		width: 70%;
-		font-size: 15;
+		font-size: 15px;
 		height: 150px;
 	}
 
@@ -485,7 +485,7 @@ span {
 	}
 
 	code {
-		font-size: 20;
+		font-size: 20px;
 	}
 
 	#title {
