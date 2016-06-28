@@ -233,6 +233,7 @@ img + #paragraph {
 	bottom: -7vh;
 	left: 6%;
 	transition:all 0.5s ease-in-out;
+	background: #8d8d8d;
 
 	font-size: 17px;
 	padding: 2px;
@@ -494,7 +495,7 @@ span {
 	}
 
 	#paragraph {
-		font-size: 2.7vw;
+		font-size: 3vw;
 	}
 
 	#modal-bg {
