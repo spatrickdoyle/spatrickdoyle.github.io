@@ -1,7 +1,7 @@
 /*All this fancy Regex was borrowed from here:
 http://stackoverflow.com/questions/295566/sanitize-rewrite-html-on-the-client-side
 posted by user Mike Samuel*/
-var tagBody = '(?:[^"\'>]|"[^"]*"|\'[^\']*\')*';
+/*var tagBody = '(?:[^"\'>]|"[^"]*"|\'[^\']*\')*';
 var tagOrComment = new RegExp('<(?:' + '!--(?:(?:-*[^->])*--+|-?)' + '|script\\b' + tagBody + '>[\\s\\S]*?</script\\s*' + '|style\\b' + tagBody + '>[\\s\\S]*?</style\\s*' + '|/?[a-z]' + tagBody + ')>','gi');
 
 
@@ -143,7 +143,7 @@ if (load_comments) {
 	}
 	retrieve.open("GET",'http://data.sparkfun.com/output/5JJqEo43NJc4mDQadYjR.json',true);
 	retrieve.send(null);
-}
+}*/
 
 
 var modal = document.getElementById('modal-bg');
