@@ -75,7 +75,7 @@ function post_comment() {
 		else {
 			document.getElementById('name').value = removeTags(document.getElementById('name').value);
 			document.getElementById('location').value = 'N/A';
-			document.getElementById('avatar').value = 'img/me_icon.png';
+			document.getElementById('avatar').value = 'img/me_icon.svg';
 
 			var date_time = new Date();
 			document.getElementById('text_box').value = removeTags(document.getElementById('text_box').value).replace('\n','<br/>');
