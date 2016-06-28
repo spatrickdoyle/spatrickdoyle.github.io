@@ -227,7 +227,7 @@ code {
 img + #paragraph {
 	visibility: hidden;
 	position: fixed;
-	width: 93%;
+	width: 2000px;/*93%;*/
 	margin-top: 0px;
 	margin-left: 0px;
 	bottom: -7vh;
