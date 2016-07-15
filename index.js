@@ -54,12 +54,12 @@ function post_comment() {
 					document.getElementById('comments').innerHTML += "<br/>\
 					<div id='comment'><table><tr><td>\
 						<a name='new_comment'></a>\
-						<img height='70vw' border=1px src='"+user_data['avatar_url']+"'/></td>\
+						<img style='height:70vw;border:1px' src='"+user_data['avatar_url']+"' alt=""/></td>\
 						<td><span>\
-							&nbsp"+document.getElementById('name').value+"\
+							&nbsp;"+document.getElementById('name').value+"\
 						</span><br/>\
 						<code style='font-size:1.2vw'>\
-							&nbsp"+document.getElementById('location').value+' - '+date_time.getUTCFullYear()+'-'+((parseInt(date_time.getUTCMonth())+1<10)?'0':'')+(date_time.getUTCMonth()+1)+'-'+((parseInt(date_time.getUTCDate())<10)?'0':'')+date_time.getUTCDate()+', just now\
+							&nbsp;"+document.getElementById('location').value+' - '+date_time.getUTCFullYear()+'-'+((parseInt(date_time.getUTCMonth())+1<10)?'0':'')+(date_time.getUTCMonth()+1)+'-'+((parseInt(date_time.getUTCDate())<10)?'0':'')+date_time.getUTCDate()+', just now\
 						</code></td></tr></table><br/>\
 						'+document.getElementById('text_box').value+"<br/><br/>\
 					</div>";
@@ -83,12 +83,12 @@ function post_comment() {
 			document.getElementById('comments').innerHTML += "<br/>\
 			<div id='comment'><table><tr><td>\
 				<a name='new_comment'></a>\
-				<img height='70vw' border=1px src='"+document.getElementById('avatar').value+"'/></td>\
+				<img style='height:70vw;border:1px' src='"+document.getElementById('avatar').value+"' alt=""/></td>\
 				<td><span>\
-					&nbsp"+document.getElementById('name').value+"\
+					&nbsp;"+document.getElementById('name').value+"\
 				</span><br/>\
 				<code style='font-size:1.2vw'>\
-					&nbsp"+document.getElementById('location').value+' - '+date_time.getUTCFullYear()+'-'+((parseInt(date_time.getUTCMonth())+1<10)?'0':'')+(date_time.getUTCMonth()+1)+'-'+((parseInt(date_time.getUTCDate())<10)?'0':'')+date_time.getUTCDate()+', just now\
+					&nbsp;"+document.getElementById('location').value+' - '+date_time.getUTCFullYear()+'-'+((parseInt(date_time.getUTCMonth())+1<10)?'0':'')+(date_time.getUTCMonth()+1)+'-'+((parseInt(date_time.getUTCDate())<10)?'0':'')+date_time.getUTCDate()+', just now\
 				</code></td></tr></table><br/>\
 				'+document.getElementById('text_box').value+"<br/><br/>\
 			</div>";
@@ -128,12 +128,12 @@ if (load_comments) {
 					var time_date = comment_history[i]['timestamp'].split('T');
 					document.getElementById('comments').innerHTML += "<br/>\
 					<div id='comment'><table><tr><td>\
-						<img height='70vw' border=1px src='"+comment_history[i]['avatar']+"'/></td>\
+						<img style='height:70vw;border:1px' src='"+comment_history[i]['avatar']+"' alt=""/></td>\
 						<td><span>\
-							&nbsp"+comment_history[i]['name']+"\
+							&nbsp;"+comment_history[i]['name']+"\
 						</span><br/>\
 						<code style='font-size:1.2vw'>\
-							&nbsp"+comment_history[i]['location']+' - '+local_time(time_date[0]+' '+time_date[1].split('.')[0],date_time.getTimezoneOffset())+'\
+							&nbsp;"+comment_history[i]['location']+' - '+local_time(time_date[0]+' '+time_date[1].split('.')[0],date_time.getTimezoneOffset())+'\
 						</code></td></tr></table><br/>\
 						'+comment_history[i]['comment_body']+"<br/><br/>\
 					</div>";

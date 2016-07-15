@@ -7,22 +7,22 @@ body {
 	text-align: center;
 }
 
-banner {
+#banner {
 	order: 1;
 	-webkit-order: 1;
 	width: 95%;
 }
 
-banner > h1 {
+#banner > h1 {
 	font-size: 60px;
 }
 
-banner > h1 > a {
+#banner > h1 > a {
 	text-decoration:none;
 	color:black;
 }
 
-banner > i {
+#banner > i {
 	font-size: 20px;
 }
 
@@ -32,7 +32,7 @@ banner > i {
 	height: 240px;
 }
 
-bar {
+#bar {
 	width: 5vw;
 	height: 98vh;
 	left: 8px;
@@ -45,16 +45,16 @@ bar {
 	background: #cccccc;
 }
 
-bar > div > a {
+#bar > div > a {
 	text-decoration:none;
 	color:black;
 }
 
-bar > div > img {
+#bar > div > img {
 	width: 80%;
 }
 
-bar > div > a > img {
+#bar > div > a > img {
 	width: 80%;
 }
 
@@ -62,7 +62,7 @@ bar > div > a > img {
 	margin-top: 40px;
 }
 
-profile {
+#profile {
 	order: 3;
 	-webkit-order: 3;
 	width: 31%;
@@ -354,7 +354,7 @@ span {
 		height: 100px;
 	}
 
-	bar {
+	#bar {
 		font-size: 70%;
 	}
 
@@ -388,7 +388,7 @@ span {
 		width: 100%;
 	}
 
-	bar {
+	#bar {
 		position: static !important;
 		width: 70%;
 		height: calc(10vh + 6vw + 220px);
@@ -409,23 +409,23 @@ span {
 		width: 100%;
 	}
 
-	bar > div > a:hover {
+	#bar > div > a:hover {
 		color: #505050;
 	}
 
-	bar > div > img {
+	#bar > div > img {
 		width: 40px;
 		position: relative;
 		top: 7px;
 	}
 
-	bar > div > a > img {
+	#bar > div > a > img {
 		width: 40px;
 		position: relative;
 		top: 7px;
 	}
 
-	profile {
+	#profile {
 		width: 50%;
 		height: 50%;
 		margin-left: 8%;
