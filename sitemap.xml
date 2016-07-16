@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+	xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+	<url> 
+		<loc>http://www.spatrickdoyle.com/index.html</loc> 
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/prfile.png</image:loc>
+			 <image:caption>Sean Patrick Doyle</image:caption>
+		</image:image>
+		<lastmod>2016-06-28T19:19:51Z</lastmod>
+	</url>
+	<url> 
+		<loc>http://www.spatrickdoyle.com/me.html</loc> 
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/grad.png</image:loc>
+			 <image:caption>Me when I graduated high school</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/chambers.png</image:loc>
+			 <image:caption>The Blue Valley Northwest Chamber Singers at the Southwest American Choral Directors Association Convention</image:caption>
+		</image:image>
+		<lastmod>2016-07-16T10:10:20Z</lastmod>
+	</url>
+	<url> 
+		<loc>http://www.spatrickdoyle.com/website.html</loc> 
+		<lastmod>2016-06-28T19:12:17Z</lastmod>
+	</url>
+	<url> 
+		<loc>http://www.spatrickdoyle.com/projects.html</loc> 
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/spectre_proj.png</image:loc>
+			 <image:caption>Dual Booting the HP Spectre</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/cam_vis_proj.png</image:loc>
+			 <image:caption>OpenCV Camera Tracking FIRST Robotics</image:caption>
+		</image:image>
+		<lastmod>2016-07-15T16:31:48Z</lastmod>
+	</url>
+	<url> 
+		<loc>http://www.spatrickdoyle.com/spectre.html</loc> 
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/xp.png</image:loc>
+			 <image:caption>Windows XP amuses me</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/rescue.png</image:loc>
+			 <image:caption>GRUB rescue console</image:caption>
+		</image:image>
+		<lastmod>2016-07-15T16:32:40Z</lastmod>
+	</url>
+	<url> 
+		<loc>http://www.spatrickdoyle.com/vision.html</loc> 
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/robot.png</image:loc>
+			 <image:caption>Man 'O War - Metal Mustangs</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/goal.png</image:loc>
+			 <image:caption>The goal for FIRST Stronghold</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/degrees_per_pixel.png</image:loc>
+			 <image:caption>Calculation for degrees per pixel</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/distance.png</image:loc>
+			 <image:caption>Calculation for distance</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/extra_distance.png</image:loc>
+			 <image:caption>Calculation for distance correction</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/jetson.png</image:loc>
+			 <image:caption>The Jetson TK1 development board and our 3D printed case</image:caption>
+		</image:image>
+		<lastmod>2016-06-28T19:10:32Z</lastmod>
+	</url>
+</urlset>
