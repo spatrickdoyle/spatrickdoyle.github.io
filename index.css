@@ -1,15 +1,15 @@
 body {
 	font-family: "Trebuchet MS","sans-serif";
-	display: flex;
 	display: -webkit-flex;
-	flex-flow: row wrap;
+	display: flex;
 	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
 	text-align: center;
 }
 
 #banner {
-	order: 1;
 	-webkit-order: 1;
+	order: 1;
 	width: 95%;
 }
 
@@ -38,10 +38,10 @@ body {
 	left: 8px;
 	top: 8px;
 
-	order: 2;
 	-webkit-order: 2;
-	flex: 0 5%;
+	order: 2;
 	-webkit-flex: 0 5%;
+	flex: 0 5%;
 	background: #cccccc;
 }
 
@@ -63,8 +63,8 @@ body {
 }
 
 #profile {
-	order: 3;
 	-webkit-order: 3;
+	order: 3;
 	width: 31%;
 	height: 31%;
 	margin-top: 20px;
@@ -73,8 +73,8 @@ body {
 }
 
 main {
-	order: 4;
 	-webkit-order: 4;
+	order: 4;
 }
 
 #card.contact {
@@ -239,8 +239,8 @@ img + #paragraph {
 	margin-left: 0px;
 	bottom: -7vh;
 	left: 6%;
-	transition:all 0.5s ease-in-out;
 	-webkit-transition:all 0.5s ease-in-out;
+	transition:all 0.5s ease-in-out;
 	background: #8d8d8d;
 
 	font-size: 17px;
@@ -374,15 +374,15 @@ span {
 
 @media all and (max-width: 980px) {
 	body {
-		flex-flow: column;
 		-webkit-flex-flow: column;
-		align-items: center;
+		flex-flow: column;
 		-webkit-align-items: center;
+		align-items: center;
 	}
 
 	#bar_block {
-		order: 0;
 		-webkit-order: 0;
+		order: 0;
 		background: #cccccc;
 		height: 30px;
 		width: 100%;
