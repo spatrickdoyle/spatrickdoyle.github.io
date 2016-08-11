@@ -103,6 +103,8 @@ main {
 	-ms-flex-order: 4;
 	-webkit-order: 4;
 	order: 4;
+
+	margin-left: 8%;
 }
 
 #card.contact {
@@ -489,7 +491,7 @@ span {
 
 	main {
 		width: 80%;
-		margin-left: auto;
+		margin-left: 13.5vw;
 		margin-right: auto;
 	}
 
