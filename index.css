@@ -409,6 +409,9 @@ span {
 /*It's dificult to say for sure, but I think the problem is somewhere down here*/
 @media all and (max-width: 980px) {
 	body {
+		display: block;
+		flex-basis: auto;
+
 		-webkit-box-flex-flow: column wrap;
 		-moz-box-flex-flow: column wrap;
 		-webkit-flex-flow: column wrap;
@@ -420,6 +423,12 @@ span {
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
+
+		-webkit-box-flex-direction: column;
+		-moz-box-flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
 	}
 
 	#bar_block {
