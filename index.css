@@ -1,7 +1,6 @@
 body {
 	font-family: "Trebuchet MS","sans-serif";
 
-	display: block;
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -406,11 +405,10 @@ span {
 }
 
 
-/*It's dificult to say for sure, but I think the problem is somewhere down here*/
 @media all and (max-width: 980px) {
 	body {
 		display: block;
-		flex-basis: auto;
+		text-align: center;
 
 		-webkit-box-flex-flow: column wrap;
 		-moz-box-flex-flow: column wrap;
@@ -423,12 +421,11 @@ span {
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
+	}
 
-		-webkit-box-flex-direction: column;
-		-moz-box-flex-direction: column;
-		-webkit-flex-direction: column;
-		-ms-flex-direction: column;
-		flex-direction: column;
+	#banner {
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	#bar_block {
@@ -449,6 +446,9 @@ span {
 		height: calc(10vh + 6vw + 220px);
 		background: #ffffff;
 		margin-top: 0px;
+
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.baritem {
@@ -483,12 +483,14 @@ span {
 	#profile {
 		width: 50%;
 		height: 50%;
-		margin-left: 8%;
-		margin-right: 8%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	main {
 		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	#card {
