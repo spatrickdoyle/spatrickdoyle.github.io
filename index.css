@@ -1,6 +1,7 @@
 body {
 	font-family: "Trebuchet MS","sans-serif";
 
+	display: block;
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -405,13 +406,14 @@ span {
 }
 
 
+/*It's dificult to say for sure, but I think the problem is somewhere down here*/
 @media all and (max-width: 980px) {
 	body {
-		-webkit-box-flex-flow: column;
-		-moz-box-flex-flow: column;
-		-webkit-flex-flow: column;
-		-ms-flex-flow: column;
-		flex-flow: column;
+		-webkit-box-flex-flow: column wrap;
+		-moz-box-flex-flow: column wrap;
+		-webkit-flex-flow: column wrap;
+		-ms-flex-flow: column wrap;
+		flex-flow: column wrap;
 
 		-webkit-box-align-items: center;
 		-moz-box-align-items: center;
