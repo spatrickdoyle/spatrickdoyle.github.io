@@ -189,7 +189,7 @@ main {
 }
 
 #project_item {
-	width: 45%;
+	width: 29vw;/*45%;*/
 	height: 30vw;
 	margin: 1%;
 	font-size: 160%;
@@ -202,15 +202,17 @@ main {
 
 #project_item.left {
 	float: left;
+	margin-left: 4%;
 }
 
 #project_item.right {
 	float: right;
+	margin-right: 4%;
 }
 
 #project_item > img {
-	width: 65%;
-	margin-top: 30px;
+	width: 90%;
+	margin-top: 5%;
 
 	border-style: solid;
 	border-width: 1px;
@@ -394,7 +396,7 @@ span {
 	}
 
 	#project_item {
-		height: 35vw;
+		height: 34vw;
 	}
 
 	#title {
@@ -505,19 +507,21 @@ span {
 	}
 
 	#project_item {
-		width: 78%;
-		height: 53vw;
-		margin-left: 6%;
-		margin-right: 11%;
+		width: 53vw;
+		height: 55vw;
 		margin-top: 30px;
 	}
 
 	#project_item.right {
 		float: none;
+		margin-right: auto;
+		margin-left: 11%;
 	}
 
 	#project_item.left {
 		float: none;
+		margin-right: auto;
+		margin-left: 11%;
 	}
 
 	#photo.right {
@@ -604,8 +608,8 @@ span {
 	}
 }
 
-@media all and (max-width: 615px) {
+@media all and (max-width: 690px) {
 	#project_item {
-		height: 69vw;
+		height: 63vw;
 	}
 }
