@@ -90,11 +90,10 @@ body {
 	-webkit-order: 3;
 	order: 3;
 
-	width: 31%;
-	height: 31%;
-	margin-top: 20px;
-	margin-left: 11%;
-	margin-right: 8%;
+	width: 25vw;
+	height: 25vw;
+	margin-top: 25px;
+	margin-left: 13%;
 }
 
 main {
@@ -124,29 +123,32 @@ main {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #999999;
-	margin-left: 6%;
 	width: 100%;
-	padding: 10px;
+	height: 25vw;
+	padding: 2px;
+	padding-left: 7px;
+	padding-right: 7px;
+	font-size: 1.5vw;
 }
 
 #card > p {
-	font-size: 60px;
+	font-size: 4vw;
 	text-align: center;
 }
 
 #space {
-	height: 180px;
+	height: 25px;
 }
 
 #photo.right {
-	width: 22%;
+	width: 20vw;
 	margin-top: 30px;
 	border-style: solid;
 	border-width: 5px;
 }
 
 #photo.left {
-	width: 22%;
+	width: 20vw;
 	margin-top: 30px;
 	border-style: solid;
 	border-width: 5px;
@@ -156,8 +158,9 @@ main {
 	margin-top: 30px;
 	text-align: justify;
 	font-size: 1.3vw;
-	width: 72%;
-	padding: 15px;
+	width: 70%;
+	height: 20vw;
+	padding: 5px;
 
 	background: #cccccc;
 	border-style: solid;
@@ -280,6 +283,7 @@ img + #paragraph {
 
 	background: #8d8d8d;
 
+	color: #ffffff;
 	font-size: 17px;
 	padding: 2px;
 }
@@ -376,19 +380,11 @@ span {
 }
 
 @media all and (max-width: 1305px) {
-	#card {
-		width: 100%;
-		padding: 2px;
-	}
 
 	#card.contact {
 		width: 70%;
 		font-size: 15px;
 		height: 150px;
-	}
-
-	#space {
-		height: 100px;
 	}
 
 	#bar {
@@ -485,75 +481,70 @@ span {
 	}
 
 	#profile {
-		width: 50%;
-		height: 50%;
+		width: 60%;
+		height: 60%;
 		margin-left: auto;
 		margin-right: auto;
 	}
 
 	main {
 		width: 80%;
-		margin-left: 13.5vw;
-		margin-right: auto;
 	}
 
 	#card {
-		width: 100%;
-		margin-left: 0px;
+		width: 80%;
+		margin-left: 12%;
 	}
 
 	#space {
-		height: 2vw;
+		height: 6vw;
 	}
 
 	#project_item {
-		width: 53vw;
-		height: 55vw;
+		width: 58vw;
+		height: 60vw;
 		margin-top: 30px;
 	}
 
 	#project_item.right {
 		float: none;
-		margin-right: auto;
-		margin-left: 11%;
+		margin-left: 15.5%;
 	}
 
 	#project_item.left {
 		float: none;
-		margin-right: auto;
-		margin-left: 11%;
+		margin-left: 15.5%;
 	}
 
 	#photo.right {
 		float: none;
-		margin-left: auto;
-		margin-right: 10%;
+		margin-left: 6%;
 		width: 90%;
 	}
 
 	#photo.left {
 		float: none;
-		margin-left: auto;
-		margin-right: 10%;
+		margin-left: 6%;
 		width: 90%;
 	}
 
 	#text.right {
 		float: none;
-		margin-left: auto;
-		margin-right: 13%;
-		width: 87%;
+		margin-left: 7%;
+		width: 90%;
+		height: auto;
 	}
 
 	#text.left {
 		float: none;
-		margin-left: auto;
-		margin-right: 13%;
-		width: 87%;
+		margin-left: 7%;
+		width: 90%;
+		height: auto;
 	}
 
 	#card.contact {
-		width: 86%;
+		width: 87%;
+		margin-left: 7%;
 	}
 
 	#text {

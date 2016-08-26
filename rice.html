@@ -39,18 +39,26 @@
 			<img src="img/terminals.png" style="width:80%;border:1px" alt=""/>
 			<div id="paragraph"><i>&nbsp;Terminals</i></div><br/><br/>
 
-			I designed my top bar to deliver information simply and concisely. Aside from the date and time is also has an indicator on the far right that delivers a lot of information very simply. It consists of ten characters, and each character represents one of multiple desktops (which can be switched between via keyboard shortcut). If the character is a dash (-), nothing is on that desktop. If it is a pipe (|), that is the current active desktop. If it is a plus (+), there is a window open on that desktop on the main screen. If there is a second monitor plugged in, windows on that screen are denoted by an X (x).<br/><br/>
-
-			<img src="img/indicator.png" style="width:10%;border:1px" alt=""/>
-			<div id="paragraph"><i>&nbsp;The desktop/battery indicator</i></div><br/><br/>
+			Lemonbar is a great configurable desktop bar. I designed my top bar to deliver information simply and concisely. Aside from the date and time is also has an indicator on the far right that delivers a lot of information very simply. It consists of ten characters, and each character represents one of multiple desktops (which can be switched between via keyboard shortcut). If the character is a dash (-), nothing is on that desktop. If it is a pipe (|), that is the current active desktop. If it is a plus (+), there is a window open on that desktop on the main screen. If there is a second monitor plugged in, windows on that screen are denoted by an X (x).<br/><br/>
 
 			This bar also indicates battery activity. The red portion indicates how much the battery has dropped (every character is ten percent). The rest of bar is colored based on charging status; green means the battery is charging, and orange means it is discharging.<br/><br/>
 
-			The final function of the bar is that it indicates<br/><br/>
+			<img src="img/indicator.png" style="width:10%;border:1px" alt=""/>
+			<div id="paragraph"><i>&nbsp;The desktop/battery indicator</i></div>&nbsp;&nbsp;&nbsp;&nbsp;
+
+			<img src="img/internet.png" style="width:10%;border:1px" alt=""/>
+			<div id="paragraph"><i>&nbsp;The clock turns red when the computer is not connected to the Internet</i></div><br/><br/>
+
+			The final function of the bar is that it indicates network connectivity. When the computer has Internet access, the time indicator is black. If it cannot reach the Google DNS, however, it turns red. This does not indicate simply if I am connected to a network, but rather whether I have access to the Internet in general, and it is quite useful.<br/><br/>
+
+			My laptop, the HP Spectre, also has the feature of being able to fold the screen back and sort of morph into a tablet. For this reason, I created a 'tablet mode' that I can access by pressing Super-t. In the tablet mode, the touch screen is active, the screen will rotate when the computer is rotated, the track pad and keyboard are disabled to avoid accidental button presses, a soft keyboard is activated at the bottom of the screen, and the gaps between the windows and the bar disappear.<br/><br/>
+
+			<img src="img/tablet.png" style="width:80%;border:1px" alt=""/>
+			<div id="paragraph"><i>&nbsp;Tablet mode, with keyboard open</i></div><br/><br/>
 
 			<div id="paragraph">&nbsp;The Back-end</div><br/>
 
-			In id ex nec tortor dignissim tristique sed et tellus. Maecenas sit amet sem id massa pharetra viverra. Praesent ultricies enim felis, quis dictum tortor accumsan ut. Aliquam venenatis orci quis felis ultricies rutrum. Pellentesque felis nulla, accumsan non rutrum ut, elementum non nisl. Quisque interdum egestas interdum. Mauris sagittis quam dui, vitae ornare velit facilisis et. Nulla et justo non erat faucibus auctor. Mauris neque ipsum, euismod sit amet finibus et, fermentum eu magna. Maecenas quis finibus metus, a egestas ipsum. Sed id venenatis risus. Integer porttitor luctus dapibus. Suspendisse sed eros sodales, lobortis lacus congue, molestie felis.<br/><br/>
+			The great thing about lemonbar is how simple it. Basically it creates a bar at the top of the screen (or if you want to put it somewhere else, you can do that too) and the bar displays whatever text you pipe to it through STDIN. So it is pretty much useless by itself, but since it is up to the user to write the back-end, it can be made to look really slick. The script I run behind it has gone through several iterations. It was initially in python, and I briefly played with C++ and Java before deciding the simplest and cleanest method would be to use bash.<br/><br/>
 
 			<div id="paragraph">&nbsp;Dependencies</div><br/>
 
@@ -63,7 +71,7 @@
 
 			The i3-gaps fork introduces gaps between windows, which I like because with gaps you can still see the desktop wallpaper.<br/><br/>
 
-			Now, since the windows tile, you can't just grab and drag to move them around like you could if they were floating. So to swap the positions of windows on the screen or resize them, keyboard shortcuts are necessary. I'll get to that a little later, but I mention it now because it is an integral part of the tiling window manager. I personally like it because it decreases dependency on the mouse and makes it really easy to move between desktops.<br/><br/>
+			Now, since the windows tile, you can't just grab and drag to move them around like you could if they were floating. So to swap the positions of windows on the screen or resize them, keyboard shortcuts are necessary. I detail most of those above, but I mention it now because it is an integral part of the tiling window manager. I personally like it because it decreases dependency on the mouse and makes it really easy to move between desktops.<br/><br/>
 
 			Speaking of which, i3 supports multiple desktops. This may be an unfamiliar concept for Windows users - the idea that multiple desktops can be running at the same time with different windows open on them. But it's really convenient. I can have a terminal open on desktop 1, a browser open on desktop 2, and a text editor open on desktop 3, they will never overlap, and switching between them is as easy as pressing the right key combination.<br/><br/>
 
@@ -73,7 +81,7 @@
 
 			xcompmgr (which is pretty much short for X Composite Window-effects Manager) is a program which allows windows to have transparency. If a program calls for transparency in a window, xcompmgr composites the window with whatever is behind it. I use it because it is light and I've never had a problem with it.<br/><br>
 
-			lemonbar is a status bar tool that is really cool. Basically it creates a bar at the top of the screen (or if you want to put it somewhere else, you can do that too) and the bar displays whatever text you pipe to it through STDIN. So it is pretty much useless by itself, but since it is up to the user to write the back-end, it can be made to look really slick. Again, more will be said below about the ways I use lemonbar.<br/><br/>
+			lemonbar is a status bar tool that is really cool. Above I describe its functionality and how I use it specifically.<br/><br/>
 
 			(I actually use a fork of lemonbar, <a href="https://github.com/krypt-n/bar">lemonbar-xft</a>, which supports more fonts, but is essentially the same in every other respect. Speaking of fonts, the fonts I use in the lemonbar are part of a package called ttf-ms-fonts.)<br/><br/>
 
@@ -81,13 +89,13 @@
 
 			The launcher I use is called rofi. A desktop needs some way to launch programs other than a terminal, and rather than a graphical dock or menu, I use rofi. It is a menu that can be launched with a hotkey, and you can run any command from within it. It then remembers which programs you use most and presents them to you when you open it successively. Simple and slick.<br/><br/>
 
-			i3lock is a program that does what it says on the tin - it locks the screen so nothing else can happen until you enter your use password. You can configure it to display an image or a color or whatever, which is cool. I have a custom script that launches it, which I detail below.<br/><br/>
+			i3lock is a program that does what it says on the tin - it locks the screen so nothing else can happen until you enter your use password. You can configure it to display an image or a color or whatever, which is cool. I have a custom script that launches it, which I detail above.<br/><br/>
 
 			scrot - used to take screenshots. Again, not an integral part of the desktop environment, but it is integrated into the aforementioned lock script, so I mention it as a dependency.<br/><br/>
 
 			In addition to the normal mode in which I use my computer, I have created a 'tablet mode', which changed things to be more suited for use with a touchscreen, as my computer, the HP Spectre, can fold back its display and sort of morph into a tablet. The programs used in this tablet mode are easystroke, for detecting swipes, onboard, a nice virtual keyboard, stalonetray, which creates an icon at the bottom of the screen that can be used to launch and hide the keyboard, <a href="https://github.com/yourealwaysbe/grox">grox</a>, a command line tool for rotating the screen, and xautomation, which is used to emulate keypresses.<br/><br/>
 
-			Finally, there are a couple programs which aren't true dependencies, since everything else will work without them, but they are used, so I will mention them. These are wifi-menu, which is a pretty standard means of connecting to the Internet in Arch, pm-utils, which I use to put the computer to sleep, and Sox, which I use to play sound effects.
+			Finally, there are a couple programs which aren't true dependencies, since everything else will work without them, but I use them, so I will mention them. These are wifi-menu, which is a pretty standard means of connecting to the Internet in Arch, pm-utils, which I use to put the computer to sleep, and Sox, which I use to play sound effects.
 
 			</p><br/><br/>
 
