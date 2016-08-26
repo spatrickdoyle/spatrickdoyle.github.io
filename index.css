@@ -161,6 +161,8 @@ main {
 	width: 70%;
 	height: 20vw;
 	padding: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
 
 	background: #cccccc;
 	border-style: solid;
