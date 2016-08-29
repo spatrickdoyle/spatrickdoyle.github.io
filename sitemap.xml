@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
 	xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-	<url> 
-		<loc>http://www.spatrickdoyle.com/index.html</loc> 
+
+	<url>
+		<loc>http://www.spatrickdoyle.com/index.html</loc>
 		<image:image>
 			 <image:loc>http://www.spatrickdoyle.com/img/prfile.png</image:loc>
 			 <image:caption>Sean Patrick Doyle</image:caption>
 		</image:image>
 		<lastmod>2016-08-26T10:41:47Z</lastmod>
 	</url>
-	<url> 
-		<loc>http://www.spatrickdoyle.com/me.html</loc> 
+
+	<url>
+		<loc>http://www.spatrickdoyle.com/me.html</loc>
 		<image:image>
 			 <image:loc>http://www.spatrickdoyle.com/img/grad.png</image:loc>
 			 <image:caption>Me when I graduated high school</image:caption>
@@ -21,12 +23,18 @@
 		</image:image>
 		<lastmod>2016-07-16T10:10:20Z</lastmod>
 	</url>
-	<url> 
-		<loc>http://www.spatrickdoyle.com/website.html</loc> 
+
+	<url>
+		<loc>http://www.spatrickdoyle.com/website.html</loc>
 		<lastmod>2016-06-28T19:12:17Z</lastmod>
 	</url>
-	<url> 
-		<loc>http://www.spatrickdoyle.com/projects.html</loc> 
+
+	<url>
+		<loc>http://www.spatrickdoyle.com/projects.html</loc>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/mandroid_proj.png</image:loc>
+			 <image:caption>First Year Mini Design Challenge</image:caption>
+		</image:image>
 		<image:image>
 			 <image:loc>http://www.spatrickdoyle.com/img/spectre_proj.png</image:loc>
 			 <image:caption>Dual Booting the HP Spectre</image:caption>
@@ -35,10 +43,11 @@
 			 <image:loc>http://www.spatrickdoyle.com/img/cam_vis_proj.png</image:loc>
 			 <image:caption>OpenCV Camera Tracking FIRST Robotics</image:caption>
 		</image:image>
-		<lastmod>2016-07-15T16:31:48Z</lastmod>
+		<lastmod>2016-08-28T17:54:25Z</lastmod>
 	</url>
-	<url> 
-		<loc>http://www.spatrickdoyle.com/spectre.html</loc> 
+
+	<url>
+		<loc>http://www.spatrickdoyle.com/spectre.html</loc>
 		<image:image>
 			 <image:loc>http://www.spatrickdoyle.com/img/xp.png</image:loc>
 			 <image:caption>Windows XP amuses me</image:caption>
@@ -49,8 +58,9 @@
 		</image:image>
 		<lastmod>2016-07-15T16:32:40Z</lastmod>
 	</url>
-	<url> 
-		<loc>http://www.spatrickdoyle.com/vision.html</loc> 
+
+	<url>
+		<loc>http://www.spatrickdoyle.com/vision.html</loc>
 		<image:image>
 			 <image:loc>http://www.spatrickdoyle.com/img/robot.png</image:loc>
 			 <image:caption>Man 'O War - Metal Mustangs</image:caption>
@@ -76,5 +86,34 @@
 			 <image:caption>The Jetson TK1 development board and our 3D printed case</image:caption>
 		</image:image>
 		<lastmod>2016-06-28T19:10:32Z</lastmod>
+	</url>
+
+	<url>
+		<loc>http://www.spatrickdoyle.com/knw.html</loc>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/cad1.jpeg</image:loc>
+			 <image:caption>Solidworks drawing of 3D printed part</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/cad2.jpeg</image:loc>
+			 <image:caption>Solidworks drawing of 3D printed part</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/slingshot.png</image:loc>
+			 <image:caption>Test slingshot with rubber bands and scrap metal</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/mandroid.png</image:loc>
+			 <image:caption>Laser engraved Mandroid logo</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/action.png</image:loc>
+			 <image:caption>Me (Sean) designing the Mandroid logo in Inkscape</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/printer2.png</image:loc>
+			 <image:caption>Pipe being 3D printed</image:caption>
+		</image:image>
+		<lastmod>2016-08-28T17:51:07Z</lastmod>
 	</url>
 </urlset>
