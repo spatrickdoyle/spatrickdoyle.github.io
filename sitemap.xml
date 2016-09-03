@@ -114,6 +114,11 @@
 			 <image:loc>http://www.spatrickdoyle.com/img/printer2.png</image:loc>
 			 <image:caption>Pipe being 3D printed</image:caption>
 		</image:image>
-		<lastmod>2016-08-28T17:51:07Z</lastmod>
+		<video:video>
+			<video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Pv4ByEsU7DE</video:player_loc>
+			<video:title>SMU KNW 2300 Mini Design Challenge </video:title>
+			<video:description>SMU KNW 2300 Mini Design Challenge </video:description>
+		</video:video>
+		<lastmod>2016-09-03T10:51:41Z</lastmod>
 	</url>
 </urlset>
