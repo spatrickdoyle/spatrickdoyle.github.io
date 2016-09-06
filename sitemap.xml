@@ -43,7 +43,7 @@
 			 <image:loc>http://www.spatrickdoyle.com/img/cam_vis_proj.png</image:loc>
 			 <image:caption>OpenCV Camera Tracking FIRST Robotics</image:caption>
 		</image:image>
-		<lastmod>2016-08-28T17:54:25Z</lastmod>
+		<lastmod>2016-09-06T16:04:26Z</lastmod>
 	</url>
 
 	<url>
@@ -119,6 +119,19 @@
 			<video:title>SMU KNW 2300 Mini Design Challenge </video:title>
 			<video:description>SMU KNW 2300 Mini Design Challenge </video:description>
 		</video:video>
-		<lastmod>2016-09-03T10:51:41Z</lastmod>
+		<lastmod>2016-09-03T11:05:42Z</lastmod>
+	</url>
+
+	<url>
+		<loc>http://www.spatrickdoyle.com/rice.html</loc>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/lockscreen.png</image:loc>
+			 <image:caption>Pixelated lock screen</image:caption>
+		</image:image>
+		<image:image>
+			 <image:loc>http://www.spatrickdoyle.com/img/tiling.png</image:loc>
+			 <image:caption>My i3 setup tiling</image:caption>
+		</image:image>
+		<lastmod>2016-09-06T16:00:36Z</lastmod>
 	</url>
 </urlset>

@@ -28,9 +28,9 @@
 			<div style="font-size:1.5vw;text-align:right;">Posted on ---</div><div style="line-height:0.1vw"><br/></div>
 
 			<p>
-			The advantage of running a Linux based operating system is, as we all know, the freedom to choose. If you want a kind of Windowsy system that just works, you can have that (mostly). If you want a completely minimalist system that you have to put together yourself from the ground up, you can have that too. In recent years I have been leaning towards the latter. I run Arch Linux, which is pretty much as bare as you can get while still being a completely functional modern operating system. It does not come with any desktop environment by default, and it is therefore up to the user to install one himself. One can install a DE that is already complete and stable, such as KDE or GNOME, so it isn't that big of a deal. Of course, the other option is to install components such as a window manager and launcher individually and essentially build your <i>own</i> desktop. That's what I did.<br/><br/>
+			The advantage of running a Linux based operating system is, as we all know, the freedom to choose. If you want a kind of Windows-y system that just works, you can have that (mostly). If you want a completely minimalist system that you have to put together yourself from the ground up, you can have that too. In recent years I have been leaning towards the latter. I run Arch Linux, which is pretty much as bare as you can get while still being a completely functional modern operating system. It does not come with any desktop environment by default, and it is therefore up to the user to install one himself. One can install a DE that is already complete and stable, such as KDE or GNOME, so it isn't that big of a deal. Of course, the other option is to install components such as a window manager and launcher individually and essentially build your <i>own</i> desktop. That's what I did.<br/><br/>
 
-			I don't know if anyone will ever want to try out the scripts and stuff I've created for my desktop, but just in case, <a href="https://github.com/spatrickdoyle/dotfiles">I am hosting all the code on GitHub.</a> This page is a complete documentation of all the features I have written into my current desktop. Everything is still under active development (because it pretty much consists of whatever I want at the time, and it will never be really <i>done</i>), and so in the future I may write an update post, but for now, this is it.<br/><br/>
+			I don't know if anyone will ever want to try out the scripts and stuff I've created for my desktop, but just in case, <a href="https://github.com/spatrickdoyle/dotfiles">I am hosting all the code on GitHub.</a> This page is a complete documentation of all the features I have written into my current desktop. Everything is still under active development (because it pretty much consists of whatever I want at the time, and it will never be really <i>done</i>), and so in the future I may write an update post, but for now, here's my ramble.<br/><br/>
 
 			<div id="paragraph">&nbsp;The Look and Feel</div><br/>
 
@@ -39,7 +39,7 @@
 			<img src="img/terminals.png" style="width:80%;border:1px" alt=""/>
 			<div id="paragraph"><i>&nbsp;Terminals</i></div><br/><br/>
 
-			Lemonbar is a great configurable desktop bar. I designed my top bar to deliver information simply and concisely. Aside from the date and time is also has an indicator on the far right that delivers a lot of information very simply. It consists of ten characters, and each character represents one of multiple desktops (which can be switched between via keyboard shortcut). If the character is a dash (-), nothing is on that desktop. If it is a pipe (|), that is the current active desktop. If it is a plus (+), there is a window open on that desktop on the main screen. If there is a second monitor plugged in, windows on that screen are denoted by an X (x).<br/><br/>
+			Lemonbar is a great configurable desktop bar. I designed my top bar to deliver information simply and concisely. Aside from the date and time it also has an indicator on the far right that delivers a lot of information very simply. It consists of ten characters, and each character represents one of multiple desktops (which can be switched between via keyboard shortcut). If the character is a dash (-), nothing is on that desktop. If it is a pipe (|), that is the current active desktop. If it is a plus (+), there is a window open on that desktop on the main screen. If there is a second monitor plugged in, windows on that screen are denoted by an X (x).<br/><br/>
 
 			This bar also indicates battery activity. The red portion indicates how much the battery has dropped (every character is ten percent). The rest of bar is colored based on charging status; green means the battery is charging, and orange means it is discharging.<br/><br/>
 
@@ -58,7 +58,16 @@
 
 			<div id="paragraph">&nbsp;The Back-end</div><br/>
 
-			The great thing about lemonbar is how simple it. Basically it creates a bar at the top of the screen (or if you want to put it somewhere else, you can do that too) and the bar displays whatever text you pipe to it through STDIN. So it is pretty much useless by itself, but since it is up to the user to write the back-end, it can be made to look really slick. The script I run behind it has gone through several iterations. It was initially in python, and I briefly played with C++ and Java before deciding the simplest and cleanest method would be to use bash.<br/><br/>
+			The great thing about lemonbar is how simple it. Basically it creates a bar at the top of the screen (or if you want to put it somewhere else, you can do that too) and the bar displays whatever text you pipe to it through STDIN. So it is pretty much useless by itself, but since it is up to the user to write the back-end, it can be made to look really slick. The script I run behind it has gone through several iterations. It was initially in Python, and I briefly played with C++ and Java before deciding the simplest and cleanest method would be to use bash.<br/><br/>
+
+			One of the most useful things my bar does is show me if I am connected to the Internet based on the color of the the clock. The refresh rate of the bar is 10 ticks per second, and every tick the first thing the back-end script does is attempt to ping 8.8.8.8, Google's public DNS server. If it receives a response, it sets the color of the clock to black, but if it does not, it sets the color to red.<br/><br/>
+
+			The script then issues the command 'i3-msg -t get_workspaces', which returns information about the current state of i3, like which desktops have windows on them. It uses this information to create the desktop indicator described above. It then makes a call to acpi to get battery data, and colors the desktop indicator accordingly. That's pretty much it in terms of function. To achieve all this, there are a lot of long, regex-y sed calls to interpret and format the data it gets from commands.<br/><br/>
+
+			Another component I wrote is the screen locking script. When I press Ctrl-l, i3 calls i3lock, making it so you have to enter the current user's password to continue using the computer. You can pass an image file as an argument to i3lock, so I wrote a script which takes a screenshot, uses a C++ program I wrote using OpenCV to pixelate the screenshot, and then calls i3lock with that pixelated screenshot as the image.<br/><br/>
+
+			<img src="img/lockscreen.png" style="width:80%;border:1px" alt=""/>
+			<div id="paragraph"><i>&nbsp;Pixelated lock screen</i></div><br/><br/>
 
 			<div id="paragraph">&nbsp;Dependencies</div><br/>
 
@@ -71,11 +80,9 @@
 
 			The i3-gaps fork introduces gaps between windows, which I like because with gaps you can still see the desktop wallpaper.<br/><br/>
 
-			Now, since the windows tile, you can't just grab and drag to move them around like you could if they were floating. So to swap the positions of windows on the screen or resize them, keyboard shortcuts are necessary. I detail most of those above, but I mention it now because it is an integral part of the tiling window manager. I personally like it because it decreases dependency on the mouse and makes it really easy to move between desktops.<br/><br/>
+			Now, since the windows tile, you can't just grab and drag to move them around like you could if they were floating. So to swap the positions of windows on the screen or resize them, keyboard shortcuts are necessary. This is an integral part of the tiling window manager. I personally like it because it decreases dependency on the mouse and makes it really easy to move between desktops. Some of my keyboard shortcuts include: Ctrl-l to lock the screen, Super-&lt;number&gt; to switch to the desktop with that given number, and Ctrl-r to activate a mode wherein the arrow keys can be used to resize the selected window.<br/><br/>
 
 			Speaking of which, i3 supports multiple desktops. This may be an unfamiliar concept for Windows users - the idea that multiple desktops can be running at the same time with different windows open on them. But it's really convenient. I can have a terminal open on desktop 1, a browser open on desktop 2, and a text editor open on desktop 3, they will never overlap, and switching between them is as easy as pressing the right key combination.<br/><br/>
-
-			Okay enough ranting about i3 and how cool it is, moving on.<br/><br/>
 
 			Nitrogen is a program which allows you to have a desktop wallpaper. That's pretty much it. It works with all kind of different window managers and it comes with a nifty graphical tool.<br/><br/>
 
@@ -87,7 +94,7 @@
 
 			The terminal I use is called Terminator, and it has cool features like splitting one window into multiple and opening multiple tabs. I mention is here because I autostart it from my i3 config file, but it is not in any way an integral part of my desktop.<br/><br/>
 
-			The launcher I use is called rofi. A desktop needs some way to launch programs other than a terminal, and rather than a graphical dock or menu, I use rofi. It is a menu that can be launched with a hotkey, and you can run any command from within it. It then remembers which programs you use most and presents them to you when you open it successively. Simple and slick.<br/><br/>
+			The launcher I use is called rofi. A desktop needs some way to launch programs other than a terminal, and rather than a graphical dock or menu, I use rofi. It is a menu that can be launched with a hotkey (I use F12), and you can run any command from within it. It then remembers which programs you use most and presents them to you when you open it successively. Simple and slick.<br/><br/>
 
 			i3lock is a program that does what it says on the tin - it locks the screen so nothing else can happen until you enter your use password. You can configure it to display an image or a color or whatever, which is cool. I have a custom script that launches it, which I detail above.<br/><br/>
 
@@ -95,7 +102,7 @@
 
 			In addition to the normal mode in which I use my computer, I have created a 'tablet mode', which changed things to be more suited for use with a touchscreen, as my computer, the HP Spectre, can fold back its display and sort of morph into a tablet. The programs used in this tablet mode are easystroke, for detecting swipes, onboard, a nice virtual keyboard, stalonetray, which creates an icon at the bottom of the screen that can be used to launch and hide the keyboard, <a href="https://github.com/yourealwaysbe/grox">grox</a>, a command line tool for rotating the screen, and xautomation, which is used to emulate keypresses.<br/><br/>
 
-			Finally, there are a couple programs which aren't true dependencies, since everything else will work without them, but I use them, so I will mention them. These are wifi-menu, which is a pretty standard means of connecting to the Internet in Arch, pm-utils, which I use to put the computer to sleep, and Sox, which I use to play sound effects.
+			Finally, there are a couple programs which aren't true dependencies, since everything else will work without them, but I use them, so I will mention them. These are wifi-menu, which is a pretty standard means of connecting to the Internet in Arch, pm-utils, which I use to put the computer to sleep, and Sox, which I use to play sound effects when I use keyboard shortcuts.
 
 			</p><br/><br/>
 
