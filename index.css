@@ -14,6 +14,11 @@ body {
 	flex-flow: row wrap;
 
 	text-align: center;
+
+	background-image: url("img/wallpaper2.png");
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-attachment: fixed;
 }
 
 #banner {
@@ -24,15 +29,22 @@ body {
 	order: 1;
 
 	width: 95%;
+
+	color: white;
+	text-shadow:
+		-1px -1px 0 #000,  
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
 #banner > h1 {
-	font-size: 60px;
+	font-size: 70px;
 }
 
 #banner > h1 > a {
 	text-decoration:none;
-	color:black;
+	color: white;
 }
 
 #banner > i {
@@ -40,7 +52,7 @@ body {
 }
 
 #bar_block {
-	background: #ffffff;
+	background: rgba(255,255,255,0);
 	width: 5%;
 	height: 240px;
 }
@@ -63,7 +75,11 @@ body {
 	-ms-flex: 0 5%;
 	flex: 0 5%;
 
-	background: #cccccc;
+	background: rgba(255,255,255,0.7);
+
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
 }
 
 #bar > div > a {
@@ -119,10 +135,10 @@ main {
 
 #card {
 	height: 250px;
-	background: #cccccc;
+	background: rgba(255,255,255,0.7);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #000000;
 	width: 100%;
 	height: 25vw;
 	padding: 2px;
@@ -141,17 +157,17 @@ main {
 }
 
 #photo.right {
-	width: 20vw;
+	width: 20.6vw;
 	margin-top: 30px;
 	border-style: solid;
-	border-width: 5px;
+	border-width: 1px;
 }
 
 #photo.left {
-	width: 20vw;
+	width: 20.6vw;
 	margin-top: 30px;
 	border-style: solid;
-	border-width: 5px;
+	border-width: 1px;
 }
 
 #text {
@@ -164,10 +180,10 @@ main {
 	padding-left: 5px;
 	padding-right: 5px;
 
-	background: #cccccc;
+	background: rgba(255,255,255,0.7);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #000000;
 }
 
 #title {
@@ -175,10 +191,10 @@ main {
 	font-size: 2vw;
 	padding: 13px;
 
-	background: #cccccc;
+	background: rgba(255,255,255,0.7);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #000000;
 }
 
 #paragraph {
@@ -187,22 +203,22 @@ main {
 	padding: 2px;
 	text-align: left;
 
-	background: #cccccc;
+	background: rgba(255,255,255,0.7);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #000000;
 }
 
 #project_item {
 	width: 29vw;/*45%;*/
-	height: 30vw;
+	height: 34vw;
 	margin: 1%;
-	font-size: 160%;
+	font-size: 180%;
 
-	background: #cccccc;
+	background: rgba(255,255,255,0.7);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #000000;
 }
 
 #project_item.left {
@@ -239,7 +255,7 @@ code {
 
 #modal-bg {
 	display: none;
-	background: rgb(255,255,255,0);
+	background: rgba(255,255,255,0);
 	width: 94%;
 	height: 100vh;
 	position: fixed;
@@ -249,10 +265,10 @@ code {
 }
 
 #modal {
-	background: #cccccc;
+	background: rgba(255,255,255,0.7);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #000000;
 
 	position: fixed;
 	left: 6%;
@@ -266,6 +282,15 @@ code {
 	float: left;
 	margin-left: 0px;
 	padding: 15px;
+}
+
+#img_container {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+	padding: 15px;
+	width: 90%;
+	background: rgba(255,255,255,0.7);
 }
 
 img + #paragraph {
@@ -283,11 +308,11 @@ img + #paragraph {
 	-ms-transition:all 0.5s ease-in-out;
 	transition:all 0.5s ease-in-out;
 
-	background: #8d8d8d;
+	background: rgba(255,255,255,0.7);
 
-	color: #ffffff;
+	color: #000000;
 	font-size: 17px;
-	padding: 2px;
+	padding: 1px;
 }
 
 img:hover + #paragraph {
@@ -381,6 +406,14 @@ span {
 	display: block;
 }
 
+#body_text {
+	background: rgba(255,255,255,0.7);
+	padding: 3px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+}
+
 @media all and (max-width: 1305px) {
 
 	#card.contact {
@@ -394,7 +427,7 @@ span {
 	}
 
 	#project_item {
-		height: 34vw;
+		height: 36vw;
 	}
 
 	#title {
@@ -437,7 +470,7 @@ span {
 		-webkit-order: 0;
 		order: 0;
 
-		background: #cccccc;
+		background: rgba(255,255,255,0);
 		height: 30px;
 		width: 100%;
 	}
@@ -446,7 +479,7 @@ span {
 		position: static !important;
 		width: 70%;
 		height: calc(10vh + 6vw + 220px);
-		background: #ffffff;
+		background: rgba(255,255,255,0.7);
 		margin-top: 0px;
 
 		margin-left: auto;
