@@ -15,6 +15,7 @@ body {
 
 	text-align: center;
 
+	background-color: rgb(13,14,16);
 	background-image: url("img/wallpaper.png");
 	background-repeat: no-repeat;
 	background-position: left top;
@@ -30,7 +31,7 @@ body {
 
 	width: 95%;
 
-	color: rgba(255,255,255,0.9);
+	color: rgba(255,255,255,0.85);
 	text-shadow:
 		-1px -1px 0 #000,  
 		1px -1px 0 #000,
@@ -44,7 +45,7 @@ body {
 
 #banner > h1 > a {
 	text-decoration:none;
-	color: rgba(255,255,255,0.9);
+	color: rgba(255,255,255,0.85);
 }
 
 #banner > i {
@@ -190,6 +191,7 @@ main {
 	margin-top: 50px;
 	font-size: 2vw;
 	padding: 13px;
+	margin-left:-29vw;
 
 	background: rgba(255,255,255,0.8);
 	border-style: solid;
@@ -594,6 +596,7 @@ span {
 
 	#title {
 		font-size: 3.5vw;
+		margin-left:4vw;
 	}
 
 	#paragraph {
@@ -612,6 +615,12 @@ span {
 		margin-left: 8%;
 		margin-right: 10%;
 		width: 80%;
+
+		-webkit-box-transition:all 0.5s ease-in-out;
+		-moz-box-transition:all 0.5s ease-in-out;
+		-webkit-transition:all 0.5s ease-in-out;
+		-ms-transition:all 0.5s ease-in-out;
+		transition:all 0.5s ease-in-out;
 	}
 
 	img + #paragraph {

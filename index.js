@@ -160,11 +160,13 @@ btn.onmouseover = function() {
 }
 
 btn.onclick = function() {
-	modal.style.display = "block";
+	modal.style.visibility = "visible";
+	modal.style.display: "block";
+	modal.style.top = "45vh";
 }
 
 window.onmouseover = function(event) {
-	if (event.target == modal) {
+	/*if (event.target == modal) {
 		modal.style.display = "none";
-	}
+	}*/
 }

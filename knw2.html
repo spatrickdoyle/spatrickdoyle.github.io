@@ -27,7 +27,42 @@
 			<div id="paragraph">Posted on ---</div><div style="line-height:0.1vw"><br/></div><br/>
 
 			<p>
-			<div id="body_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum, nibh rhoncus lobortis facilisis, magna nibh sollicitudin nibh, ac accumsan lorem dolor non nisi. Aliquam odio neque, faucibus nec cursus a, venenatis at enim. Nulla maximus, est fermentum cursus porttitor, ligula enim blandit nunc, non sodales nisi ligula sed velit. Pellentesque a pretium tortor. Aliquam eu molestie ante. Donec ullamcorper felis massa, a blandit augue bibendum id. Quisque cursus sem vitae lectus elementum, ut viverra erat sodales.</div><br/><br/>
+			<div id="body_text">The camera looks at the ceiling. The exposure is turned pretty much all the way down, so really all the camera can see is black with bright points where the lights are. A threshold is applied, so only pixels within the right range of colors are selected. And algorithm is applied that finds all contiguous regions, and of the blobs identified, the ones within the right size range are placed in a list. Now the math: What we have is a list of coordinate points, each representing the center of one of the blobs on the screen. We need to turn those pixel values into actual measurements. The first thing that is done is to turn this perspective projection we have into an orthagonal projection where the coordinates actually represents distances in inches from where the line of sight of the camera intersects the ceiling. Here's how that's done: any given camera has a limited field of view which can be measured in degrees both horizontally and vertically. The field of view is also measured in pixels - the resolution of the camera. That means that each pixel represents a little slice of the field of view, and corresponds to an angle. By dividing the field of view in pixels by the resolution in pixels (separately for both axes), we can get a 'degrees-per-pixel' value for both axes of the camera we use. Then if we know that a blob is a certain number of pixels away from the X axis at the center of the screen, we can multiply that Y coordinate by the vertical degrees-per-pixel value to get the angle formed between the vertical line of sight of the camera and the line of sight directly from the camera to that point. Take the tangent of that angle and multiply it by the distance in inches from the camera aperture to the ceiling, and we have the Y coordinate inches of that point relative to the position of the camera. Doing that for every point on the screen gives an accurate layout of the positions of the lights the robot can see.
+
+			Next, the position must be actually found by looking at the differences between consecutive frames. If the robot moves in a straight line, the points on the ceiling will move relative to the robot in the opposite direction. If the robot rotates (a perfectly zero-point rotation), the points on the ceiling will rotate about the center of the image in the opposite direction. For every movement the robot makes, the change to the coordinates of the lights it sees can be modeled by a rotation of the coordinates x0,y0 by some theta-0 around the center, then a translation by some (dx,dy), then another rotation by some theta-1 around the center again, to give the coordinates x1,y1. If you think about it, this makes sense - the robot will not always travel in a straight path, but no matter what path it takes to get from one point to another, you could get the same result by rotating the robot to face the target point, moving in a straight line to that point, then rotating again to face some final direction.
+
+			This can be represented by the matrix:
+			[ cos(th0+th1),	-sin(th0+th1),	dx*cos(th1)-dy*sin(th1) ],
+			[ sin(th0+th1),	cos(th0+th1),	dx*sin(th1)+dy*cos(th1) ]
+
+			Multiplying a position vector [x0,y0,1] by this matrix will perform the transformation described above and give a vector [x1,y1]. So we have this system of equations described by a matrix - how do we solve for the variables th0, dx, dy, and th1? And how do we generalize it for multiple points (since only one point certainly isn't enough to solve for 4 variables)? We can rearrange this data to create a new matrix parametrized by our given points, and then factor out a vector of unknowns to solve for.
+
+			Consider that the product of the matrix
+			[ cos(th0+th1),	-sin(th0+th1),	dx*cos(th1)-dy*sin(th1) ],
+			[ sin(th0+th1),	cos(th0+th1),	dx*sin(th1)+dy*cos(th1) ]
+
+			and the vector [x0,y0,1] is the same as the product of the matrix
+			[ x0,	-y0,	1,	0 ],
+			[ y0,	x0,		0,	1 ]
+
+			and the vector [ cos(th0+th1),	sin(th0+th1),	dx*cos(th1)-dy*sin(th1),	dx*sin(th1)+dy*cos(th1) ] (which I will call theta). Both are equal to the vector [x1,y1]. The difference is that in the second parametrization, the matrix and result can be constructed of known values (the coordinates seen by the camera before and after movement), while the vector theta factored out is composed of transformations of unknown values. Now imagine that we have multiple sets of coordinates. Constructing the above matrix for each set, and appending them all, gives the matrix chi:
+
+			[ x0,0,		-y0,0,		1,		0 ],
+			[ y0,0,		x0,0,		0,		1 ],
+			[ x0,1,		-y0,1,		1,		0 ],
+			[ y0,1,		x0,1,		0,		1 ],
+			[ x0,2,		-y0,2,		1,		0 ],
+			[ y0,2,		x0,2,		0,		1 ]...
+
+			and so on for however many points we have. Multiplying this new matrix by theta gives a vector Y [x1,0, y1,0, x1,1, y1,1, x2,0, y2,0, ...] of each point after the transformation. Theses values are known, and the values used to construct chi are known, so all that remains is to solve for the vector theta.
+
+			Now for a key simplification, which makes the solution somewhat apparent, but introduces error which could compound and screw everything up. We'll see.
+			The robot won't have very much time at all to move between ticks - my best guess without having actually run it is maybe a few frames per second. We can therefore assume that while the total angle the robot rotates between ticks is enough that it needs to be accounted for, the individual values of th0 and th1 are close enough to 0 that we can ignore them. By assuming th1 is equal to 0, the vector theta simplifies to [ cos(th0+th1),	sin(th0+th1),	dx,	dy ]. Given this, we don't have to try to solve for th0 and th1 individually anymore. We can solve for this vector theta, and get that arccos(theta[0]) and arcsin(theta[1]) are the total angle the robot has rotated, and theta[2] and theta[3] represent dx and dy respectively. Now that each entry of theta only contains one unknown variable, theta can be found with the formula:
+
+			theta = (chi-transpose * chi)^-1 * (chi-transpose * Y)
+
+			where chi, Y, and theta are as defined above, and the negative first power indicates the inverse of a matrix. That formula is found using matrix calculus, which I won't get into here... 
+			</div><br/><br/>
 
 			<div id="paragraph">&nbsp;This is a new paragraph</div><br/>
 
