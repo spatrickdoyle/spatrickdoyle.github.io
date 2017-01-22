@@ -1,5 +1,5 @@
 body {
-	font-family: "Trebuchet MS","sans-serif";
+	font-family: "Hack","sans-serif";
 
 	display: -webkit-box;
 	display: -moz-box;
@@ -16,7 +16,7 @@ body {
 	text-align: center;
 
 	background-color: rgb(13,14,16);
-	background-image: url("img/wallpaper.png");
+	background-image: url("img/wallpaper2.png");
 	background-repeat: no-repeat;
 	background-position: left top;
 	background-attachment: fixed;
@@ -31,7 +31,7 @@ body {
 
 	width: 95%;
 
-	color: rgba(255,255,255,0.85);
+	color: rgba(255,255,255,1.0);
 	text-shadow:
 		-1px -1px 0 #000,  
 		1px -1px 0 #000,
@@ -40,16 +40,16 @@ body {
 }
 
 #banner > h1 {
-	font-size: 70px;
+	font-size: calc(50px + 3vw);
 }
 
 #banner > h1 > a {
 	text-decoration:none;
-	color: rgba(255,255,255,0.85);
+	color: rgba(255,255,255,1.0);
 }
 
 #banner > i {
-	font-size: 20px;
+	font-size: calc(20px + 1vw);
 }
 
 #bar_block {
@@ -58,9 +58,10 @@ body {
 	height: 240px;
 }
 
-#bar {
-	width: 5vw;
+.bar {
+	width: 80px;
 	height: 98vh;
+	min-height: 780px;
 	left: 8px;
 	top: 8px;
 
@@ -83,16 +84,17 @@ body {
 	border-color: #000000;
 }
 
-#bar > div > a {
+.bar > div > a {
+	font-size: 15px;
 	text-decoration:none;
 	color:black;
 }
 
-#bar > div > img {
+.bar > div > img {
 	width: 80%;
 }
 
-#bar > div > a > img {
+.bar > div > a > img {
 	width: 80%;
 }
 
@@ -124,8 +126,8 @@ main {
 }
 
 #card.contact {
-	width: 50%;
-	font-size: 20px;
+	width: 55%;
+	font-size: 1.1vw;
 	margin-top: 30px;
 	text-align: left;
 	height: 200px;
@@ -145,7 +147,11 @@ main {
 	padding: 1vw;
 	padding-left: 7px;
 	padding-right: 7px;
-	font-size: 1.3vw;
+	font-size: 1.0vw;
+}
+
+#card > i {
+	font-size: 1.5vw;
 }
 
 #card > p {
@@ -157,21 +163,7 @@ main {
 	height: 25px;
 }
 
-#photo.right {
-	width: 20.6vw;
-	margin-top: 30px;
-	border-style: solid;
-	border-width: 1px;
-}
-
-#photo.left {
-	width: 20.6vw;
-	margin-top: 30px;
-	border-style: solid;
-	border-width: 1px;
-}
-
-#text {
+/*#text {
 	margin-top: 30px;
 	text-align: justify;
 	font-size: 1.3vw;
@@ -185,6 +177,40 @@ main {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #000000;
+}*/
+ul {
+	display: table;
+    table-layout: fixed;
+
+	margin-top: 30px;
+	font-size: 0.5vw;
+    width: 70%;
+	height: 20vw;
+	padding: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+
+	background: rgba(255,255,255,0.8);
+    border: 1px solid #000000;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+li {
+	text-align: left;
+    display: table-row;
+    /*background: pink;*/
+}
+
+li > span {
+	display: table-cell;
+    vertical-align: middle;
+	font-size: 1.1vw;
+    /*border-top: 1px solid green;*/
+}
+
+li > span > span {
+	font-size: 1.1vw;
 }
 
 #title {
@@ -225,12 +251,12 @@ main {
 
 #project_item.left {
 	float: left;
-	margin-left: 4%;
+	margin-left: 6%;
 }
 
 #project_item.right {
 	float: right;
-	margin-right: 4%;
+	margin-right: 5%;
 }
 
 #project_item > img {
@@ -250,11 +276,6 @@ main {
 	float: left;
 }
 
-code {
-	font-size: 20px;
-	font-size: 1.1vw;
-}
-
 #modal-bg {
 	display: none;
 	background: rgba(255,255,255,0);
@@ -262,19 +283,18 @@ code {
 	height: 100vh;
 	position: fixed;
 	z-index: 1;
-	left: 6%;
+	left: 100px;
 	top: 0px;
 }
 
 #modal {
-	background: rgba(255,255,255,0.8);
+	background: rgba(255,255,255,0.9);
 	border-style: solid;
 	border-width: 1px;
 	border-color: #000000;
 
 	position: fixed;
-	left: 6%;
-	top: calc(12vw + 25vh + 128px);
+	left: 100px;
 
 	width: 500px;
 	font-size: 20px;
@@ -286,41 +306,55 @@ code {
 	padding: 15px;
 }
 
-#img_container {
+#photo.right {
+	width: 20vw;
+	margin-top: 30px;
+}
+
+#photo.left {
+	width: 20vw;
+	margin-top: 30px;
+}
+
+figure {
+	display: block;
+	position: relative;
+	overflow: hidden;
+
+	border-style: solid;
+	border-width: 0px;
+	border-color: #000000;
+	padding: 0px;
+	background: rgba(255,255,255,0);
+
+	margin: 0;
+}
+
+figure > img {
+	width: calc(100% - 2px);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #000000;
-	padding: 15px;
-	width: 90%;
-	background: rgba(255,255,255,0.8);
+	margin-bottom: 0%;
 }
 
-img + #paragraph {
-	visibility: hidden;
-	position: fixed;
-	width: 2000px;/*93%;*/
-	margin-top: 0px;
-	margin-left: 0px;
-	bottom: -7vh;
-	left: 6%;
+figcaption {
+	position: absolute;
+	background: rgba(0,0,0,0.75);
+	color: white;
+	padding: 5px;
 
-	-webkit-box-transition:all 0.5s ease-in-out;
-	-moz-box-transition:all 0.5s ease-in-out;
-	-webkit-transition:all 0.5s ease-in-out;
-	-ms-transition:all 0.5s ease-in-out;
-	transition:all 0.5s ease-in-out;
-
-	background: rgba(255,255,255,0.8);
-
-	color: #000000;
-	font-size: 17px;
-	padding: 1px;
+	opacity: 0;
+	bottom: -30%;
+	left: 0;
+	width: calc(100% - 2px);
+	-webkit-transition: all 0.6s ease;
+	-moz-transition:    all 0.6s ease;
+	-o-transition:      all 0.6s ease;
 }
 
-img:hover + #paragraph {
-	visibility: visible;
-	bottom: 1.1vh;
-	margin-left: 0px;
+figure:hover figcaption {
+  opacity: 1;
+  bottom: 0px;
 }
 
 form {
@@ -411,6 +445,7 @@ span {
 #body_text {
 	background: rgba(255,255,255,0.8);
 	padding: 3px;
+	padding-left: 10px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #000000;
@@ -424,9 +459,9 @@ span {
 		height: 150px;
 	}
 
-	#bar {
+	/*#bar {
 		font-size: 70%;
-	}
+	}*/
 
 	#project_item {
 		height: 36vw;
@@ -477,9 +512,10 @@ span {
 		width: 100%;
 	}
 
-	#bar {
+	.bar {
 		position: static !important;
 		width: 70%;
+		min-height: 0px;
 		height: calc(10vh + 6vw + 220px);
 		background: rgba(255,255,255,0);
 		margin-top: 0px;
@@ -490,11 +526,10 @@ span {
 	}
 
 	.baritem {
-		background: #cccccc;
+		background: rgba(255,255,255,0.8);
 		border-style: solid;
 		border-width: 1px;
-		border-color: #999999;
-		font-size: 3em;
+		border-color: #999999
 		padding: 2px;
 		padding-bottom: 11px;
 
@@ -502,20 +537,34 @@ span {
 		width: 100%;
 	}
 
-	#bar > div > a:hover {
+	.bar > div > a {
+		font-size: 3.5vw;
+	}
+
+	#contact_button {
+		font-size: 3.5vw;
+	}
+
+	.bar > div:hover > a {
 		color: #505050;
 	}
 
-	#bar > div > img {
-		width: 40px;
-		position: relative;
-		top: 7px;
+	.bar > div:hover {
+		color: #505050;
 	}
 
-	#bar > div > a > img {
-		width: 40px;
+	.bar > div > img {
+		width: 4.7vw;
 		position: relative;
 		top: 7px;
+		margin-right: 1vw;
+	}
+
+	.bar > div > a > img {
+		width: 4.7vw;
+		position: relative;
+		top: 7px;
+		margin-right: 1vw;
 	}
 
 	#profile {
@@ -532,6 +581,14 @@ span {
 	#card {
 		width: 80%;
 		margin-left: 12%;
+	}
+
+	#card > i {
+		font-size: 2.1vw;
+	}
+
+	#card > p {
+		font-size: 3.4vw;
 	}
 
 	#space {
@@ -569,16 +626,16 @@ span {
 
 	#text.right {
 		float: none;
-		margin-left: 7%;
+		margin-left: 8%;
 		width: 90%;
-		height: auto;
+		height: 60vw;
 	}
 
 	#text.left {
 		float: none;
-		margin-left: 7%;
+		margin-left: 8%;
 		width: 90%;
-		height: auto;
+		height: 40vw;
 	}
 
 	#card.contact {
@@ -586,11 +643,11 @@ span {
 		margin-left: 7%;
 	}
 
-	#text {
+	li > span {
 		font-size: 2.5vw;
 	}
 
-	code {
+	li > span > span {
 		font-size: 2.5vw;
 	}
 

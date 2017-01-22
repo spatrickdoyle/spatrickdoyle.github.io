@@ -6,59 +6,64 @@ make it not look like crap on mobile-->
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8"/>
-		<link rel="stylesheet" href="index.css">
-		<title>Sean Doyle</title>
-	</head>
+  <head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="http://cdn.jsdelivr.net/font-hack/2.020/css/hack-extended.min.css">
+	<link rel="stylesheet" href="index.css">
+	<title>Sean Doyle</title>
+  </head>
 
-	<body>
-		<div id="bar_block"></div>
+  <body>
+	<!--<video width="1920" height="1080" style="position:fixed;top:0px;left:0px;z-index:-1;" autoplay loop>
+	  <source src="smuloop.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>-->
+	<div id="bar_block"></div>
 
-		<div id="banner"><br/>
-			<h1><a href="index.html">spatrickdoyle.com</a></h1>
-			<i>"Having nothing to do with Pokemon since 2015."</i><br/><br/><br/>
-		</div>
+	<div id="banner"><br/>
+	  <h1><a href="index.html">spatrickdoyle.com</a></h1>
+	  <i>"Professional problem-solver"</i><br/><br/><br/>
+	</div>
 
-		<div id="bar" style="height:5px;background:rgba(255,255,255,0);border-width:0px"></div>
-		<div id="bar" style="position:fixed">
-			<div class="baritem" style="margin-top:23vh"><a href="me.html"><img src="img/me_icon.svg" onmouseover="this.src='img/me_icon_light.png'" onmouseout="this.src='img/me_icon.svg'" alt=""/>about me</a>&nbsp;</div>
-			<div class="baritem"><a href="website.html"><img src="img/website_icon.svg" onmouseover="this.src='img/website_icon_light.png'" onmouseout="this.src='img/website_icon.svg'" alt=""/>this website</a>&nbsp;</div>
-			<div class="baritem"><a href="projects.html"><img src="img/projects_icon.svg" onmouseover="this.src='img/projects_icon_light.png'" onmouseout="this.src='img/projects_icon.svg'" alt=""/>&nbsp;projects</a>&nbsp;</div>
-			<div class="baritem" id="contact_button"><img src="img/message_icon.svg" onmouseover="this.src='img/message_icon_light.png'" onmouseout="this.src='img/message_icon.svg'" alt=""/>contact me</div>
-		</div>
+	<div class="bar" style="height:5px;background:rgba(255,255,255,0);border-width:0px"></div>
+	<div class="bar" id="bar">
+	  <div class="baritem" style="margin-top:23vh"><a href="me.html"><img src="img/me_icon.svg" onmouseover="this.src='img/me_icon_light.png'" onmouseout="this.src='img/me_icon.svg'" alt=""/>about me</a></div>
+	  <div class="baritem"><a href="website.html"><img src="img/website_icon.svg" onmouseover="this.src='img/website_icon_light.png'" onmouseout="this.src='img/website_icon.svg'" alt=""/>this website</a></div>
+	  <div class="baritem"><a href="projects.html"><img src="img/projects_icon.svg" onmouseover="this.src='img/projects_icon_light.png'" onmouseout="this.src='img/projects_icon.svg'" alt=""/>projects</a></div>
+	  <div class="baritem" id="contact_button"><img src="img/message_icon.svg" onmouseover="this.src='img/message_icon_light.png'" onmouseout="this.src='img/message_icon.svg'" alt=""/>contact me</div>
+	</div>
 
-		<div id="profile">
-			<img src="img/prfile.png" style="width:100%;border-style:solid;border-width:1px;border-color:#000000;" alt="A picture of me"/>
-		<br/><br/></div>
+	<div id="profile">
+	  <img src="img/prfile.png" style="width:100%;border-style:solid;border-width:1px;border-color:#000000;" alt="A picture of me"/>
+	  <br/><br/></div>
 
-		<main>
-			<div id="space"></div>
-			<div id="card"><br/><br/>
-				<i>The primary web domain of the illustrious</i>
-				<p>Sean Patrick Doyle</p>
-				<i>Dealing with my experiences in:</i>
-			</div>
-			<div id="space"></div><br/>
-			<div id="title" style="font-size:2vw">Programming</div>
-			<div id="title" style="font-size:2vw">Math</div>
-			<div id="title" style="font-size:2vw">Web design</div>
-			<div id="title" style="font-size:2vw">Music</div>
-			<div id="title" style="font-size:2vw">Physics</div>
-			<div id="title" style="font-size:2vw">Computer vision</div>
-			<div id="title" style="font-size:2vw">Linux</div>
-			<div id="title" style="font-size:2vw">Embedded hardware</div>
-		<br/><br/></main>
+	<main>
+	  <div id="space"></div>
+	  <div id="card"><br/><br/>
+		<i>The primary web domain of the illustrious</i>
+		<p>Sean Patrick Doyle</p>
+		<i>Dealing with my experiences in:</i>
+	  </div>
+	  <div id="space"></div><br/>
+	  <div id="title" style="font-size:2vw">Programming</div>
+	  <div id="title" style="font-size:2vw">Math</div>
+	  <div id="title" style="font-size:2vw">Web design</div>
+	  <div id="title" style="font-size:2vw">Music</div>
+	  <div id="title" style="font-size:2vw">Physics</div>
+	  <div id="title" style="font-size:2vw">Computer vision</div>
+	  <div id="title" style="font-size:2vw">Linux</div>
+	  <div id="title" style="font-size:2vw">Embedded hardware</div>
+	  <br/><br/></main>
 
-		<div id="modal-bg">
-			<div id="modal">
-				<a href="http://www.facebook.com/spatrickdoyle">Shoot me a Facebook message!</a><br/>
-				<a href="mailto:sean@spatrickdoyle.com">Or email me!</a><br/>
-				Or you can call/text me: 913-530-6297<br/>
-				Or I guess you could send me a pull request or something, <a href="http://www.github.com/spatrickdoyle">if you want to do that.</a><br/>
-			</div>
-		</div>
+	<div id="modal-bg">
+	  <div id="modal">
+		<a href="http://www.facebook.com/spatrickdoyle">Shoot me a Facebook message!</a><br/>
+		<a href="mailto:sean@spatrickdoyle.com">Or email me!</a><br/>
+		Or you can call/text me: 913-530-6297<br/>
+		Or I guess you could send me a pull request or something, <a href="http://www.github.com/spatrickdoyle">if you want to do that.</a><br/>
+	  </div>
+	</div>
 
-		<script type="text/javascript" src="index.js"></script>
-	</body>
+	<script type="text/javascript" src="index.js"></script>
+  </body>
 </html>

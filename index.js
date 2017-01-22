@@ -150,23 +150,54 @@ var modal = document.getElementById('modal-bg');
 var btn = document.getElementById("contact_button");
 
 var vw = document.documentElement.clientWidth;
+var vh = document.documentElement.clientHeight;
+
+if (vh < 780) {
+	document.getElementById("bar").setAttribute("style", "position: absolute");
+}
+else {
+	document.getElementById("bar").setAttribute("style", "position: fixed");
+}
 
 btn.onmouseover = function() {
 	vw = document.documentElement.clientWidth;
-
-	if (vw >= 980) {
+	//alert(vw);
+	if (vw >= 950) {
+		var modal_card = document.getElementById('modal');
+		var rect = document.getElementById("contact_button").getBoundingClientRect();
+		var s = parseInt(rect.top - rect.height/2);
+		modal_card.style.top = s+"px";
 		modal.style.display = "block";
 	}
 }
 
 btn.onclick = function() {
-	modal.style.visibility = "visible";
-	modal.style.display: "block";
-	modal.style.top = "45vh";
+	vw = document.documentElement.clientWidth;
+	//alert(vw);
+	if (vw < 950) {
+		var vw = document.documentElement.clientWidth;
+		var vh = document.documentElement.clientHeight;
+		var modal_card = document.getElementById('modal');
+		modal_card.style.top = parseInt(vh/2 - 75)+"px";
+		modal.style.visibility = "visible";
+		modal.style.display = "block";
+	}
 }
 
 window.onmouseover = function(event) {
-	/*if (event.target == modal) {
+	if (event.target == modal) {
 		modal.style.display = "none";
-	}*/
+	}
+}
+
+window.onscroll = function() {
+	var vh = document.documentElement.clientHeight;
+	modal.style.display = "none";
+
+	if (vh < 780) {
+		document.getElementById("bar").setAttribute("style", "position: absolute");
+	}
+	else {
+		document.getElementById("bar").setAttribute("style", "position: fixed");
+	}
 }
