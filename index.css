@@ -451,6 +451,36 @@ span {
 	border-color: #000000;
 }
 
+a.typewrite {
+	text-decoration: none;
+	color: black;
+}
+
+span.wrap {
+	font-size: 2vw;
+}
+
+#cursor {
+	font-size: 2vw;
+	color: #4E08D4;
+
+	animation: blink 1.2s step-end infinite;
+}
+
+#cursor2 {
+	display: none;
+	font-size: 2vw;
+	position: relative;
+	left: -1.2vw;
+
+	color: #4E08D4;
+}
+
+@keyframes blink {
+	0% {opacity: 0.0;}
+	50% {opacity: 1.0;}
+}
+
 @media all and (max-width: 1305px) {
 
 	#card.contact {
