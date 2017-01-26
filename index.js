@@ -366,7 +366,9 @@ window.onload = function() {
     }
 
 	var loadTime = Date.now() - pageLoadStart;
-	alert(loadTime);
+	if (loadTime > 900) {
+		bg.pause();
+	}
 };
 
 window.onresize = function() {
