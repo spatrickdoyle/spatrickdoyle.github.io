@@ -145,6 +145,53 @@ if (load_comments) {
 	retrieve.send(null);
 }*/
 
+function create(htmlStr) {
+    var frag = document.createDocumentFragment(),
+        temp = document.createElement('div');
+    temp.innerHTML = htmlStr;
+    while (temp.firstChild) {
+        frag.appendChild(temp.firstChild);
+    }
+    return frag;
+}
+
+var dateObj = new Date();
+var hour = dateObj.getHours();
+
+var videofile = "bg"+parseInt(Math.floor(Math.random()*2 + 1));
+
+
+var heading = create(' \
+<video autoplay autobuffer loop muted id="background" style="position:fixed;top:0px;left:0px;z-index:-1;"> \
+      <source src="img/'+videofile+'.mp4" type="video/mp4"/> \
+      <img src="'+videofile+'.png" /> \
+</video> \
+\
+<div id="bar_block"></div> \
+\
+<div id="banner"><br/> \
+  <h1><a href="index.html">spatrickdoyle.com</a></h1> \
+  <i>"Professional problem-solver"</i><br/><br/><br/> \
+</div> \
+\
+<div class="bar" style="height:5px;background:rgba(255,255,255,0);border-width:0px"></div> \
+	<div class="bar" id="bar"> \
+	  <div class="baritem" style="margin-top:23vh"><a href="me.html"><img src="img/me_icon.svg" onmouseover="this.src=\'img/me_icon_light.png\'" onmouseout="this.src=\'img/me_icon.svg\'" alt=""/>about me</a></div> \
+	  <div class="baritem"><a href="website.html"><img src="img/website_icon.svg" onmouseover="this.src=\'img/website_icon_light.png\'" onmouseout="this.src=\'img/website_icon.svg\'" alt=""/>this website</a></div> \
+	  <div class="baritem"><a href="projects.html"><img src="img/projects_icon.svg" onmouseover="this.src=\'img/projects_icon_light.png\'" onmouseout="this.src=\'img/projects_icon.svg\'" alt=""/>projects</a></div> \
+	  <div class="baritem" id="contact_button"><img src="img/message_icon.svg" onmouseover="this.src=\'img/message_icon_light.png\'" onmouseout="this.src=\'img/message_icon.svg\'" alt=""/>contact me</div> \
+	</div> \
+\
+<div id="modal-bg"> \
+	  <div id="modal"> \
+		<a href="http://www.facebook.com/spatrickdoyle">Shoot me a Facebook message!</a><br/> \
+		<a href="mailto:sean@spatrickdoyle.com">Or email me!</a><br/> \
+		Or you can call/text me: 913-530-6297<br/> \
+		Or I guess you could send me a pull request or something, <a href="http://www.github.com/spatrickdoyle">if you want to do that.</a><br/> \
+	  </div> \
+	</div>');
+
+document.body.insertBefore(heading, document.body.childNodes[0]);
 
 var modal = document.getElementById('modal-bg');
 var btn = document.getElementById("contact_button");
@@ -205,7 +252,7 @@ window.onscroll = function() {
 
 var TxtType = function(el, toRotate, period) {
     this.toRotate = toRotate;
-	this.urls = [ "", "rice.html", "vision.html", "website.html", "knw.html", "vision.html", "spectre.html", "vision.html", "me.html" ];
+	this.urls = [ "", "rice2.html", "vision.html", "website.html", "knw.html", "vision.html", "spectre.html", "vision.html", "me.html" ];
     this.el = el;
     this.loopNum = 0;
     this.period = parseInt(period, 10) || 2000;
@@ -276,7 +323,27 @@ TxtType.prototype.tick = function() {
 };
 
 window.onload = function() {
-    var elements = document.getElementsByClassName('typewrite');
+	var foot = document.getElementById('foot');
+	if (foot) {
+		foot.innerHTML = '<!--<form action="http://data.sparkfun.com/input/5JJqEo43NJc4mDQadYjR" method="GET" target="hidden_iframe" id="commentbox"> \
+		  <span id=\'name_field\' style=\'font-size:2vw\'>Github username:</span>&nbsp;<span id=\'help\'>(?)</span> \
+		  <div id=\'paragraph\'>The comment system is integrated with GitHub to pull user information. Don\'t have a GitHub account? <a href=\'http://www.github.com\'>Make one!</a> Or, click <a href="#comment_form" onclick="git_int=false;document.getElementById(\'name_field\').innerHTML=\'Screen name:\'">here</a> and simply enter a preferred screen name.</div><br/> \
+		  <input type="text" name="name" id="name"/><br/><br/> \
+		  <span style=\'line-height:4vw;font-size:2vw\'>Comment:<br/></span> \
+		  <textarea name="comment_body" form="commentbox" id="text_box"></textarea><br/><br/> \
+		  <input type="hidden" name="page_name" id="page_name" value="website"/> \
+		  <input type="hidden" name="location" id="location" value=""/> \
+		  <input type="hidden" name="avatar" id="avatar" value=""/> \
+		  <input type="hidden" name="private_key" value=""/> \
+		  <div id="comment_button" onclick="post_comment()">Post</div><br/> \
+	  </form> \
+\
+	  <div id="comments"></div><br/><br/><br/>--> \
+\
+<div id="paragraph" style="font-size:1.1vw;padding:3px;width:72vw">This website was produced by Sean Patrick Doyle and published between 2016 and 2017. Anything here may be used freely, if you want, but please give me credit.</div><br/>';
+	}
+
+	var elements = document.getElementsByClassName('typewrite');
     for (var i=0; i<elements.length; i++) {
         var toRotate = elements[i].getAttribute('data-type')
         var period = elements[i].getAttribute('data-period');

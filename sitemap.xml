@@ -1,137 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-	xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+		xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-	<url>
-		<loc>http://www.spatrickdoyle.com/index.html</loc>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/prfile.png</image:loc>
-			 <image:caption>Sean Patrick Doyle</image:caption>
-		</image:image>
-		<lastmod>2016-08-26T10:41:47Z</lastmod>
-	</url>
+  <url>
+	<loc>http://www.spatrickdoyle.com/index.html</loc>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/prfile.png</image:loc>
+	  <image:caption>Sean Patrick Doyle</image:caption>
+	</image:image>
+	<lastmod>2017-01-24T20:29:00Z</lastmod>
+  </url>
 
-	<url>
-		<loc>http://www.spatrickdoyle.com/me.html</loc>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/grad.png</image:loc>
-			 <image:caption>Me when I graduated high school</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/chambers.png</image:loc>
-			 <image:caption>The Blue Valley Northwest Chamber Singers at the Southwest American Choral Directors Association Convention</image:caption>
-		</image:image>
-		<lastmod>2016-07-16T10:10:20Z</lastmod>
-	</url>
+  <url>
+	<loc>http://www.spatrickdoyle.com/me.html</loc>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/grad.png</image:loc>
+	  <image:caption>Me (Sean Patrick Doyle) when I graduated high school</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/chambers.png</image:loc>
+	  <image:caption>The Blue Valley Northwest Chamber Singers at the Southwest American Choral Directors Association Convention</image:caption>
+	</image:image>
+	<lastmod>2017-01-23T22:04:00Z</lastmod>
+  </url>
 
-	<url>
-		<loc>http://www.spatrickdoyle.com/website.html</loc>
-		<lastmod>2016-06-28T19:12:17Z</lastmod>
-	</url>
+  <url>
+	<loc>http://www.spatrickdoyle.com/website.html</loc>
+	<lastmod>2017-01-24T20:39:00Z</lastmod>
+  </url>
 
-	<url>
-		<loc>http://www.spatrickdoyle.com/projects.html</loc>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/mandroid_proj.png</image:loc>
-			 <image:caption>First Year Mini Design Challenge</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/spectre_proj.png</image:loc>
-			 <image:caption>Dual Booting the HP Spectre</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/cam_vis_proj.png</image:loc>
-			 <image:caption>OpenCV Camera Tracking FIRST Robotics</image:caption>
-		</image:image>
-		<lastmod>2016-09-06T16:04:26Z</lastmod>
-	</url>
+  <url>
+	<loc>http://www.spatrickdoyle.com/projects.html</loc>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/desktop_proj.png</image:loc>
+	  <image:caption>Sean Patrick Doyle Fedora i3 rice</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/mandroid_proj.png</image:loc>
+	  <image:caption>Sean Patrick Doyle SMU KNW 2300 Mini Design Challenge</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/spectre_proj.png</image:loc>
+	  <image:caption>Sean Patrick Doyle Dual Booting the HP Spectre</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/cam_vis_proj.png</image:loc>
+	  <image:caption>Sean Patrick Doyle OpenCV Camera Tracking FIRST Robotics 2410 Metal Mustangs</image:caption>
+	</image:image>
+	<lastmod>2017-01-24T20:44:00Z</lastmod>
+  </url>
 
-	<url>
-		<loc>http://www.spatrickdoyle.com/spectre.html</loc>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/xp.png</image:loc>
-			 <image:caption>Windows XP amuses me</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/rescue.png</image:loc>
-			 <image:caption>GRUB rescue console</image:caption>
-		</image:image>
-		<lastmod>2016-07-15T16:32:40Z</lastmod>
-	</url>
+  <url>
+	<loc>http://www.spatrickdoyle.com/spectre.html</loc>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/xp.png</image:loc>
+	  <image:caption>Windows XP Sean Patrick Doyle</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/rescue.png</image:loc>
+	  <image:caption>GRUB rescue console Sean Patrick Doyle</image:caption>
+	</image:image>
+	<lastmod>2017-01-24T20:37:00Z</lastmod>
+  </url>
 
-	<url>
-		<loc>http://www.spatrickdoyle.com/vision.html</loc>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/robot.png</image:loc>
-			 <image:caption>Man 'O War - Metal Mustangs</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/goal.png</image:loc>
-			 <image:caption>The goal for FIRST Stronghold</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/degrees_per_pixel.png</image:loc>
-			 <image:caption>Calculation for degrees per pixel</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/distance.png</image:loc>
-			 <image:caption>Calculation for distance</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/extra_distance.png</image:loc>
-			 <image:caption>Calculation for distance correction</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/jetson.png</image:loc>
-			 <image:caption>The Jetson TK1 development board and our 3D printed case</image:caption>
-		</image:image>
-		<lastmod>2016-06-28T19:10:32Z</lastmod>
-	</url>
+  <url>
+	<loc>http://www.spatrickdoyle.com/vision.html</loc>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/robot.png</image:loc>
+	  <image:caption>Man 'O War - Metal Mustangs FIRST 2410 Sean Patrick Doyle</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/goal.png</image:loc>
+	  <image:caption>The goal for FIRST Stronghold Metal Mustangs FIRST 2410</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/degrees_per_pixel.png</image:loc>
+	  <image:caption>Calculation for degrees per pixel FIRST Stronghold</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/distance.png</image:loc>
+	  <image:caption>Calculation for distance FIRST Stronghold</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/extra_distance.png</image:loc>
+	  <image:caption>Calculation for distance correction FIRST Stronghold</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/jetson.png</image:loc>
+	  <image:caption>The Jetson TK1 development board FIRST Stronghold 2410</image:caption>
+	</image:image>
+	<lastmod>2017-01-24T20:38:00Z</lastmod>
+  </url>
 
-	<url>
-		<loc>http://www.spatrickdoyle.com/knw.html</loc>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/cad1.jpeg</image:loc>
-			 <image:caption>Solidworks drawing of 3D printed part</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/cad2.jpeg</image:loc>
-			 <image:caption>Solidworks drawing of 3D printed part</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/slingshot.png</image:loc>
-			 <image:caption>Test slingshot with rubber bands and scrap metal</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/mandroid.png</image:loc>
-			 <image:caption>Laser engraved Mandroid logo</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/action.png</image:loc>
-			 <image:caption>Me (Sean) designing the Mandroid logo in Inkscape</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/printer2.png</image:loc>
-			 <image:caption>Pipe being 3D printed</image:caption>
-		</image:image>
-		<video:video>
-			<video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Pv4ByEsU7DE</video:player_loc>
-			<video:title>SMU KNW 2300 Mini Design Challenge </video:title>
-			<video:description>SMU KNW 2300 Mini Design Challenge </video:description>
-		</video:video>
-		<lastmod>2016-09-03T11:05:42Z</lastmod>
-	</url>
+  <url>
+	<loc>http://www.spatrickdoyle.com/knw.html</loc>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/cad1.jpeg</image:loc>
+	  <image:caption>Solidworks drawing of 3D printed part SMU KNW 2300</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/cad2.jpeg</image:loc>
+	  <image:caption>Solidworks drawing of 3D printed part SMU KNW 2300</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/cad3.jpeg</image:loc>
+	  <image:caption>Solidworks drawing of 3D printed part SMU KNW 2300</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/cad4.jpeg</image:loc>
+	  <image:caption>Solidworks drawing of 3D printed part SMU KNW 2300</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/slingshot.png</image:loc>
+	  <image:caption>Test slingshot with rubber bands and scrap metal SMU KNW 2300</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/mandroid.png</image:loc>
+	  <image:caption>Laser engraved Mandroid logo SMU KNW 2300</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/action.png</image:loc>
+	  <image:caption>Me (Sean Patrick Doyle) designing the Mandroid logo in Inkscape SMU KNW 2300</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/printer2.png</image:loc>
+	  <image:caption>Pipe being 3D printed SMU KNW 2300</image:caption>
+	</image:image>
+	<video:video>
+	  <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Pv4ByEsU7DE</video:player_loc>
+	  <video:title>SMU KNW 2300 Mini Design Challenge</video:title>
+	  <video:description>Southern Methodist University KNW 2300 Mini Design Challenge</video:description>
+	</video:video>
+	<lastmod>2017-01-24T16:35:00Z</lastmod>
+  </url>
 
-	<url>
-		<loc>http://www.spatrickdoyle.com/rice.html</loc>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/lockscreen.png</image:loc>
-			 <image:caption>Pixelated lock screen</image:caption>
-		</image:image>
-		<image:image>
-			 <image:loc>http://www.spatrickdoyle.com/img/tiling.png</image:loc>
-			 <image:caption>My i3 setup tiling</image:caption>
-		</image:image>
-		<lastmod>2016-09-06T16:12:36Z</lastmod>
-	</url>
+  <url>
+	<loc>http://www.spatrickdoyle.com/rice.html</loc>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/scrot.png</image:loc>
+	  <image:caption>Sean Patrick Doyle i3wm Arch Linux rice</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/lockscreen.png</image:loc>
+	  <image:caption>Sean Patrick Doyle i3wm Arch Linux rice i3lock pixelated lock screen</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/tiling.png</image:loc>
+	  <image:caption>Sean Patrick Doyle i3wm Arch Linux rice tiling</image:caption>
+	</image:image>
+	<lastmod>2017-01-24T20:35:00Z</lastmod>
+  </url>
+
+  <url>
+	<loc>http://www.spatrickdoyle.com/rice2.html</loc>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/scrot2.png</image:loc>
+	  <image:caption>Sean Patrick Doyle i3wm Fedora Linux rice</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/lockscreen2.png</image:loc>
+	  <image:caption>Sean Patrick Doyle i3wm Fedora Linux rice i3lock pixelated lock screen</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/tiling2.png</image:loc>
+	  <image:caption>Sean Patrick Doyle i3wm Fedora Linux rice tiling</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/rofi.png</image:loc>
+	  <image:caption>Sean Patrick Doyle i3wm Fedora Linux rice rofi</image:caption>
+	</image:image>
+	<lastmod>2017-01-25T17:07:00Z</lastmod>
+  </url>
 </urlset>
