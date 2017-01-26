@@ -145,22 +145,90 @@ if (load_comments) {
 	retrieve.send(null);
 }*/
 
+function create(htmlStr) {
+    var frag = document.createDocumentFragment(),
+        temp = document.createElement('div');
+    temp.innerHTML = htmlStr;
+    while (temp.firstChild) {
+        frag.appendChild(temp.firstChild);
+    }
+    return frag;
+}
+
+var dateObj = new Date();
+var hour = dateObj.getHours();
+
+var videofile = "bg"+parseInt(Math.floor(Math.random()*2 + 1));
+
+
+var heading = create(' \
+<video autoplay autobuffer loop muted id="background" style="position:fixed;top:0px;left:0px;z-index:-1;"> \
+      <source src="img/'+videofile+'.mp4" type="video/mp4"/> \
+      <img src="'+videofile+'.png" /> \
+</video> \
+\
+<div id="bar_block"></div> \
+\
+<div id="banner"><br/> \
+  <h1><a href="index.html">spatrickdoyle.com</a></h1> \
+  <i>"Professional problem-solver"</i><br/><br/><br/> \
+</div> \
+\
+<div class="bar" style="height:5px;background:rgba(255,255,255,0);border-width:0px"></div> \
+	<div class="bar" id="bar"> \
+	  <div class="baritem" style="margin-top:23vh"><a href="me.html"><img src="img/me_icon.svg" onmouseover="this.src=\'img/me_icon_light.png\'" onmouseout="this.src=\'img/me_icon.svg\'" alt=""/>about me</a></div> \
+	  <div class="baritem"><a href="website.html"><img src="img/website_icon.svg" onmouseover="this.src=\'img/website_icon_light.png\'" onmouseout="this.src=\'img/website_icon.svg\'" alt=""/>this website</a></div> \
+	  <div class="baritem"><a href="projects.html"><img src="img/projects_icon.svg" onmouseover="this.src=\'img/projects_icon_light.png\'" onmouseout="this.src=\'img/projects_icon.svg\'" alt=""/>projects</a></div> \
+	  <div class="baritem" id="contact_button"><img src="img/message_icon.svg" onmouseover="this.src=\'img/message_icon_light.png\'" onmouseout="this.src=\'img/message_icon.svg\'" alt=""/>contact me</div> \
+	</div> \
+\
+<div id="modal-bg"> \
+	  <div id="modal"> \
+		<a href="http://www.facebook.com/spatrickdoyle">Shoot me a Facebook message!</a><br/> \
+		<a href="mailto:sean@spatrickdoyle.com">Or email me!</a><br/> \
+		Or you can call/text me: 913-530-6297<br/> \
+		Or I guess you could send me a pull request or something, <a href="http://www.github.com/spatrickdoyle">if you want to do that.</a><br/> \
+	  </div> \
+	</div>');
+
+document.body.insertBefore(heading, document.body.childNodes[0]);
 
 var modal = document.getElementById('modal-bg');
 var btn = document.getElementById("contact_button");
 
 var vw = document.documentElement.clientWidth;
+var vh = document.documentElement.clientHeight;
+
+if (vh < 780) {
+	document.getElementById("bar").setAttribute("style", "position: absolute");
+}
+else {
+	document.getElementById("bar").setAttribute("style", "position: fixed");
+}
 
 btn.onmouseover = function() {
 	vw = document.documentElement.clientWidth;
-
-	if (vw >= 980) {
+	//alert(vw);
+	if (vw >= 950) {
+		var modal_card = document.getElementById('modal');
+		var rect = document.getElementById("contact_button").getBoundingClientRect();
+		var s = parseInt(rect.top - rect.height/2);
+		modal_card.style.top = s+"px";
 		modal.style.display = "block";
 	}
 }
 
 btn.onclick = function() {
-	modal.style.display = "block";
+	vw = document.documentElement.clientWidth;
+	//alert(vw);
+	if (vw < 950) {
+		var vw = document.documentElement.clientWidth;
+		var vh = document.documentElement.clientHeight;
+		var modal_card = document.getElementById('modal');
+		modal_card.style.top = parseInt(vh/2 - 75)+"px";
+		modal.style.visibility = "visible";
+		modal.style.display = "block";
+	}
 }
 
 window.onmouseover = function(event) {
@@ -168,3 +236,119 @@ window.onmouseover = function(event) {
 		modal.style.display = "none";
 	}
 }
+
+window.onscroll = function() {
+	var vh = document.documentElement.clientHeight;
+	modal.style.display = "none";
+
+	if (vh < 780) {
+		document.getElementById("bar").setAttribute("style", "position: absolute");
+	}
+	else {
+		document.getElementById("bar").setAttribute("style", "position: fixed");
+	}
+}
+
+
+var TxtType = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+	this.urls = [ "", "rice2.html", "vision.html", "website.html", "knw.html", "vision.html", "spectre.html", "vision.html", "me.html" ];
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+
+	this.cursor = document.getElementById("cursor");
+	this.cursor2 = document.getElementById("cursor2");
+};
+
+TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+	var url = this.urls[i];
+	console.log(fullTxt,url);
+
+    if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+    }
+	else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+    var that = this;
+    var delta = 200 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+
+		if (this.cursor) {
+			this.cursor.style.animationPlayState = "running";
+			this.cursor.style.display = "inline-block";
+			this.cursor2.style.display = "none";
+		}
+
+		this.el.href = url;
+    }
+	else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+
+		if (this.cursor) {
+			this.cursor.style.animationPlayState = "running";
+			this.cursor.style.display = "inline-block";
+			this.cursor2.style.display = "none";
+		}
+    }
+	else {
+		if (this.cursor) {
+			this.cursor.style.animationPlayState = "paused";
+			this.cursor.style.display = "none";
+			this.cursor2.style.display = "inline-block";
+		}
+
+		this.el.href = "";
+	}
+
+    setTimeout(function() {
+        that.tick();
+    }, delta);
+};
+
+window.onload = function() {
+	var foot = document.getElementById('foot');
+	if (foot) {
+		foot.innerHTML = '<!--<form action="http://data.sparkfun.com/input/5JJqEo43NJc4mDQadYjR" method="GET" target="hidden_iframe" id="commentbox"> \
+		  <span id=\'name_field\' style=\'font-size:2vw\'>Github username:</span>&nbsp;<span id=\'help\'>(?)</span> \
+		  <div id=\'paragraph\'>The comment system is integrated with GitHub to pull user information. Don\'t have a GitHub account? <a href=\'http://www.github.com\'>Make one!</a> Or, click <a href="#comment_form" onclick="git_int=false;document.getElementById(\'name_field\').innerHTML=\'Screen name:\'">here</a> and simply enter a preferred screen name.</div><br/> \
+		  <input type="text" name="name" id="name"/><br/><br/> \
+		  <span style=\'line-height:4vw;font-size:2vw\'>Comment:<br/></span> \
+		  <textarea name="comment_body" form="commentbox" id="text_box"></textarea><br/><br/> \
+		  <input type="hidden" name="page_name" id="page_name" value="website"/> \
+		  <input type="hidden" name="location" id="location" value=""/> \
+		  <input type="hidden" name="avatar" id="avatar" value=""/> \
+		  <input type="hidden" name="private_key" value=""/> \
+		  <div id="comment_button" onclick="post_comment()">Post</div><br/> \
+	  </form> \
+\
+	  <div id="comments"></div><br/><br/><br/>--> \
+\
+<div id="paragraph" style="font-size:1.1vw;padding:3px;width:72vw">This website was produced by Sean Patrick Doyle and published between 2016 and 2017. Anything here may be used freely, if you want, but please give me credit.</div><br/>';
+	}
+
+	var elements = document.getElementsByClassName('typewrite');
+    for (var i=0; i<elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type')
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+            new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+    }
+};

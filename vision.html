@@ -1,129 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8"/>
-		<link rel="stylesheet" href="index.css">
-		<title>Sean Doyle - OpenCV Camera Tracking</title>
-	</head>
+  <head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="http://cdn.jsdelivr.net/font-hack/2.020/css/hack-extended.min.css">
+	<link rel="stylesheet" href="index.css">
+	<title>Sean Doyle - OpenCV Camera Tracking</title>
+  </head>
 
-	<body>
-		<div id="bar_block" style="order:0"></div>
+  <body>
+	<script type="text/javascript" src="index.js"></script>
 
-		<div id="banner"><br/>
-			<h1><a href="index.html">spatrickdoyle.com</a></h1>
-			<i>"Having nothing to do with Pokemon since 2015."</i><br/><br/><br/>
-			<table style="margin-left:10%;margin-right:10%;"><tr><td style="background-color:black;width:2000px;"></td></tr></table>
-		</div>
+	<main style="flex: 0 77%;margin-right:10%;text-align:left;line-height:30px">
+	  <div id="title" style="margin-left:0px;"><b>Automatic Targeting with a webcam and OpenCV</b></div><div style="line-height:0.1vw"><br/></div>
+	  <div id="paragraph">&nbsp;Posted on June 28, 2016</div><div style="line-height:0.1vw"><br/></div>
 
-		<div id="bar" style="height:5px;background:rgb(255,255,255,0)"></div>
-		<div id="bar" style="position:fixed">
-			<div class="baritem" style="margin-top:23vh"><a href="me.html"><img src="img/me_icon.svg" onmouseover="this.src='img/me_icon_light.png'" onmouseout="this.src='img/me_icon.svg'" alt=""/> about me</a>&nbsp;</div>
-			<div class="baritem"><a href="website.html"><img src="img/website_icon.svg" onmouseover="this.src='img/website_icon_light.png'" onmouseout="this.src='img/website_icon.svg'" alt=""/> this website</a>&nbsp;</div>
-			<div class="baritem"><a href="projects.html"><img src="img/projects_icon.svg" onmouseover="this.src='img/projects_icon_light.png'" onmouseout="this.src='img/projects_icon.svg'" alt=""/> projects</a>&nbsp;</div>
-			<div class="baritem" id="contact_button"><img src="img/message_icon.svg" onmouseover="this.src='img/message_icon_light.png'" onmouseout="this.src='img/message_icon.svg'" alt=""/> contact me</div>
-		</div>
+	  <p>
+		<div id="body_text">"Hey Sean, we're going to use vision tracking on the robot this year. Do you want to be in charge of that?"<br/><br/>
 
-		<main style="flex: 0 77%;margin-left:8%;margin-right:10%;text-align:left;line-height:30px">
-			<div id="title"><b>Automatic Targeting</b>&nbsp;-&nbsp;-&nbsp;<i>with a webcam and OpenCV</i></div><div style="line-height:0.1vw"><br/></div>
-			<div style="font-size:1.5vw;text-align:right;">Posted on June 28, 2016</div><div style="line-height:0.1vw"><br/></div>
+		  "Oh, sure, I guess."<br/><br/>
 
-			<p>
-			"Hey Sean, we're going to use vision tracking on the robot this year. Do you want to be in charge of that?"<br/><br/>
+		  And that's how I got started on this. I'd been on the robotics team since 9th grade, but only so many people can work on one piece of code, so I'd never made any <i>major</i> contributions before. Furthermore, I'm not sure we had ever done anything so complex as this.<br/><br/>
 
-			"Oh, sure, I guess."<br/><br/>
+		  I was told that we were buying a Jetson TK1 development board, a few of Microsoft Lifecam HD 3000s, and a couple of green LED rings. The idea was that the camera would take video, the Jetson would do some calculations, and finally tracking data would be sent to the roboRIO (the main processor on the robot) so the robot and driver could react.</div><br/>
 
-			And that's how I got started on this. I'd been on the robotics team since 9th grade, but only so many people can work on one piece of code, so I'd never made any <i>major</i> contributions before. Now, I had my own little project.<br/><br/>
+		<div id="paragraph">&nbsp;Our Robot</div><br/>
 
-			So I was told that we were buying a Jetson TK1 development board, a few of Microsoft Lifecam HD 3000s, and a couple of green LED rings. The camera would take video, do some calculations, and send tracking data to the roboRIO (the main processor on the robot, for the unfamiliar). The specifics were to be determined.<br/><br/>
+		<div id="body_text">First, an explanation of the FIRST Robotics competition. Every year, around the beginning of January, there is a 'kickoff', during which FIRST livestreams an explanation of the year's game and makes the rulebook available. The game always consists of two alliances, with three teams (each having one robot) on each alliance. Alliances are randomly determined at each competition, so when a team is constructing a robot, they cannot assume they will be able to rely on the other teams in their alliance. The game usually has several ways to score points. In 2015 the primary mechanic was stacking plastic crates. <a href="http://www.firstinspires.org/robotics/frc/welcome-to-first-stronghold">This past year</a>, it was shooting balls into a goal.</div><br/>
 
-			<div id="paragraph">&nbsp;Our Robot</div><br/>
+		<figure style="width:50%">
+		  <img src="img/robot.png" alt=""/>
+		  <figcaption>
+			Our robot, "Man O' War"
+		  </figcaption>
+		</figure><br/>
 
-			First, an explanation of the FIRST Robotics competition. Every year, around the beginning of January, there is a 'kickoff', during which FIRST livestreams an explanation of the year's game and makes the rulebook available. The game always consists of two alliances, with three teams (each having one robot) on each alliance. Alliances are randomly determined at each competition, so when a team is constructing a robot, they cannot assume they will be able to rely on the other teams in their alliance. The game usually has several ways to score points. In 2015 the primary mechanic was stacking plastic crates. <a href="http://www.firstinspires.org/robotics/frc/game-and-season">This past year</a>, it was shooting balls into a goal.<br/><br/>
+		<div id="body_text">Our robot used tank treads that bend upward in the front so it can easily drive over obstacles (another way to earn points). The shooter uses wheels to suck up balls and shoot them back out the top. It was a fairly consistent way to shoot, but just eyeballing the aim could be tough. That's why we mounted a USB webcam on the top of the shooter. It passed video to the Jetson TK1, a Ubuntu Linux based development board, which tracked the goal and told the roboRIO where to aim.</div><br/>
 
-			<img src="img/robot.png" style="width:50%;border:1px" alt=""/>
-			<div id="paragraph"><i>&nbsp;Our robot, "Man O' War"</i></div><br/><br/>
+		<div id="paragraph">&nbsp;The Software</div><br/>
 
-			The robot uses tank treads that bend upward in the front so it can easily drive over obstacles (another way to earn points). The shooter uses wheels to suck up balls and shoot them back out the top. It was a fairly consistent way to shoot, but just eyeballing the aim could be tough. That's why we mounted a USB webcam on the top of the shooter. It passed video to the Jetson TK1, a Ubuntu Linux based development board, which tracked the goal and told the roboRIO where to aim.<br/><br/>
+		<div id="body_text">The first thing to do was figure out how to track the goal. Really, all the robot needed to know was 1) how far away the goal was, so it knew how much power to throw the ball with, and 2) the angle it needed to rotate to be lined up with the goal. All this code, by the way, can be found <a href="https://github.com/spatrickdoyle/FRC-Camera-Vision">here</a> in my GitHub repository.<br/><br/>
 
-			<div id="paragraph">&nbsp;The Software</div><br/>
+		  The goal was an arch shaped hole, 2 feet by 1 foot 4 inches, 7 feet 1 inch off the ground. The bottom and sides were covered with retroreflective tape - and that's how the camera could track the goal.</div><br/>
 
-			The first thing to do was figure out how to track the goal. Really, all the robot needed to know was 1) how far away the goal was, so it knew how much power to throw the ball with, and 2) the angle it needed to rotate to be lined up with the goal. The goal was an arch shaped hole, 2 feet by 1 foot 4 inches, 7 feet 1 inch off the ground. The bottom and sides were covered with retroreflective tape - and that's how the camera could track the goal.<br/><br/>
+		<figure style="width:40%">
+		  <img src="img/goal.png" alt=""/>
+		  <figcaption>
+			A picture of the goal from the game manual, with the retroreflective tape pointed out
+		  </figcaption>
+		</figure><br/>
 
-			<img src="img/goal.png" style="width:30%;border:1px" alt=""/>
-			<div id="paragraph"><i>&nbsp;A picture of the goal from the game manual, with the retroreflective tape pointed out</i></div><br/><br/>
+		<div id="body_text">A substance is said to be <i>retroreflective</i> if it reflects light only directly back toward the source of the light. Retroreflective tape doesn't look special, just a sort of silvery grey, but if you hold a light near your face and look at the tape, it glows like the sun. So the idea was: put a ring of green LED lights around the aperture of the camera, and the camera will see the outline of the goal glowing a consistent bright green, which it could easily seperate from the surrounding image. This is a tried and tested concept, used by teams nearly every year.<br/><br/>
 
-			A substance is said to be <i>retroreflective</i> if it reflects light only directly back toward the source of the light. Retroreflective tape doesn't look special, just a sort of silvery grey, but if you hold a light near your face and look at the tape, it glows like the sun. So the idea was: put a ring of green LED lights around the aperture of the camera, and the camera will see the outline of the goal glowing a consistent bright green, which it could easily seperate from the surrounding image. This is a tried and tested concept, used by teams nearly every year.<br/><br/>
+		  OpenCV was the obvious tool for this job. OpenCV is an open source camera vision library that could be implemented in several languages (we used C++). I did a little playing around, and it didn't take long for me to figure out how to threshold out any color that wasn't that distinctive green glow. A little more work - it could identify which of the three goals it saw was the largest in the image, and therefore the one it should be shooting into. So now that it could track the goal, I had to figure out how to calculate the distance and angle.</div><br/>
 
-			OpenCV was the obvious tool for this job. OpenCV is an open source camera vision library that could be implemented in several languages (we used C++). So I did a little playing around, and it didn't take long for me to figure out how to threshold out any color that wasn't that distinctive green glow. A little more work - it could identify which of the three goals it saw was the largest, and therefore one it should be shooting into. So now that it could track the goal, I had to figure out how to calculate the distance and angle.<br/><br/>
+		<div id="paragraph">&nbsp;The Math</div><br/>
 
-			<div id="paragraph">&nbsp;The Math</div><br/>
+		<div id="body_text">I briefly considered using two cameras, and trying to do some kind of stereoscopic transformation to figure out the deviance between the angles of view and whatnot... and I decided it was too complicated. I ended up using a single camera and a lot of geometry.<br/><br/>
 
-			I briefly considered using two cameras, and trying to do some kind of stereoscopic transformation to figure out the deviance between the angles of view and yada yada yada it turned out to be too complicated. I ended up using a single camera and a lot of geometry.<br/><br/>
+		  The math I did centers around the idea that the angle of view of the camera was constant, as was the resolution of the camera. This means that every degree of the field of view can be assumed to be a constant number of pixels. Therefore, I could use OpenCV to detect the width of the image of the goal in pixels, and turn that into how many degrees of the field of view the goal takes up, a much more useful quantity.</div><br/>
 
-			The math I did centers around the idea that the angle of view of the camera was constant, as was the resolution of the camera. This means that every degree of the field of view must be a constant number of pixels. Therefore, I could use OpenCV to detect the width of the image of the goal in pixels, and turn that into how many degrees of the field of view the goal takes up, a much more useful quantity.<br/><br/>
+		<figure style="width:40%">
+		  <img src="img/degrees_per_pixel.png" alt=""/>
+		  <figcaption>
+			How many degrees of the field of view is each pixel? 2*arctan(l/2d) divided by the length of l in pixels, that's how many!
+		  </figcaption>
+		</figure><br/>
 
-			<img src="img/degrees_per_pixel.png" style="width:30%;border:1px" alt=""/>
-			<div id="paragraph"><i>&nbsp;How many degrees of the field of view is each pixel? 2*arctan(l/2d) divided by the length of l in pixels, that's how many!</i></div><br/><br/>
+		<div id="body_text">I was able to calculate the angle of view and the degrees per pixel value by taking pictures of a meter stick and using the above. For the Microsoft Lifecam HD 3000, the horizontal field of view determined to be ~50.6496 degrees, or 0.07914 degrees per pixel. The vertical field of view was ~39.3072 degrees, or 0.08189 degrees per pixel. The angle the robot needed to rotate to be pointing directly at the goal could then be easily be found by counting the pixels from the center of the image to the center of the goal and multiplying by the horizonatal degrees-per-pixel value.<br/><br/>
 
-			I was able to calculate the angle of view and the degrees per pixel value by taking pictures of a meter stick and using the above. For the Microsoft Lifecam HD 3000, the horizontal field of view turned out to be ~50.6496 degrees, or 0.07914 degrees per pixel. The vertical field of view was 39.3072 degrees, or 0.08189 degrees per pixel. The angle the robot needed to rotate to be pointing directly at the goal could then be easily be found by counting the pixels from the center of the image to the center of the goal and multiplying by the horizonatal degrees-per-pixel value.<br/><br/>
+		  Here's how I calculated the distance:</div><br/>
 
-			Here's how I calculated the distance:<br/><br/>
+		<figure style="width:40%">
+		  <img src="img/distance.png" alt=""/>
+		  <figcaption>
+			Here h and l are known because the height and size of the goal was always the same in every match.
+		  </figcaption>
+		</figure><br/>
 
-			<img src="img/distance.png" style="width:30%;border:1px" alt=""/>
-			<div id="paragraph"><i>&nbsp;Here h and l are known because the height and size of the goal was always the same in every math.</i></div><br/><br/>
+		<div id="body_text">Phi, the angle between the camera horizontal and the top of the goal, could be easily found by counting the pixels between the center of the image and the top of the goal and multiplying by the vertical degrees-per-pixel value found above. Knowing the angle the camera was mounted at (another measurement I had to calculate before we actually mounted it, to make sure it always had the goal in frame) theta, the distance between the robot and the goal could be found using (l+h)/tan(theta-phi).<br/><br/>
 
-			Phi, the angle between the camera horizontal and the top of the goal, could be easily found by counting the pixels between the center of the image and the top of the goal and multiplying by the vertical degrees-per-pixel value found above. Knowing the angle the camera was mounted at (another measurement I had to calculate before we actually mounted it, to make sure it always had the goal in frame) theta, the distance between the robot and the goal could be found using l+h/tan(theta-phi).<br/><br/>
+		  That finds the distance from the robot to the nearest edge of the goal, but if the robot wasn't perfectly square with the goal, wouldn't the distance calculation be a little under? Well, I accounted for that as well:</div><br/>
 
-			That finds the distance from the robot to the nearest edge of the goal, but if the robot wasn't perfectly square with the goal, wouldn't the distance calculation be a little under? Well, I accounted for that as well:<br/><br/>
+		<figure style="width:30%">
+		  <img src="img/extra_distance.png" alt=""/>
+		  <figcaption>
+			After d is found, d' could be calculated
+		  </figcaption>
+		</figure><br/>
 
-			<img src="img/extra_distance.png" style="width:20%;border:1px" alt=""/>
-			<div id="paragraph"><i>&nbsp;After d is found, d' could be calculated</i></div><br/><br/>
+		<div id="body_text">The extra distance d' is equal to the square root of l/2 squared minus d*tan(theta/2) (where this time l is the length of the goal, not the height). Pretty simple. The most difficult part was accounting for the fact that the camera was not going to be mounted right in the center of the shooter - it would be off to the side a little bit. This made the distance just slightly different. In order for the shooter to be as accurate as possible, I wanted to make sure the distance calculation was as accurate as possible, so I figured out a couple of long formulas that accounted for this offset.<br/><br/>
 
-			The extra distance d' is equal to the square root of l/2 squared minus d*tan(theta/2) (where this time l is the length of the goal, not the height). Pretty simple. hopefully. The most difficult part was accounting for the fact that the camera was not going to be mounted right in the center of the shooter - it would be off to the side a little bit. This made the distance just slightly different. In order for the shooter to be as accurate as possible, I wanted to make sure the distance calculation was as accurate as possible, so I figured out a couple of long formulas that accounted for this offset.<br/><br/>
+		  So after all that math, did it work? Yeah it did! The calculated distance was almost always within just a few inches of the actual distance. The math, unfortunately, was not the most difficult part of this project.</div><br/>
 
-			So after all that math, did it work? Yeah it did! The calculated distance was almost always within just a few inches of the actual distance. The math, however, was not nearly the most difficult part of this project.<br/><br/>
+		<div id="paragraph">&nbsp;Major Problems</div><br/>
 
-			<div id="paragraph">&nbsp;Major Problems</div><br/>
+		<div id="body_text">We ran into several roadblocks trying to make this all work. The whole targeting and shooting system was fairly complicated, with a lot of different parts. The first major challenge was with the tracking of the reflective tape. Once the threshold color was properly calibrated, the tracking was very accurate. But something as simple as changing the lighting in the room could throw everything off, if it caused the camera so see colors it hadn't previously and wasn't thresholding out. I did, after mulling over this problem for several days, come up with a solution I thought was pretty clever that involved polarizing light filters, but that didn't pan out due to constraints on time and manpower. Instead, I adjusted the brightness, contrast, and exposure on the camera until the green of the tape was the most distinct color it could see, and we simply relied on manually calibrating the thresholding algorithm whenever we started running the robot.<br/><br/>
 
-			We ran into several roadblocks trying to make this all work. The first was with the tracking of the reflective tape. Once the threshold color was properly calibrated, the tracking was very accurate. But something as simple as changing the lighting in the room could throw everything off, if it caused the camera so see colors it hadn't previously and wasn't thresholding out. I did, after mulling over this problem for several days, come up with a solution I thought was pretty clever that involved polarizing light filters, but that didn't pan out due to constraints on time and manpower. Instead, I adjusted the brightness, contrast, and exposure on the camera until the green of the tape was the most distinct color it could see, and we simply relied on manually calibrating the thresholding algorithm whenever we started running the robot.<br/><br/>
+		  Then came frustration. Lots and lots of frustration. See, our original thought was to have the Jetson communicate with the roboRIO over a standard serial connection. After spending HOURS figuring out how to set that up (we were having a problem with the cable we used to connect them) it finally worked. Until it didn't. We were concerned about the serial connection not being fast enough to keep up with the changing camera data, but that ended up not being a problem when the data started to get all garbled in the middle of running the robot. After spending several more hours unsuccessfully attempting to find the problem, we decided to stop using serial and instead connect the Jetson to the router on the robot that controlled communications between the RIO and the driver's station. The standard FIRST C++ library has a class called Network Tables, which allowed the Jetson to write values to the network and the RIO to read them. Again, that was working pretty well... until we broke the Jetson. I'm not entirely sure what happened, I guess someone just mishandled it one day. So we had to buy another one. And it was then that I realized... I hadn't backed up any of the network tables code. Pushing the code on the Jetson to GitHub was really hard because I had to disconnect it from the robot and connect it via ethernet to the internet, which I didn't really have time to do when we were coming to the end of the season. We had spent hours setting up the Jetson, compiling all the necessary libraries and so forth... and all that was gone. Luckily I had an older version of the code from when I was still testing on my computer, so there wasn't that much rewriting to do... but man I felt stupid. But we did what had to be done to get back on track, this time with a 3D printed case to protect the Jetson and careful backups every time a major change was made.</div><br/>
 
-			Then came frustration. Lots and lots of frustration. See, our original thought was to have the Jetson communicate with the roboRIO over a standard serial connection. After spending HOURS figuring out how to set that up (we were having a problem with the cable we used to connect them) it finally worked. Until it didn't. We were concerned about the serial connection not being fast enough to keep up with the changing camera data, but that ended up not being a problem when the data started to get all garbled in the middle of running the robot. After speding several more hours unsuccessfully attempting to find what the problem was, we decided to stop using serial and instead connect the Jetson to the router on the robot that controlled communications between the RIO and the driver's station. The standard FIRST C++ library has a class called Network Tables, which allowed the Jetson to write values to the network and the RIO to read them. Again, that was working pretty well... until we broke the Jetson. I'm not entirely sure what happened, I guess someone just mishandled it one day. So we had to buy another one. And it was then that I realized... I hadn't backed up any of the network tables code. Pushing the code on the Jetson to GitHub was really hard because I had to disconnect it from the robot and connect it via ethernet to the internet, which I didn't really have time to do when we were coming to the end of the season. We had spent hours setting up the Jetson, compiling all the necessary libraries and so forth... and all that was gone. Luckily I had an older version of the code from when I was still testing on my computer, so there wasn't that much rewriting to do... but man I felt stupid. But hey, we did what had to be done and got back on track, this time with a 3D printed case to protect the Jetson.<br/><br/>
+		<figure style="width:90%">
+		  <img src="img/jetson.png" alt=""/>
+		  <figcaption>
+			Left: the Jetson TK1. Right: Our somewhat ghetto case.
+		  </figcaption>
+		</figure><br/>
 
-			<img src="img/jetson.png" style="width:80%;border:1px" alt=""/>
-			<div id="paragraph"><i>&nbsp;Left: the Jetson TK1. Right: Our somewhat ghetto case.</i></div><br/><br/>
+		<div id="body_text">The robot went to competition and did reasonably well. We took 41st of 59 at the Greater Kansas City regional, and 23rd of 53 at the Iowa regional. Unfortunately, there was another problem. We didn't account for the fact that during competition, a lot of traffic was going over the network the robots were connected to, because there were 5 other robots besides our own all being controlled at the same time. As a result, there wasn't really enough bandwidth for the automatic targeting system to be reliable. But hey, it worked really well on its own, and I learned a lot building it, so I feel good about it.</div>
 
-			That's pretty much it. The robot went to competition (although I did not go with it, for various reasons) and did reasonably well. We took 41st of 59 at the Greater Kansas City regional, and 23rd of 53 at the Iowa regional. Unfortunately, there was another problem. We didn't account for the fact that during competition, a lot of traffic was going over the network the robots were connected to, because there were 5 other robots besides our own all being controlled at the same time. As a result, there wasn't really enough bandwidth for the automatic targeting system to be reliable. But hey, it worked really well on its own, and I learned a lot building it, so I feel good about it.
+	  </p><br/><br/>
 
-			</p><br/><br/>
-
-			<!--<form action="http://data.sparkfun.com/input/5JJqEo43NJc4mDQadYjR" method="GET" target="hidden_iframe" id="commentbox">
-				<span id='name_field' style='font-size:2vw'>Github username:</span>&nbsp;<span id='help'>(?)</span>
-				<div id='paragraph'>The comment system is integrated with GitHub to pull user information. Don't have a GitHub account? <a href='http://www.github.com'>Make one!</a> Or, click <a href="#comment_form" onclick="git_int=false;document.getElementById('name_field').innerHTML='Screen name:'">here</a> and simply enter a preferred screen name.</div><br/>
-				<input type="text" name="name" id="name"/><br/><br/>
-				<span style='line-height:4vw;font-size:2vw'>Comment:<br/></span>
-				<textarea name="comment_body" form="commentbox" id="text_box"></textarea><br/><br/>
-				<input type="hidden" name="page_name" id="page_name" value="website"/>
-				<input type="hidden" name="location" id="location" value=""/>
-				<input type="hidden" name="avatar" id="avatar" value=""/>
-				<input type="hidden" name="private_key" value=""/>
-				<div id="comment_button" onclick="post_comment()">Post</div><br/>
-			</form>
-
-			<div id="comments"></div><br/><br/><br/>-->
-
-			<div id="paragraph" style="font-size:1vw;padding:0px;width:72vw">&nbsp;This website was produced by Sean Patrick Doyle and published in 2016. Anything here may be used freely, if you want, but please give me credit.</div><br/>
-
-		</main>
-
-		<div id="modal-bg">
-			<div id="modal">
-				<a href="http://www.facebook.com/spatrickdoyle">Shoot me a Facebook message!</a><br/>
-				<a href="mailto:sean@spatrickdoyle.com">Or email me!</a><br/>
-				Or you can call/text me: 913-530-6297<br/>
-				Or I guess you could send me a pull request or something, <a href="http://www.github.com/spatrickdoyle">if you want to do that.</a><br/>
-			</div>
-		</div>
-
-		<script type="text/javascript" src="index.js"></script>
-	</body>
+	  <div id="foot"></div>
+	</main>
+  </body>
 </html>

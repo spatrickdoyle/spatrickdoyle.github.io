@@ -1,111 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8"/>
-		<link rel="stylesheet" href="index.css">
-		<title>Sean Doyle - Dual Booting</title>
-	</head>
+  <head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="http://cdn.jsdelivr.net/font-hack/2.020/css/hack-extended.min.css">
+	<link rel="stylesheet" href="index.css">
+	<title>Sean Doyle - Dual Booting</title>
+  </head>
 
-	<body>
-		<div id="bar_block" style="order:0"></div>
+  <body>
+	<script type="text/javascript" src="index.js"></script>
 
-		<div id="banner"><br/>
-			<h1><a href="index.html">spatrickdoyle.com</a></h1>
-			<i>"Having nothing to do with Pokemon since 2015."</i><br/><br/><br/>
-			<table style="margin-left:10%;margin-right:10%;"><tr><td style="background-color:black;width:2000px;"></td></tr></table>
-		</div>
+	<main style="flex: 0 77%;margin-right:10%;text-align:left;line-height:30px">
+	  <div id="title" style="margin-left:0px;"><b>Dual Booting Windows 10 and Arch Linux on the HP Spectre</b></div><div style="line-height:0.1vw"><br/></div>
+	  <div id="paragraph">&nbsp;Posted on July 15, 2016</div><div style="line-height:0.1vw"><br/></div>
 
-		<div id="bar" style="height:5px;background:rgb(255,255,255,0)"></div>
-		<div id="bar" style="position:fixed">
-			<div class="baritem" style="margin-top:23vh"><a href="me.html"><img src="img/me_icon.svg" onmouseover="this.src='img/me_icon_light.png'" onmouseout="this.src='img/me_icon.svg'" alt=""/> about me</a>&nbsp;</div>
-			<div class="baritem"><a href="website.html"><img src="img/website_icon.svg" onmouseover="this.src='img/website_icon_light.png'" onmouseout="this.src='img/website_icon.svg'" alt=""/> this website</a>&nbsp;</div>
-			<div class="baritem"><a href="projects.html"><img src="img/projects_icon.svg" onmouseover="this.src='img/projects_icon_light.png'" onmouseout="this.src='img/projects_icon.svg'" alt=""/> projects</a>&nbsp;</div>
-			<div class="baritem" id="contact_button"><img src="img/message_icon.svg" onmouseover="this.src='img/message_icon_light.png'" onmouseout="this.src='img/message_icon.svg'" alt=""/> contact me</div>
-		</div>
+	  <p>
+		<div id="body_text">I recently decided I needed a new laptop for college. The <a href="http://store.hp.com/us/en/mdp/Laptops/spectre-x360-211501--1">HP Spectre</a> seemed a really good choice - 6th Generation Intel i7 processor, 8 gigabytes of RAM, 256 gigabyte solid state hard drive, and the screen folds around into a tablet. But before I blew a thousand dollars on a computer, I wanted to make sure I wouldn't, you know, render it useless. Last time I attempted to dual boot Arch Linux and Windows, I screwed up and pretty much broke the Windows partition. I didn't really care that much since it was Windows 7 and I didn't have Windows on my previous laptop either. But there's plenty of software that doesn't really run on Linux, and there's value in learning to develop for multiple platforms, so I wanted to have a fresh copy of Windows 10 in my back pocket just in case.</div><br/>
 
-		<main style="flex: 0 77%;margin-left:8%;margin-right:10%;text-align:left;line-height:30px">
-			<div id="title"><b>Dual Booting Windows 10 and Arch Linux</b>&nbsp;-&nbsp;-&nbsp;<i>on the HP Spectre</i></div><div style="line-height:0.1vw"><br/></div>
-			<div style="font-size:1.5vw;text-align:right;">Posted on July 15, 2016</div><div style="line-height:0.1vw"><br/></div>
+		<div id="paragraph">&nbsp;So I did a lot of planning</div><br/>
 
-			<p>
-			I recently decided I needed a new laptop for college. The HP Spectre seemed a really good choice - 6th Generation Intel i7 processor, 8 gigabytes of RAM, 256 gigabyte solid state hard drive, and the screen folds around into a tablet. But before I blew a thousand dollars on a computer, I wanted to make sure I wouldn't, you know, render it useless. Last time I attempted to dual boot Arch Linux and Windows, I screwed up and pretty much broke the Windows partition. I didn't really care that much since it was Windows 7 and I didn't have Windows on my previous laptop either. But there's plenty of software that doesn't really run in Linux, and there's value in learning to develop for multiple platforms, so I wanted to have a fresh copy of Windows 10 in my back pocket just in case.<br/><br/>
+		<div id="body_text">I asked around until I found a computer nobody would care if I messed up - an old Dell Latitude D820 that was missing keys and didn't boot properly. The plan was to practice the installation process on this computer to make sure I knew what I was doing, and if I messed it up, I could just reset the whole thing and try again. Some messing around with the recovery settings, and I was running a brand new copy of Windows XP.</div><br/>
 
-			<div id="paragraph">&nbsp;So I did a lot of planning</div><br/>
+		<figure style="width:70%">
+		  <img src="img/xp.png" alt=""/>
+		  <figcaption>
+			I found the Windows XP installer quite amusing
+		  </figcaption>
+		</figure><br/>
 
-			I asked around until I found a computer nobody would care if I messed up - an old Dell Latitude D820 that was missing keys and didn't boot properly. I would practice the installation process on this computer to make sure I knew what I was doing, and if I messed it up, I could just reset the whole thing and try again. Some messing around with the recovery settings, and I was running a brand new copy of Windows XP.<br/><br/>
+		<div id="body_text">Manually partitioning the drive and configuring the bootloader for two operating systems can be an annoyance, and the last time I tried I had screwed it up. Some Linux distros, however, have a graphical installer that does all that for you. Ubuntu, for instance, is made for dual booting. You press a few buttons and everything just works.<br/><br/>
 
-			<img src="img/xp.png" style="width:70%;border:1px" alt=""/>
-			<div id="paragraph"><i>&nbsp;This amused me</i></div><br/><br/>
+		  So this was the plan: I would first install Ubuntu, which would be easy. Then, since the disk was already parititioned and the bootloader already set up, I would simply install Arch over Ubuntu, and I wouldn't have to worry about making a partition or a GRUB menu enty or anything like that. This also seemed like a good idea to me because I had seen on the internet that other people had successfully installed Ubuntu on the HP Spectre. I couldn't find anything about any other Linux distributions, but those guides seemed like a good place to start.<br/><br/>
 
-			Manually partitioning the drive and configuring the bootloader for two operating systems is an annoyance, and last time I tried I screwed it up. Some Linux distros, however, have a graphical bootloader that does all that for you. Ubuntu, for instance, couldn't be easier to dual boot. You press a couple of buttons... and everything just works.<br/><br/>
+		  This plan was lazy, and kind of dumb, and it would have been more efficient to just set up the dual boot manually, but I maintain this method streamlined the process at least a little bit. I can't say I reccomend doing it this way, but it worked, that's all that matters, and I learned some things about bootloaders along the way.</div><br/>
 
-			So this was the plan: I would first install Ubuntu, which would be easy. Then, since the disk was already parititioned and the bootloader already set up, I would simply install Arch over Ubuntu, and I wouldn't have to worry about making a partition or a GRUB menu enty or anything like that. This also seemed like a good idea to me because I had seen on the internet that other people had successfully installed Ubuntu on the HP Spectre, and their guides seemed like a good starting place.<br/><br/>
+		<div id="paragraph">&nbsp;First attempt</div><br/>
 
-			This plan was lazy, and kind of dumb, and it would have been way more efficient to just set up the dual boot the right way, but I maintain this method streamlined the process... at least a little bit. Whatever, it worked, that's all that matters.<br/><br/>
+		<div id="body_text">It's a good thing I tested this idea before I actually bought a new computer. First attempt, I screwed it up. The Ubuntu installation went perfectly, and I had a functioning dual boot. However, in installing Arch, I stupidly forgot that by overwriting the Ubuntu partition, I was also overwriting GRUB's configurations. Upon booting, GRUB still tried to run (GRUB itself is installed on the EFI partition) but immediately dropped into the rescue shell.</div><br/>
 
-			<div id="paragraph">&nbsp;First Attempt</div><br/>
+		<figure style="width:70%">
+		  <img src="img/rescue.png" alt=""/>
+		  <figcaption>
+			GRUB error (among others)
+		  </figcaption>
+		</figure><br/>
 
-			It's a good thing I tested this idea before I actually bought a new computer. First attempt, I screwed it up. Ubuntu installation went perfectly, and I had a functioning dual boot. However, in installing Arch, I stupidly forgot that by overwriting the Ubuntu partition, I was also overwriting GRUB. Upon booting, GRUB still tried to run (GRUB itself is not installed on the partition, but all its configuration information is) but immediately dropped into the rescue shell.<br/><br/>
+		<div id="body_text">I wanted to get this right, so I started over. With Ubuntu and GRUB successfully installed once again, I copied /boot/grub from the Ubuntu partition to a flash drive. Then I installed Arch again, installed GRUB within Arch, copied the configuration directory from the flash drive, and edited grub.cfg to change every instance of 'ubuntu' to 'arch'. Rebooting showed me more errors, so I went back into the Arch chroot and edited grub.cfg again. I had to change the partition UUIDs, which I didn't realize would change when I installed a new operating system (though I probably should have). This time it booted into Arch! But the system wasn't working properly. So I got back into chroot <i>again</i> from the installation usb drive to install dialog, iw, and wpa_supplicant, which I should have done the first time. While there, I also made a new user and added it to the sudoers file.<br/><br/>
 
-			<img src="img/rescue.png" style="width:70%;border:1px" alt=""/>
-			<div id="paragraph"><i>&nbsp;GRUB error (among others)</i></div><br/><br/>
+		  And this time it booted just fine, both Windows and Arch. Arch was still giving me a few weird errors, but I think that had more the do with the age of the computer than the installation method. There was some kind of conflict with the PGP keys, which I resolved by Googling around and refreshing the key list. I was also getting some device warnings at boot, so I changed the partition settings in grub.cfg from read only to read/write. But after that, it was pretty much a fully functioning, dual booting system.</div><br/>
 
-			I wanted to get this right, so I started over. With Ubuntu and GRUB successfully installed once again, I copied /boot/grub from the Ubuntu partition to a flash drive. Then I installed Arch again, installed GRUB within Arch, copied the configuration directory from the flash drive, and edited grub.cfg to change every instance of 'ubuntu' to 'arch'. Rebooting showed me more errors, so I went back into the Arch chroot and edited grub.cfg again. I had to change the partition UUIDs, which I didn't realize would change when I installed a new operating system (though I probably should have). This time it booted into Arch! But the system wasn't working properly. So I got back into chroot <i>again</i> from the installation usb drive to install dialog, iw, and wpa_supplicant, which I should have done the first time. While there, I also made a new user and added it to the sudoers file.<br/><br/>
+		<div id="paragraph">&nbsp;How to actually do it</div><br/>
 
-			And it booted just fine, both Windows and Arch. Arch was still giving me a few weird errors, but I think that had more the do with the age of the computer than the installation method. There was some kind of conflict with the PGP keys, which I resolved by Googling around and refreshing the key list. I was also getting some device warnings at boot, so I changed the partition settings in grub.cfg from read only to read/write. But after that, it was pretty much a fully functioning, dual booting system.<br/><br/>
+		<div id="body_text">I bought the HP Spectre, I played around with it a little bit... ironically, there was a problem with the display drivers. I remedied it by doing a system update, but that kind of thing sort of negates the Windows advantage of 'it works right out of the box'. But yeah, Windows 10 works just fine, so I moved on to installing Arch.<br/><br/>
 
-			<div id="paragraph">&nbsp;The Actual Attempt</div><br/>
+		  The first thing you want to do when dual booting with the newest versions of Windows is disable the Windows 'Fast Boot'/'Fast Startup' feature. If I understand it correctly, Windows will often suspend the computer to RAM rather than actually power off all the way. This allows it to boot back up almost instantly. It also makes booting into a different operating system rocky, when Windows never shut all the way down. This feature can be easily disabled, though, through the Windows 'Power Management' menu.<br/><br/>
 
-			Bought the HP Spectre, played around with it a little bit... ironically, there was a problem with the display drivers (which I remedied by doing a system update), which kind of negates the Windows advantage of 'it works right out of the box'. But yeah, Windows 10 works just fine, so I moved on to installing Arch.<br/><br/>
+		  In addition, the computer's UEFI firmware has a feature called 'Safe Boot' which (potentially) stops malicious software from messing with the boot sequence. This must be disabled in order to install and boot Linux (most of the time... I believe Fedora has a secure boot plugin that allows it to run with secure boot enabled). On the HP Spectre, the secure boot feature can be disabled through the UEFI menu, accessed by holding ESC + F10 while the computer is booting (apparently Escape pauses the boot sequence, and pressing F9 or F10 gives you different menu options). I also changed the boot sequence so that the medium it would first try to boot from would be a USB stick. This way I could just put the flash drive in the computer, reboot, and it would begin the installation.<br/><br/>
 
-			The first thing I did was disable the Windows 'Fast Boot'/'Fast Startup' feature. If I understand it correctly, Windows will often suspend the computer to RAM rather than actually turn off. This allows it to boot back up almost instantly. It also makes booting into a different operating system rocky, when Windows never shut all the way down. This feature can be easily disabled, though, through the Windows 'Power Management' menu.<br/><br/>
+		  Before I started installing Linux, though, I went back to Windows and resized the system partition with the 'Disk Management' tool. This naturally has to be done to make room for the Linux partition, and though I could have done it from the Ubuntu live environment, I used Windows just to be safe.</div><br/>
 
-			In addition, the computer's UEFI firmware has a feature called 'Safe Boot' which (potentially) stops malicious software from messing with the boot sequence. This must be disabled in order to install and boot Linux (Most of the time. I believe Fedora has a secure boot plugin that allows it to run with secure boot enabled). On the HP Spectre, the secure boot feature can be disabled through the UEFI menu, accessed by holding ESC + F10 while the computer is booting (apparently Escape pauses the boot sequence, and pressing F9 or F10 gives you different menu options). I also changed the boot sequence so that the medium it would first try to boot from would be a USB stick. This way I could just put the flash drive in the computer, reboot, and it would begin the installation.<br/><br/>
+		<div id="paragraph">&nbsp;A note about partitions</div><br/>
 
-			Before I started with the Linux, though, I went back to Windows and resized the system partition with the 'Disk Management' tool. This naturally has to be done to make room for the Linux partition, and though I could have done it from the Ubuntu live environment, I used Windows just to be safe.<br/><br/>
+		<div id="body_text">Windows is kind of particular about its partitions. There will always be an EFI partition (which is used by the firmware and is needed for the computer to boot), a 'Microsoft reserved' partition, and the C drive (which is of type NTFS) on any Windows UEFI system. According to the Arch Wiki, deleting any of these will wreck Windows, so don't do it. There may also be a couple of Windows recovery partitions - my laptop has 2, both of type NTFS. I didn't mess with these in case I ever mess up Windows and want to reactivate it, but they can potentially be deleted to free up space.<br/><br/>
 
-			<div id="paragraph">&nbsp;A note about partitions</div><br/>
+		  Naturally, before trying to dual boot I did a bit of reading about partitions and how to not mess up Windows. This should be a prerequisite for anyone trying to do the same. But if you know what you're doing, it is safe to resize the NTFS partition to make space for Linux. Then the various Linux partitions must be created and formatted. Most distributions with graphical installers include a partitioning tool to make this easy. I booted into a Ubuntu live USB environment, and used the graphical install tool to create an ext4 partition as the root mount point ('/') and a significantly smaller swap partition. Other common partitions to create at this stage include a home partition ('/home') or a boot partition ('/boot'). Again, I would recommend doing some reading about this a bit before doing a Linux installation.</div><br/>
 
-			Windows is kind of particular about its partitions. There will always be an EFI partition, a 'Microsoft reserved' partition, and the C drive (which is of type NTFS) on any Windows UEFI system. According to the Arch Wiki, deleting any of these will wreck Windows. There may also be a couple of Windows recovery partitions - my laptop has 2, both of type NTFS.<br/><br/>
+		<div id="paragraph">&nbsp;Back to the installation part</div><br/>
 
-			Naturally, before trying to dual boot I did a bit of reading about partitions and how to not mess up Windows. This should be a prerequisite for anyone trying to do the same. But if you know what you're doing, it is safe to resize the NTFS partition to make space for Linux. Then I booted into a Ubuntu live USB environment, and used the graphical install tool to create an ext4 partition as the root mount point ('/') and a significantly smaller swap partition.<br/><br/>
+		<div id="body_text">The Ubuntu installation once again worked without a problem. At this point, with a lot of distributions, you would be done. But I wanted to try my scheme of overwriting Ubuntu with Arch. I did the whole thing with copying /boot/grub to a flash drive and trying to copy it into a new Arch installation... but after installing Arch and GRUB and editing grub.cfg, booting dropped me into the GRUB rescue console without an error. I Googled around some more, and apparently with UEFI certain GRUB configuration information is stored in the EFI partition instead of the main one... so I folded and configured GRUB the old fashioned way, by adding my own menu entries to /etc/grub.d/40_custom. And then everything worked perfectly!<br/><br/>
 
-			<div id="paragraph">&nbsp;Back to the installation part</div><br/>
+		  There you go - a roundabout way of dual booting Arch Linux and Windows 10. The main purpose of this writeup is to show that yes, it is possible, which is more information than I had when I started. I maintain that using Ubuntu to partition the disk was at least easier than, say, using fdisk from the Arch console, and it was therefore worth it. But as far as I can tell, most major Linux distributions should work just fine on this computer (UPDATE: I now am running Fedora alongside Arch and Windows, and I installed it using Fedora's Anaconda installer. It works great). I have seen complaints on the internet of certain things, like WiFi or accelerometers, not working properly with Linux on the HP Spectre, but I have not had any problems at all. Perhaps hardware and driver support has improved since those issues were raised. All I know is, the HP Spectre is a solid laptop that runs Linux well and it was worth the money and effort.</div>
 
-			Ubuntu installation once again worked without a problem. I did the whole thing with copying /boot/grub to a flash drive and trying to copy it into a new Arch installation... but after installing Arch and GRUB and editing grub.cfg, booting dropped me into the GRUB rescue console without an error. I Googled around some more, and apparently with UEFI certain GRUB configuration information is stored in the EFI partition instead of the main one... so I folded and configured GRUB the old fashioned way, by adding my own menu entries to /etc/grub.d/40_custom. And then everything worked perfectly!<br/><br/>
+	  </p><br/><br/>
 
-			There you go - roundabout way of dual booting Arch Linux and Windows 10. The main purpose of this writeup is to show that yes, it is possible, which is more information than I had when I started (I found several online guides that talked about installing Ubuntu, but none referring to Arch). I maintain that using Ubuntu to partition the disk was at least easier than, say, using fdisk from the Arch console, and it was therefore worth it. I have seen complaints on the internet of certain things, like WiFi or accelerometers, not working properly with Linux on the HP Spectre, but I have not had any problems at all. Perhaps hardware and driver support has improved since those issues were raised. All I know is, the HP Spectre is a solid laptop that runs Linux well and was worth the money and effort.
+	  <div id="foot"></div>
+	</main>
 
-			</p><br/><br/>
-
-			<!--<form action="http://data.sparkfun.com/input/5JJqEo43NJc4mDQadYjR" method="GET" target="hidden_iframe" id="commentbox">
-				<span id='name_field' style='font-size:2vw'>Github username:</span>&nbsp;<span id='help'>(?)</span>
-				<div id='paragraph'>The comment system is integrated with GitHub to pull user information. Don't have a GitHub account? <a href='http://www.github.com'>Make one!</a> Or, click <a href="#comment_form" onclick="git_int=false;document.getElementById('name_field').innerHTML='Screen name:'">here</a> and simply enter a preferred screen name.</div><br/>
-				<input type="text" name="name" id="name"/><br/><br/>
-				<span style='line-height:4vw;font-size:2vw'>Comment:<br/></span>
-				<textarea name="comment_body" form="commentbox" id="text_box"></textarea><br/><br/>
-				<input type="hidden" name="page_name" id="page_name" value="website"/>
-				<input type="hidden" name="location" id="location" value=""/>
-				<input type="hidden" name="avatar" id="avatar" value=""/>
-				<input type="hidden" name="private_key" value=""/>
-				<div id="comment_button" onclick="post_comment()">Post</div><br/>
-			</form>
-
-			<div id="comments"></div><br/><br/><br/>-->
-
-			<div id="paragraph" style="font-size:1vw;padding:0px;width:72vw">&nbsp;This website was produced by Sean Patrick Doyle and published in 2016. Anything here may be used freely, if you want, but please give me credit.</div><br/>
-
-		</main>
-
-		<div id="modal-bg">
-			<div id="modal">
-				<a href="http://www.facebook.com/spatrickdoyle">Shoot me a Facebook message!</a><br/>
-				<a href="mailto:sean@spatrickdoyle.com">Or email me!</a><br/>
-				Or you can call/text me: 913-530-6297<br/>
-				Or I guess you could send me a pull request or something, <a href="http://www.github.com/spatrickdoyle">if you want to do that.</a><br/>
-			</div>
-		</div>
-
-		<script type="text/javascript" src="index.js"></script>
-	</body>
+  </body>
 </html>

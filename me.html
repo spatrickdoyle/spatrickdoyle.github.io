@@ -1,80 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8"/>
-		<link rel="stylesheet" href="index.css">
-		<title>Sean Doyle - About Me</title>
-	</head>
+  <head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="http://cdn.jsdelivr.net/font-hack/2.020/css/hack-extended.min.css">
+	<link rel="stylesheet" href="index.css">
+	<title>Sean Doyle - About Me</title>
+  </head>
 
-	<body>
-		<div id="bar_block" style="order:0"></div>
+  <body>
+	<script type="text/javascript" src="index.js"></script>
 
-		<div id="banner"><br/>
-			<h1><a href="index.html">spatrickdoyle.com</a></h1>
-			<i>"Having nothing to do with Pokemon since 2015."</i><br/><br/><br/>
-			<table style="margin-left:10%;margin-right:10%;"><tr><td style="background-color:black;width:2000px;"></td></tr></table>
-		</div>
+	<main style="flex: 0 77%;">
+	  <figure id="photo" class="left">
+		  <img src="img/grad.png" alt=""/>
+		  <figcaption>
+			When I graduated from high school
+		  </figcaption>
+	  </figure>
 
-		<div id="bar" style="height:5px;background:rgb(255,255,255,0)"></div>
-		<div id="bar" style="position:fixed">
-			<div class="baritem" style="margin-top:23vh"><a href="me.html"><img src="img/me_icon.svg" onmouseover="this.src='img/me_icon_light.png'" onmouseout="this.src='img/me_icon.svg'" alt=""/> about me</a>&nbsp;</div>
-			<div class="baritem"><a href="website.html"><img src="img/website_icon.svg" onmouseover="this.src='img/website_icon_light.png'" onmouseout="this.src='img/website_icon.svg'" alt=""/> this website</a>&nbsp;</div>
-			<div class="baritem"><a href="projects.html"><img src="img/projects_icon.svg" onmouseover="this.src='img/projects_icon_light.png'" onmouseout="this.src='img/projects_icon.svg'" alt=""/> projects</a>&nbsp;</div>
-			<div class="baritem" id="contact_button"><img src="img/message_icon.svg" onmouseover="this.src='img/message_icon_light.png'" onmouseout="this.src='img/message_icon.svg'" alt=""/> contact me</div>
-		</div>
+	  <ul id="text" class="right">
+		<li><span><b>About Me:</b></span></li>
+		<li><span>- I am currently attending Southern Methodist University, majoring in Computer Engineering, Physics, and Math</span></li>
+		<li><span>- I grew up in Overland Park, Kansas, and I attended Blue Valley Northwest High School</span></li>
+		<li><span>- I attended Johnson County Community College concurrently during my last two years of high school, taking science and math classes</span></li>
+		<li><span>- I'm a big nerd</span></li>
+		<li><span>- During the last 6 years I've immersed myself in science and technology, teaching myself about programming and other topics</span></li>
+		<li><span>- I'm Catholic, and a member of the Knights of Columbus</span></li>
+		<li><span>- I was a member of the Blue Valley Northwest Chamber Singers, the top choir at the school, my senior year (I'm well rounded and all that)</span></li>
+	  </ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-		<main style="flex: 0 77%;">
-			<img id="photo" class="left" src="img/grad.png" alt=""/>
-			<div id="paragraph"><i>&nbsp;When I graduated from high school</i></div>
+	  <ul id="text" class="left">
+		<li><span><b>Skills:</b></span></li>
+		<li><span>- Python - <span style="color:#00C000">&lt;proficient&gt;</span></span></li>
+		<li><span>- Linux/UNIX - <span style="color:#00C000">&lt;proficient&gt;</span></span></li>
+		<li><span>- Physics & Math - <span style="color:#00C000">&lt;proficient&gt;</span></span></li>
+		<li><span>- C++ - <span style="color:#00C000">&lt;proficient&gt;</span></span></li>
+		<li><span>- Electronics & Robotics - <span style="color:#FF7000">&lt;experienced&gt;</span></span></li>
+		<li><span>- Java/Groovy - <span style="color:#FF7000">&lt;experienced&gt;</span></span></li>
+		<li><span>- HTML/CSS/Javascript - <span style="color:#FF7000">&lt;experienced&gt;</span></span></li>
+		<li><span>- Googling - <span style="color:#FF0000">&lt;expert&gt;</span></span></li>
+	  </ul>
 
-			<div id="text" class="right">
-				<b>About Me:</b><br/>
-				- I live in Overland Park, Kansas, and I attended Blue Valley Northwest High School<br/>
-				- I am currently attending Southern Methodist University, intending to major in Computer Engineering and Physics<br/>
-				- I'm a big nerd<br/>
-				- I've been teaching myself about programming and electronics for 6 years<br/>
-				- I took math and science at Johnson County Community College my junior and senior years of high school<br/>
-				- I was on the Blue Valley FIRST Robotics team for 4 years<br/>
-				- I was also a member of the Blue Valley Northwest Chamber Singers (the top choir at the school) my senior year
-				<br/>
-			</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  <figure id="photo" class="right">
+		  <img src="img/chambers.png" alt=""/>
+		  <figcaption>
+			The Chambers Singers at the Southwest American Choral Directors Association Convention in 2016
+		  </figcaption>
+	  </figure>
 
-			<div style="text-align:left;" id="text" class="left">
-				<b>Skills:</b><br/>
-				- Python - <code style="color:#00C000">&lt;proficient&gt;</code><br/>
-				- Linux - <code style="color:#00C000">&lt;proficient&gt;</code><br/>
-				- Physics & Math - <code style="color:#00C000">&lt;proficient&gt;</code><br/>
-				- Electronics & Robotics - <code style="color:#0000C0">&lt;experienced&gt;</code><br/>
-				- Java/Groovy - <code style="color:#0000C0">&lt;experienced&gt;</code><br/>
-				- C++ - <code style="color:#0000C0">&lt;experienced&gt;</code><br/>
-				- Piano - <code style="color:#FF7000">&lt;familiar&gt;</code><br/>
-				- HTML/CSS/Javascript - <code style="color:#FF7000">&lt;familiar&gt;</code><br/>
-				- Videography & Editing - <code style="color:#FF7000">&lt;familiar&gt;</code><br/>
-			</div>
-			<img id="photo" class="right" src="img/chambers.png" alt=""/>
-			<div id="paragraph"><i>&nbsp;The Chambers Singers at the Southwest American Choral Directors Association Convention in 2016</i></div>
+	  <div id="card" class="contact">
+		<b>Contact information:</b><br/>
+		Facebook messenger: <a href="http://www.facebook.com/spatrickdoyle">www.facebook.com/spatrickdoyle</a><br/>
+		Phone: 913-530-6297<br/>
+		Email: <a href="mailto:sean@spatrickdoyle.com">sean@spatrickdoyle.com</a><br/>
+		Github: <a href="http://www.github.com/spatrickdoyle">www.github.com/spatrickdoyle</a><br/>
+		LinkedIn: <a href="http://www.linkedin.com/in/spatrickdoyle">www.linkedin.com/in/spatrickdoyle</a><br/><br/>
 
-			<div id="card" class="contact">
-				<b>Contact information:</b><br/>
-				Facebook message: <a href="http://www.facebook.com/spatrickdoyle">www.facebook.com/spatrickdoyle</a><br/>
-				Phone: 913-530-6297<br/>
-				Email: <a href="mailto:sean@spatrickdoyle.com">sean@spatrickdoyle.com</a><br/>
-				Github: <a href="http://www.github.com/spatrickdoyle">www.github.com/spatrickdoyle</a><br/>
-				LinkedIn: <a href="http://www.linkedin.com/in/spatrickdoyle">www.linkedin.com/in/spatrickdoyle</a><br/><br/>
-
-				<a href="https://drive.google.com/file/d/1XRFcETir845VzGQtslX1tR8gehRyNwhum6K5lfZPhbBmLSLStcNWlkLHhMBrriASKq_M1NOaXqRtkV_B/view?usp=sharing">Check out my formal resume</a>
-			</div>
-		</main>
-
-		<div id="modal-bg">
-			<div id="modal">
-				<a href="http://www.facebook.com/spatrickdoyle">Shoot me a Facebook message!</a><br/>
-				<a href="mailto:sean@spatrickdoyle.com">Or email me!</a><br/>
-				Or you can call/text me: 913-530-6297<br/>
-				Or I guess you could send me a pull request or something, <a href="http://www.github.com/spatrickdoyle">if you want to do that.</a><br/>
-			</div>
-		</div>
-
-		<script type="text/javascript" src="index.js"></script>
-	</body>
+		<a href="https://drive.google.com/open?id=1DZkPfSt00iqILzYuRgOJYGaUyZMrqZieJ3BUH2W1u1CQMkgYn8_oaKRIDYJPUwf786sPYDBLOcJcvyoI">Check out my formal resume</a>
+	  </div>
+	</main>
+  </body>
 </html>

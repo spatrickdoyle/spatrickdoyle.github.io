@@ -1,5 +1,5 @@
 body {
-	font-family: "Trebuchet MS","sans-serif";
+	font-family: "Hack","sans-serif";
 
 	display: -webkit-box;
 	display: -moz-box;
@@ -14,6 +14,12 @@ body {
 	flex-flow: row wrap;
 
 	text-align: center;
+
+	background-color: rgb(255,255,255);
+	/*background-image: url("img/wallpaper2.png");
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-attachment: fixed;*/
 }
 
 #banner {
@@ -24,30 +30,38 @@ body {
 	order: 1;
 
 	width: 95%;
+
+	color: rgba(255,255,255,1.0);
+	text-shadow:
+		-1px -1px 0 #000,  
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
 #banner > h1 {
-	font-size: 60px;
+	font-size: calc(50px + 3vw);
 }
 
 #banner > h1 > a {
 	text-decoration:none;
-	color:black;
+	color: rgba(255,255,255,1.0);
 }
 
 #banner > i {
-	font-size: 20px;
+	font-size: calc(20px + 1vw);
 }
 
 #bar_block {
-	background: #ffffff;
+	background: rgba(255,255,255,0);
 	width: 5%;
 	height: 240px;
 }
 
-#bar {
-	width: 5vw;
+.bar {
+	width: 80px;
 	height: 98vh;
+	min-height: 780px;
 	left: 8px;
 	top: 8px;
 
@@ -63,19 +77,24 @@ body {
 	-ms-flex: 0 5%;
 	flex: 0 5%;
 
-	background: #cccccc;
+	background: rgba(255,255,255,0.8);
+
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
 }
 
-#bar > div > a {
+.bar > div > a {
+	font-size: 15px;
 	text-decoration:none;
 	color:black;
 }
 
-#bar > div > img {
+.bar > div > img {
 	width: 80%;
 }
 
-#bar > div > a > img {
+.bar > div > a > img {
 	width: 80%;
 }
 
@@ -90,10 +109,10 @@ body {
 	-webkit-order: 3;
 	order: 3;
 
-	width: 25vw;
-	height: 25vw;
+	width: 22vw;
+	height: 22vw;
 	margin-top: 25px;
-	margin-left: 13%;
+	margin-left: 14%;
 }
 
 main {
@@ -107,8 +126,8 @@ main {
 }
 
 #card.contact {
-	width: 50%;
-	font-size: 20px;
+	width: 55%;
+	font-size: 1.1vw;
 	margin-top: 30px;
 	text-align: left;
 	height: 200px;
@@ -119,20 +138,24 @@ main {
 
 #card {
 	height: 250px;
-	background: #cccccc;
+	background: rgba(255,255,255,0.8);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #000000;
 	width: 100%;
-	height: 25vw;
-	padding: 2px;
+	height: 20vw;
+	padding: 1vw;
 	padding-left: 7px;
 	padding-right: 7px;
+	font-size: 1.0vw;
+}
+
+#card > i {
 	font-size: 1.5vw;
 }
 
 #card > p {
-	font-size: 4vw;
+	font-size: 3.5vw;
 	text-align: center;
 }
 
@@ -140,21 +163,7 @@ main {
 	height: 25px;
 }
 
-#photo.right {
-	width: 20vw;
-	margin-top: 30px;
-	border-style: solid;
-	border-width: 5px;
-}
-
-#photo.left {
-	width: 20vw;
-	margin-top: 30px;
-	border-style: solid;
-	border-width: 5px;
-}
-
-#text {
+/*#text {
 	margin-top: 30px;
 	text-align: justify;
 	font-size: 1.3vw;
@@ -164,21 +173,56 @@ main {
 	padding-left: 5px;
 	padding-right: 5px;
 
-	background: #cccccc;
+	background: rgba(255,255,255,0.8);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #000000;
+}*/
+ul {
+	display: table;
+    table-layout: fixed;
+
+	margin-top: 30px;
+	font-size: 0.5vw;
+    width: 70%;
+	height: 20vw;
+	padding: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+
+	background: rgba(255,255,255,0.8);
+    border: 1px solid #000000;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+li {
+	text-align: left;
+    display: table-row;
+    /*background: pink;*/
+}
+
+li > span {
+	display: table-cell;
+    vertical-align: middle;
+	font-size: 1.1vw;
+    /*border-top: 1px solid green;*/
+}
+
+li > span > span {
+	font-size: 1.1vw;
 }
 
 #title {
 	margin-top: 50px;
 	font-size: 2vw;
 	padding: 13px;
+	margin-left:-29vw;
 
-	background: #cccccc;
+	background: rgba(255,255,255,0.8);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #000000;
 }
 
 #paragraph {
@@ -187,32 +231,32 @@ main {
 	padding: 2px;
 	text-align: left;
 
-	background: #cccccc;
+	background: rgba(255,255,255,0.8);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #000000;
 }
 
 #project_item {
 	width: 29vw;/*45%;*/
-	height: 30vw;
+	height: 34vw;
 	margin: 1%;
-	font-size: 160%;
+	font-size: 180%;
 
-	background: #cccccc;
+	background: rgba(255,255,255,0.8);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #000000;
 }
 
 #project_item.left {
 	float: left;
-	margin-left: 4%;
+	margin-left: 6%;
 }
 
 #project_item.right {
 	float: right;
-	margin-right: 4%;
+	margin-right: 5%;
 }
 
 #project_item > img {
@@ -232,31 +276,25 @@ main {
 	float: left;
 }
 
-code {
-	font-size: 20px;
-	font-size: 1.1vw;
-}
-
 #modal-bg {
 	display: none;
-	background: rgb(255,255,255,0);
+	background: rgba(255,255,255,0);
 	width: 94%;
 	height: 100vh;
 	position: fixed;
 	z-index: 1;
-	left: 6%;
+	left: 100px;
 	top: 0px;
 }
 
 #modal {
-	background: #cccccc;
+	background: rgba(255,255,255,0.9);
 	border-style: solid;
 	border-width: 1px;
-	border-color: #999999;
+	border-color: #000000;
 
 	position: fixed;
-	left: 6%;
-	top: calc(12vw + 25vh + 128px);
+	left: 100px;
 
 	width: 500px;
 	font-size: 20px;
@@ -268,32 +306,55 @@ code {
 	padding: 15px;
 }
 
-img + #paragraph {
-	visibility: hidden;
-	position: fixed;
-	width: 2000px;/*93%;*/
-	margin-top: 0px;
-	margin-left: 0px;
-	bottom: -7vh;
-	left: 6%;
-
-	-webkit-box-transition:all 0.5s ease-in-out;
-	-moz-box-transition:all 0.5s ease-in-out;
-	-webkit-transition:all 0.5s ease-in-out;
-	-ms-transition:all 0.5s ease-in-out;
-	transition:all 0.5s ease-in-out;
-
-	background: #8d8d8d;
-
-	color: #ffffff;
-	font-size: 17px;
-	padding: 2px;
+#photo.right {
+	width: 20vw;
+	margin-top: 30px;
 }
 
-img:hover + #paragraph {
-	visibility: visible;
-	bottom: 1.1vh;
-	margin-left: 0px;
+#photo.left {
+	width: 20vw;
+	margin-top: 30px;
+}
+
+figure {
+	display: block;
+	position: relative;
+	overflow: hidden;
+
+	border-style: solid;
+	border-width: 0px;
+	border-color: #000000;
+	padding: 0px;
+	background: rgba(255,255,255,0);
+
+	margin: 0;
+}
+
+figure > img {
+	width: calc(100% - 2px);
+	border-style: solid;
+	border-width: 1px;
+	margin-bottom: 0px;
+}
+
+figcaption {
+	position: absolute;
+	background: rgba(0,0,0,0.75);
+	color: white;
+	padding: 5px;
+
+	opacity: 0;
+	bottom: -30%;
+	left: 0;
+	width: calc(100% - 2px);
+	-webkit-transition: all 0.6s ease;
+	-moz-transition:    all 0.6s ease;
+	-o-transition:      all 0.6s ease;
+}
+
+figure:hover figcaption {
+  opacity: 1;
+  bottom: 0px;
 }
 
 form {
@@ -381,6 +442,53 @@ span {
 	display: block;
 }
 
+#body_text {
+	background: rgba(255,255,255,0.8);
+	padding: 3px;
+	padding-left: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+}
+
+a.typewrite {
+	text-decoration: none;
+	color: black;
+}
+
+span.wrap {
+	font-size: 2vw;
+}
+
+#cursor {
+	font-size: 2vw;
+	color: #4E08D4;
+
+	animation: blink 1.2s step-end infinite;
+}
+
+#cursor2 {
+	display: none;
+	font-size: 2vw;
+	position: relative;
+	left: -1.2vw;
+
+	color: #4E08D4;
+}
+
+@keyframes blink {
+	0% {opacity: 0.0;}
+	50% {opacity: 1.0;}
+}
+
+#background {
+	webkit-filter: blur(8px);
+	-moz-filter: blur(8px);
+	-o-filter: blur(8px);
+	-ms-filter: blur(8px);
+	filter: blur(8px);
+}
+
 @media all and (max-width: 1305px) {
 
 	#card.contact {
@@ -389,12 +497,12 @@ span {
 		height: 150px;
 	}
 
-	#bar {
+	/*#bar {
 		font-size: 70%;
-	}
+	}*/
 
 	#project_item {
-		height: 34vw;
+		height: 36vw;
 	}
 
 	#title {
@@ -437,28 +545,29 @@ span {
 		-webkit-order: 0;
 		order: 0;
 
-		background: #cccccc;
+		background: rgba(255,255,255,0);
 		height: 30px;
 		width: 100%;
 	}
 
-	#bar {
+	.bar {
 		position: static !important;
 		width: 70%;
+		min-height: 0px;
 		height: calc(10vh + 6vw + 220px);
-		background: #ffffff;
+		background: rgba(255,255,255,0);
 		margin-top: 0px;
+		border: 0px;
 
 		margin-left: auto;
 		margin-right: auto;
 	}
 
 	.baritem {
-		background: #cccccc;
+		background: rgba(255,255,255,0.8);
 		border-style: solid;
 		border-width: 1px;
-		border-color: #999999;
-		font-size: 3em;
+		border-color: #999999
 		padding: 2px;
 		padding-bottom: 11px;
 
@@ -466,20 +575,34 @@ span {
 		width: 100%;
 	}
 
-	#bar > div > a:hover {
+	.bar > div > a {
+		font-size: 3.5vw;
+	}
+
+	#contact_button {
+		font-size: 3.5vw;
+	}
+
+	.bar > div:hover > a {
 		color: #505050;
 	}
 
-	#bar > div > img {
-		width: 40px;
-		position: relative;
-		top: 7px;
+	.bar > div:hover {
+		color: #505050;
 	}
 
-	#bar > div > a > img {
-		width: 40px;
+	.bar > div > img {
+		width: 4.7vw;
 		position: relative;
 		top: 7px;
+		margin-right: 1vw;
+	}
+
+	.bar > div > a > img {
+		width: 4.7vw;
+		position: relative;
+		top: 7px;
+		margin-right: 1vw;
 	}
 
 	#profile {
@@ -498,13 +621,22 @@ span {
 		margin-left: 12%;
 	}
 
+	#card > i {
+		font-size: 2.1vw;
+	}
+
+	#card > p {
+		font-size: 3.4vw;
+	}
+
 	#space {
 		height: 6vw;
 	}
 
 	#project_item {
 		width: 58vw;
-		height: 60vw;
+		height: 64vw;
+		font-size: 150%;
 		margin-top: 30px;
 	}
 
@@ -532,16 +664,16 @@ span {
 
 	#text.right {
 		float: none;
-		margin-left: 7%;
+		margin-left: 8%;
 		width: 90%;
-		height: auto;
+		height: 60vw;
 	}
 
 	#text.left {
 		float: none;
-		margin-left: 7%;
+		margin-left: 8%;
 		width: 90%;
-		height: auto;
+		height: 40vw;
 	}
 
 	#card.contact {
@@ -549,16 +681,17 @@ span {
 		margin-left: 7%;
 	}
 
-	#text {
+	li > span {
 		font-size: 2.5vw;
 	}
 
-	code {
+	li > span > span {
 		font-size: 2.5vw;
 	}
 
 	#title {
 		font-size: 3.5vw;
+		margin-left:4vw;
 	}
 
 	#paragraph {
@@ -577,6 +710,12 @@ span {
 		margin-left: 8%;
 		margin-right: 10%;
 		width: 80%;
+
+		-webkit-box-transition:all 0.5s ease-in-out;
+		-moz-box-transition:all 0.5s ease-in-out;
+		-webkit-transition:all 0.5s ease-in-out;
+		-ms-transition:all 0.5s ease-in-out;
+		transition:all 0.5s ease-in-out;
 	}
 
 	img + #paragraph {
@@ -603,6 +742,7 @@ span {
 
 @media all and (max-width: 690px) {
 	#project_item {
-		height: 63vw;
+		height: 66vw;
+		font-size: 100%;
 	}
 }
