@@ -199,6 +199,17 @@ var btn = document.getElementById("contact_button");
 var vw = document.documentElement.clientWidth;
 var vh = document.documentElement.clientHeight;
 
+var bg = document.getElementById('background');
+
+if (vw >= vh) {
+	bg.style.width = "100%";
+	bg.style.height = "auto";
+}
+else {
+	bg.style.width = "auto";
+	bg.style.height = "100%";
+}
+
 if (vh < 780) {
 	document.getElementById("bar").setAttribute("style", "position: absolute");
 }
@@ -352,3 +363,19 @@ window.onload = function() {
         }
     }
 };
+
+window.onresize = function() {
+	var vw = document.documentElement.clientWidth;
+	var vh = document.documentElement.clientHeight;
+
+	var bg = document.getElementById('background');
+
+	if (vw >= vh) {
+		bg.style.width = "100%";
+		bg.style.height = "auto";
+	}
+	else {
+		bg.style.width = "auto";
+		bg.style.height = "100%";
+	}
+}
