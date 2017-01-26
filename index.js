@@ -145,6 +145,8 @@ if (load_comments) {
 	retrieve.send(null);
 }*/
 
+var pageLoadStart = Date.now();
+
 function create(htmlStr) {
     var frag = document.createDocumentFragment(),
         temp = document.createElement('div');
@@ -362,6 +364,9 @@ window.onload = function() {
             new TxtType(elements[i], JSON.parse(toRotate), period);
         }
     }
+
+	var loadTime = Date.now() - pageLoadStart;
+	alert(loadTime);
 };
 
 window.onresize = function() {
