@@ -145,8 +145,6 @@ if (load_comments) {
 	retrieve.send(null);
 }*/
 
-var pageLoadStart = Date.now();
-
 function create(htmlStr) {
     var frag = document.createDocumentFragment(),
         temp = document.createElement('div');
@@ -166,7 +164,7 @@ var videofile = "bg"+parseInt(Math.floor(Math.random()*2 + 1));
 var heading = create(' \
 <video autoplay autobuffer loop muted id="background" style="position:fixed;top:0px;left:0px;z-index:-1;"> \
       <source src="img/'+videofile+'.mp4" type="video/mp4"/> \
-      <img src="'+videofile+'.png" /> \
+      <img src="img/'+videofile+'.png" /> \
 </video> \
 \
 <div id="bar_block"></div> \
@@ -195,15 +193,16 @@ var heading = create(' \
 
 document.body.insertBefore(heading, document.body.childNodes[0]);
 
+var bg = document.getElementById('background');
+bg.pause();
+
 var modal = document.getElementById('modal-bg');
 var btn = document.getElementById("contact_button");
 
 var vw = document.documentElement.clientWidth;
 var vh = document.documentElement.clientHeight;
 
-var bg = document.getElementById('background');
-
-if (vw >= vh) {
+if (vw >= vh*(16/9)) {
 	bg.style.width = "100%";
 	bg.style.height = "auto";
 }
@@ -268,7 +267,8 @@ var TxtType = function(el, toRotate, period) {
 	this.urls = [ "", "rice2.html", "vision.html", "website.html", "knw.html", "vision.html", "spectre.html", "vision.html", "me.html" ];
     this.el = el;
     this.loopNum = 0;
-    this.period = parseInt(period, 10) || 2000;
+    this.per = parseInt(period, 10) || 2000;
+	this.period = 1000;
     this.txt = '';
     this.tick();
     this.isDeleting = false;
@@ -278,10 +278,12 @@ var TxtType = function(el, toRotate, period) {
 };
 
 TxtType.prototype.tick = function() {
+	if (this.loopNum != 0) {
+		this.period = this.per;
+	}
     var i = this.loopNum % this.toRotate.length;
     var fullTxt = this.toRotate[i];
 	var url = this.urls[i];
-	console.log(fullTxt,url);
 
     if (this.isDeleting) {
         this.txt = fullTxt.substring(0, this.txt.length - 1);
@@ -364,11 +366,6 @@ window.onload = function() {
             new TxtType(elements[i], JSON.parse(toRotate), period);
         }
     }
-
-	var loadTime = Date.now() - pageLoadStart;
-	if (loadTime > 900) {
-		bg.pause();
-	}
 };
 
 window.onresize = function() {
@@ -377,7 +374,7 @@ window.onresize = function() {
 
 	var bg = document.getElementById('background');
 
-	if (vw >= vh) {
+	if (vw >= vh*(16/9)) {
 		bg.style.width = "100%";
 		bg.style.height = "auto";
 	}
