@@ -167,6 +167,8 @@ var heading = create(' \
       <img id=background src="img/'+videofile+'.png" /> \
 <!--</video>--> \
 \
+<link rel="icon" type="image/png" href="favicon.png"> \
+<link rel="icon" type="image/x-icon" href="favicon.ico"> \
 <div id="bar_block"></div> \
 \
 <div id="banner"><br/> \
