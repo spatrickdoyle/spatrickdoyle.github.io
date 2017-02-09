@@ -162,10 +162,10 @@ var videofile = "bg"+parseInt(Math.floor(Math.random()*2 + 1));
 
 
 var heading = create(' \
-<video autoplay autobuffer loop muted id="background" style="position:fixed;top:0px;left:0px;z-index:-1;"> \
-      <source src="img/'+videofile+'.mp4" type="video/mp4"/> \
-      <img src="img/'+videofile+'.png" /> \
-</video> \
+<!--<video autoplay autobuffer loop muted id="background" style="position:fixed;top:0px;left:0px;z-index:-1;"> \
+      <source src="img/'+videofile+'.mp4" type="video/mp4"/>--> \
+      <img id=background src="img/'+videofile+'.png" /> \
+<!--</video>--> \
 \
 <div id="bar_block"></div> \
 \
@@ -194,7 +194,7 @@ var heading = create(' \
 document.body.insertBefore(heading, document.body.childNodes[0]);
 
 var bg = document.getElementById('background');
-bg.pause();
+//bg.pause();
 
 var modal = document.getElementById('modal-bg');
 var btn = document.getElementById("contact_button");

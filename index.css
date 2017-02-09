@@ -482,6 +482,11 @@ span.wrap {
 }
 
 #background {
+	position:fixed;
+	top:0px;
+	left:0px;
+	z-index:-1;
+
 	webkit-filter: blur(8px);
 	-moz-filter: blur(8px);
 	-o-filter: blur(8px);
