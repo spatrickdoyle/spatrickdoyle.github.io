@@ -47,6 +47,10 @@
 	  <image:loc>http://www.spatrickdoyle.com/img/cam_vis_proj.png</image:loc>
 	  <image:caption>Sean Patrick Doyle OpenCV Camera Tracking FIRST Robotics 2410 Metal Mustangs</image:caption>
 	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/mandroids_proj.png</image:loc>
+	  <image:caption>Sean Patrick Doyle SMU KNW 2300 Mandroids Robotics</image:caption>
+	</image:image>
 	<lastmod>2017-01-24T20:44:00Z</lastmod>
   </url>
 
@@ -170,5 +174,26 @@
 	  <image:caption>Sean Patrick Doyle i3wm Fedora Linux rice rofi</image:caption>
 	</image:image>
 	<lastmod>2017-01-25T17:07:00Z</lastmod>
+  </url>
+
+  <url>
+	<loc>http://www.spatrickdoyle.com/knw2.html</loc>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/ceiling.png</image:loc>
+	  <image:caption>Southern Methodist University KNW 2300 SMU Caruth Hall</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/matrix5.png</image:loc>
+	  <image:caption>Sean Patrick Doyle KNW 2300 SMU machine learning linear regression</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/kalmangraph.png</image:loc>
+	  <image:caption>Sean Patrick Doyle KNW 2300 Kalman filter machine learning robotics</image:caption>
+	</image:image>
+	<image:image>
+	  <image:loc>http://www.spatrickdoyle.com/img/robot2.png</image:loc>
+	  <image:caption>Sean Patrick Doyle Mandroids SMU KNW 2300 robotics</image:caption>
+	</image:image>
+	<lastmod>2017-02-13T17:45:00Z</lastmod>
   </url>
 </urlset>
