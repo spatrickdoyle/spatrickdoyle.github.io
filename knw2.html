@@ -4,72 +4,146 @@
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="http://cdn.jsdelivr.net/font-hack/2.020/css/hack-extended.min.css">
 	<link rel="stylesheet" href="index.css">
-	<title>Sean Doyle - LOREM IPSUM</title>
+	<title>Sean Doyle - The Robot Class</title>
   </head>
 
   <body>
 	<script type="text/javascript" src="index.js"></script>
 
 	<main style="flex: 0 77%;margin-right:10%;text-align:left;line-height:30px">
-	  <div id="title" style="margin-left:0px;"><b>Lorem Ipsum Dolor</b></div><div style="line-height:0.1vw"><br/></div>
-	  <div id="paragraph">&nbsp;Posted on ---</div><div style="line-height:0.1vw"><br/></div>
+	  <div id="title" style="margin-left:0px;"><b>First Year Design Robotics Challenge</b></div><div style="line-height:0.1vw"><br/></div>
+	  <div id="paragraph">&nbsp;Posted on February 13, 2017</div><div style="line-height:0.1vw"><br/></div>
 
 	  <p>
-		<div id="body_text">The camera looks at the ceiling. The exposure is turned pretty much all the way down, so really all the camera can see is black with bright points where the lights are. A threshold is applied, so only pixels within the right range of colors are selected. And algorithm is applied that finds all contiguous regions, and of the blobs identified, the ones within the right size range are placed in a list. Now the math: What we have is a list of coordinate points, each representing the center of one of the blobs on the screen. We need to turn those pixel values into actual measurements. The first thing that is done is to turn this perspective projection we have into an orthagonal projection where the coordinates actually represents distances in inches from where the line of sight of the camera intersects the ceiling. Here's how that's done: any given camera has a limited field of view which can be measured in degrees both horizontally and vertically. The field of view is also measured in pixels - the resolution of the camera. That means that each pixel represents a little slice of the field of view, and corresponds to an angle. By dividing the field of view in pixels by the resolution in pixels (separately for both axes), we can get a 'degrees-per-pixel' value for both axes of the camera we use. Then if we know that a blob is a certain number of pixels away from the X axis at the center of the screen, we can multiply that Y coordinate by the vertical degrees-per-pixel value to get the angle formed between the vertical line of sight of the camera and the line of sight directly from the camera to that point. Take the tangent of that angle and multiply it by the distance in inches from the camera aperture to the ceiling, and we have the Y coordinate inches of that point relative to the position of the camera. Doing that for every point on the screen gives an accurate layout of the positions of the lights the robot can see.
+		<div id="body_text">When I was looking at colleges, one of the things that really attracted me to Southern Methodist University was hearing about "the robot class". The class is KNW 2300, known most of the time as First Year Design. In this class, you're randomly assigned a team with a few other people, and tasked with building a robot that can accomplish several tasks. Along the way you get some guidance from professors and teaching assistants, but mostly it's up to the students to figure it out. This year, our robot had to navigate a small maze, take wind speed temperature readings, avoid unpredictable obstacles, and collect and deposit a ping pong ball - all completely autonomously. I will not document our entire design and build process, but I will talk about the code we ran on it, because I think I came up with a lot of interesting solutions for problems we encountered.</div><br/>
 
-		  Next, the position must be actually found by looking at the differences between consecutive frames. If the robot moves in a straight line, the points on the ceiling will move relative to the robot in the opposite direction. If the robot rotates (a perfectly zero-point rotation), the points on the ceiling will rotate about the center of the image in the opposite direction. For every movement the robot makes, the change to the coordinates of the lights it sees can be modeled by a rotation of the coordinates x0,y0 by some theta-0 around the center, then a translation by some (dx,dy), then another rotation by some theta-1 around the center again, to give the coordinates x1,y1. If you think about it, this makes sense - the robot will not always travel in a straight path, but no matter what path it takes to get from one point to another, you could get the same result by rotating the robot to face the target point, moving in a straight line to that point, then rotating again to face some final direction.
+		<div id="paragraph">&nbsp;The Big Challenges</div><br/>
 
-		  This can be represented by the matrix:
-		  [ cos(th0+th1),	-sin(th0+th1),	dx*cos(th1)-dy*sin(th1) ],
-		  [ sin(th0+th1),	cos(th0+th1),	dx*sin(th1)+dy*cos(th1) ]
+		<div id="body_text">The major difficulty with programming was navigation. The robot moved around in a small enclosed area with walls placed so as to guide the robot along a certain path. The idea was that each robot would take roughly the same path through the field, performing each task one by one as they went. There would also be another robot running on the field at the same time, and points would be deducted if your robot ran into the other one, so it had to be able to avoid obstacles dynamically. ALSO, a small cinder block would be placed somewhere in the middle of the field, just to screw with everyone, and points would be awarded for successfully getting around it.</div><br/>
 
-		  Multiplying a position vector [x0,y0,1] by this matrix will perform the transformation described above and give a vector [x1,y1]. So we have this system of equations described by a matrix - how do we solve for the variables th0, dx, dy, and th1? And how do we generalize it for multiple points (since only one point certainly isn't enough to solve for 4 variables)? We can rearrange this data to create a new matrix parametrized by our given points, and then factor out a vector of unknowns to solve for.
-
-		  Consider that the product of the matrix
-		  [ cos(th0+th1),	-sin(th0+th1),	dx*cos(th1)-dy*sin(th1) ],
-		  [ sin(th0+th1),	cos(th0+th1),	dx*sin(th1)+dy*cos(th1) ]
-
-		  and the vector [x0,y0,1] is the same as the product of the matrix
-		  [ x0,	-y0,	1,	0 ],
-		  [ y0,	x0,		0,	1 ]
-
-		  and the vector [ cos(th0+th1),	sin(th0+th1),	dx*cos(th1)-dy*sin(th1),	dx*sin(th1)+dy*cos(th1) ] (which I will call theta). Both are equal to the vector [x1,y1]. The difference is that in the second parametrization, the matrix and result can be constructed of known values (the coordinates seen by the camera before and after movement), while the vector theta factored out is composed of transformations of unknown values. Now imagine that we have multiple sets of coordinates. Constructing the above matrix for each set, and appending them all, gives the matrix chi:
-
-		  [ x0,0,		-y0,0,		1,		0 ],
-		  [ y0,0,		x0,0,		0,		1 ],
-		  [ x0,1,		-y0,1,		1,		0 ],
-		  [ y0,1,		x0,1,		0,		1 ],
-		  [ x0,2,		-y0,2,		1,		0 ],
-		  [ y0,2,		x0,2,		0,		1 ]...
-
-		  and so on for however many points we have. Multiplying this new matrix by theta gives a vector Y [x1,0, y1,0, x1,1, y1,1, x2,0, y2,0, ...] of each point after the transformation. Theses values are known, and the values used to construct chi are known, so all that remains is to solve for the vector theta.
-
-		  Now for a key simplification, which makes the solution somewhat apparent, but introduces error which could compound and screw everything up. We'll see.
-		  The robot won't have very much time at all to move between ticks - my best guess without having actually run it is maybe a few frames per second. We can therefore assume that while the total angle the robot rotates between ticks is enough that it needs to be accounted for, the individual values of th0 and th1 are close enough to 0 that we can ignore them. By assuming th1 is equal to 0, the vector theta simplifies to [ cos(th0+th1),	sin(th0+th1),	dx,	dy ]. Given this, we don't have to try to solve for th0 and th1 individually anymore. We can solve for this vector theta, and get that arccos(theta[0]) and arcsin(theta[1]) are the total angle the robot has rotated, and theta[2] and theta[3] represent dx and dy respectively. Now that each entry of theta only contains one unknown variable, theta can be found with the formula:
-
-		  theta = (chi-transpose * chi)^-1 * (chi-transpose * Y)
-
-		  where chi, Y, and theta are as defined above, and the negative first power indicates the inverse of a matrix. That formula is found using matrix calculus, which I won't get into here... 
-		</div><br/>
-
-		<div id="paragraph">&nbsp;This is a new paragraph</div><br/>
-
-		<div id="body_text">Donec at ante maximus, hendrerit lectus quis, maximus tortor. Nunc eu nisl nec diam sollicitudin iaculis non sed ex. Suspendisse dignissim dolor neque, consectetur tincidunt justo semper nec. Nam ut vestibulum ligula. Sed nec semper est, non dapibus tellus. Fusce consequat sed augue a pretium. Nunc sem mi, venenatis quis pretium ut, dictum vitae leo.<br/><br/>
-
-		  Pellentesque et turpis id risus congue vehicula. Nam accumsan, mi dignissim viverra consequat, eros lectus ornare tortor, elementum porta eros nisl sed ipsum. Vestibulum non interdum nisl, vel ornare dui. Cras vitae lacus non erat pretium ultricies. Cras erat libero, sodales eget vestibulum convallis, condimentum at dui. Cras in laoreet libero. Vestibulum in dui sem. Morbi iaculis vulputate quam.</div><br/>
-
-		<div id="paragraph">&nbsp;Another new paragraph</div><br/>
-
-		<div id="body_text">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent orci massa, elementum ut nulla eget, mattis volutpat erat. Vestibulum dictum, metus nec ullamcorper lacinia, metus sapien finibus purus, elementum suscipit diam erat eu mauris. Vestibulum ornare elementum diam. Vestibulum laoreet vehicula nisi at suscipit. Proin quis dignissim nisi. Suspendisse posuere, ante eu efficitur bibendum, tellus leo vestibulum velit, id ultricies velit sem in ex. Nulla finibus aliquam metus, imperdiet faucibus eros tempor quis. Sed fringilla vel enim nec imperdiet. Nunc fermentum tellus vel mauris tempus, ac porta enim mollis. Etiam varius hendrerit dictum. Quisque maximus elementum massa, sodales gravida justo ullamcorper vitae. Cras vitae condimentum velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</div><br/>
-
-		<figure>
-		  <img src="img/scrot.png" alt=""/>
+		<figure style="width:90%;">
+		  <img src="img/playingfield.png" alt=""/>
 		  <figcaption>
-			This is a caption for this image
+			The playing field schematic, and the suggested path through it
 		  </figcaption>
 		</figure><br/>
 
-		<div id="body_text">In id ex nec tortor dignissim tristique sed et tellus. Maecenas sit amet sem id massa pharetra viverra. Praesent ultricies enim felis, quis dictum tortor accumsan ut. Aliquam venenatis orci quis felis ultricies rutrum. Pellentesque felis nulla, accumsan non rutrum ut, elementum non nisl. Quisque interdum egestas interdum. Mauris sagittis quam dui, vitae ornare velit facilisis et. Nulla et justo non erat faucibus auctor. Mauris neque ipsum, euismod sit amet finibus et, fermentum eu magna. Maecenas quis finibus metus, a egestas ipsum. Sed id venenatis risus. Integer porttitor luctus dapibus. Suspendisse sed eros sodales, lobortis lacus congue, molestie felis.</div>
+		<div id="body_text">At this point you may be thinking, "These are problems that actual roboticists have been working on for years, and there still is not a really good solution for making robots work together autonomously. How are a bunch of first year college students with practically no guidance supposed to do all this?" Well, I was thinking the same thing. Spoiler alert: only one team of the thirteen that participated this past semester successfully navigated the entire course and performed every task, and they were only able to do it once. (Spoiler alert: it wasn't my team).<br/><br/>
+
+		  We had at our disposal regular tools, 3D printers, a laser cutter, and a whole bunch of metal frame pieces and screws and stuff. The robot had to be controlled with an Arduino, and we were provided with motor controllers and other electronics for interfacing with it. We also had a budget of $30 which we could spend on other parts, as long as we got the purchase approved by the professors.<br/><br/>
+
+		  I was most interested in how we were supposed to go about programming the robots. The professors didn't want us to have to mess around with Arduino sketches because lots of the CS majors taking the course were still new to programming. Instead they gave us a Java library to use, since the intro programming class taught here at SMU is in Java. The Java library contained a bunch of high-level functions for doing things like taking readings from certain sensors and controlling the motors, and it was supposed to make the actual operation of the robot relatively easy. It worked by running the Java code on a laptop, which was connected to the robot via a USB cable, and there was a sketch running on the Arduino that would receive serial commands from the laptop to control the robot. You read that right: while the robot was autonomously running on the field, it had to be connected to a laptop with a USB cable.<br/><br/>
+
+		  Essentially we were expected to write code that would control the robot by banging around the field, trying to roughly figure out where we were based on bump sensors and ultrasonic proximity sensors, all while a ten foot long USB trailed behind. I was not pleased. I was not pleased. I wanted a navigation solution that was elegant and effective, that would allow us to reckon our position independently of the field elements, and which was (preferably) wireless. So I took that $30 budget and ran with it.</div><br/>
+
+		<div id="paragraph">&nbsp;My Ideas</div><br/>
+
+		<div id="body_text">The night after we were issued the rules of the competition, I went into the atrium of the Caruth engineering building (where the competition would be held), lay down on the floor, and stared up at the ceiling. I was looking for features of the room that would remain constant, and could be used as reference for a navigation system. Last year I created a computer vision system for the FIRST robotics team I was on, and I was thinking that I could do something similar for this challenge. This is what I came up with:</div><br/>
+
+		<figure style="width:90%;">
+		  <img src="img/ceiling.png" alt=""/>
+		  <figcaption>
+			The ceiling of the room where the competition was
+		  </figcaption>
+		</figure><br/>
+
+		<div id="body_text">I would put a webcam on the robot and point it at the ceiling. The camera would see the lights on the ceiling, which would never move, and as the robot drove around it could use the lights to measure its position. The USB camera would be plugged into a Raspberry Pi board, which would act as a co-processor to the Arduino. All the vision calculations would be performed on the Pi, and the data it gathered would be used to control the robot. Also running on the Pi would be the Java toolkit that controlled the robot - the Pi would be plugged into the Arduino instead of a laptop. The Pi could then be connected to a WiFi network with a USB dongle, and controlled via SSH. It was a complicated system that need to go through a little bit of refining, but if it worked, our robot would not only be wireless, but also able to reckon its field position absolutely and navigate without relying totally on limited sensor data.</div><br/>
+
+		<div id="paragraph">&nbsp;The Implementation</div><br/>
+
+		<div id="body_text">The camera looks at the ceiling. The exposure is turned pretty much all the way down, so really all the camera can see is black with bright points where the lights are. A threshold is applied, so only pixels within the right range of colors are selected. An algorithm is applied that finds all contiguous regions, and of the blobs identified, the ones within the right size range (and which are also roughly circular) are placed in a list.<br/><br/>
+
+		  Now the math: What we have is a list of coordinate points, each representing the center of one of the blobs on the screen. We need to turn those pixel values into actual measurements. The first thing that is done is to turn this perspective projection into an orthogonal projection where the coordinates actually represents distances in inches from where the line of sight of the camera intersects the ceiling. Here's how that's done: any given camera has a limited field of view which can be measured in degrees both horizontally and vertically. The field of view is also measured in pixels - the resolution of the camera. That means that each pixel represents a little slice of the field of view, and corresponds to an angle. By dividing the field of view in degrees by the resolution in pixels (separately for both axes), we can get a 'degrees-per-pixel' value for both axes of the camera being used. Then if we know that a blob is a certain number of pixels away from the X axis at the center of the screen, we can multiply that Y coordinate by the vertical degrees-per-pixel value to get the angle formed between the vertical line of sight of the camera and the line of sight directly from the camera to that point. Take the tangent of that angle and multiply it by the distance in inches from the camera aperture to the ceiling, and we have the Y coordinate inches of that point relative to the position of the camera. Doing that for every point on the screen, for both the X and Y axes, gives an accurate layout of the positions of the lights the robot can see.<br/><br/>
+
+		  I talk about this method of distance reckoning with a camera in my other article about using camera vision to control a robot. If you want a little more information on the topic, <a href="./vision.html">you can check that out here<a/>.<br/><br/>
+
+			Next, the actual position of the robot can be found by looking at the differences between consecutive frames. If the robot moves in a straight line, the points on the ceiling will move relative to the robot in the opposite direction across many frames of video. If the robot rotates (a perfectly zero-point rotation), the points on the ceiling will rotate about the center of the image in the opposite direction. I decided that for every movement the robot makes, the change to the coordinates of the lights it sees can be modeled by a rotation of the coordinates (x<sub>0</sub>, y<sub>0</sub>) by some &#x03b8;<sub>0</sub> around the center of the image, then a translation by some (&#x0394;x, &#x0394;y), then another rotation by some &#x03b8;<sub>1</sub> around the center again, to give the coordinates (x<sub>1</sub>, y<sub>1</sub>). If you think about it, this makes sense - the robot will not always travel in a straight path, but no matter what path it takes to get from one point to another, you could get the same result by rotating the robot to face the target point, moving in a straight line to that point, then rotating again to face some final direction.<br/><br/>
+
+			This transformation can be represented by the matrix:<br/>
+			<figure style="width:50vh;">
+			  <img src="img/matrix1.png" alt=""/>
+			  <figcaption>
+				Transformation matrix
+			  </figcaption>
+			</figure><br/>
+
+			Multiplying a position vector [x<sub>0</sub>, y<sub>0</sub>, 1] by this matrix will perform the transformation described above and give a vector [x<sub>1</sub>, y<sub>1</sub>]. So we have this system of equations described by a matrix - how do we solve for the variables &#x0394;x, &#x0394;y, &#x03b8;<sub>0</sub>, and &#x03b8;<sub>1</sub>? And how do we generalize it for multiple points (since only one point certainly isn't enough to solve for 4 variables)? We can rearrange this data to create a new matrix parametrized by our given points, and then factor out a vector of unknowns to solve for.<br/><br/>
+
+			Consider that the product of the matrix<br/>
+			<figure style="width:50vh;">
+			  <img src="img/matrix1.png" alt=""/>
+			  <figcaption>
+				Transformation matrix
+			  </figcaption>
+			</figure>
+
+			and the vector [x<sub>0</sub>, y<sub>0</sub>, 1] is the same as the product of the matrix<br/>
+			<figure style="width:30vh;">
+			  <img src="img/matrix2.png" alt=""/>
+			  <figcaption>
+				Re-parametrized matrix
+			  </figcaption>
+			</figure>
+
+			and the vector [ cos(&#x03b8;<sub>0</sub>+&#x03b8;<sub>1</sub>), sin(&#x03b8;<sub>0</sub>+&#x03b8;<sub>1</sub>), &#x0394;x*cos(&#x03b8;<sub>1</sub>)-&#x0394;y*sin(&#x03b8;<sub>1</sub>), &#x0394;x*sin(&#x03b8;<sub>1</sub>)+&#x0394;y*cos(&#x03b8;<sub>1</sub>) ] which I will call &#x03d1; (that character is also a theta - I'm running out of Unicode Greek letters). Both are equal to the vector [x<sub>1</sub>, y<sub>1</sub>]. The difference is that in the second parametrization, the matrix can be constructed of known values (the coordinates seen by the camera before and after movement), while the vector &#x03d1; factored out is composed of operations on unknown values. Now imagine that we have multiple sets of coordinates. Constructing the above matrix for each set, and appending them all, gives the design matrix &#x166d; (chi):<br/><br/>
+
+			<figure style="width:30vh;">
+			  <img src="img/matrix3.png" alt=""/>
+			  <figcaption>
+				Design matrix
+			  </figcaption>
+			</figure><br/>
+
+			This matrix has two rows for every point found in the image. Multiplying this new matrix by &#x03d1; gives a vector Y:<br/>
+
+			<figure style="width:10vh;">
+			  <img src="img/matrix4.png" alt=""/>
+			  <figcaption>
+				Transformed vector
+			  </figcaption>
+			</figure>
+
+			of each point after the transformation. These values are known, and the values used to construct &#x166d; are known, so all that remains is to solve for the vector &#x03d1;.<br/><br/>
+
+			Now for a key simplification, which makes the solution somewhat apparent, but introduces some error. As you'll see, this method did not work quite the way it was supposed to, and this may be the reason why.<br/><br/>
+
+			The robot doesn't have very much time at all to move between ticks - maybe a couple tenths of a second. We can therefore assume that while the total angle the robot rotates between ticks is enough that it needs to be accounted for, the individual values of &#x03b8;<sub>0</sub> and &#x03b8;<sub>1</sub> are small enough that we can approximate them as 0. By assuming &#x03b8;<sub>1</sub> is equal to 0, the vector &#x03d1; simplifies to [ cos(&#x03b8;<sub>0</sub>+&#x03b8;<sub>1</sub>), sin(&#x03b8;<sub>0</sub>+&#x03b8;<sub>1</sub>), &#x0394;x, &#x0394;y ]. Given this, we don't have to try to solve for &#x03b8;<sub>0</sub> and &#x03b8;<sub>1</sub> individually anymore. We can solve for this vector &#x03d1;, and get that arccos(&#x03d1;<sub>(0)</sub>) and arcsin(&#x03d1;<sub>(1)</sub>) are the total angle the robot has rotated, and &#x03d1;<sub>(2)</sub> and &#x03d1;<sub>(3)</sub> represent &#x0394;x and &#x0394;y respectively. Now that each entry of theta only contains one unknown variable, theta can be found with the formula:<br/><br/>
+
+			<figure style="width:40vh;">
+			  <img src="img/matrix5.png" alt=""/>
+			  <figcaption>
+				Solution to the system
+			  </figcaption>
+			</figure><br/>
+
+		  where &#x166d;, Y, and &#x03d1 are as defined above, and the negative first power indicates the inverse of a matrix. This formula is derived using pretty crazy math, which I won't get into here, but if you're interested in this and other regression techniques, <a href="http://cs229.stanford.edu/materials.html">this<a/> is where I learned about this topic from.
+		</div><br/>
+
+		<div id="paragraph">&nbsp;That was a lot of math. Did it work?</div><br/>
+
+		<div id="body_text">Well, there were a few problems. The first one we ran into was that the camera's field of view was too small, and there were lots of 'blind spots' on the field where it couldn't see the minimum number of lights to get a good reference. We resolved that problem by tipping the camera by 21 degrees from the vertical, which we had to account for in the math. That didn't <i>completely</i> fix the problem since there were still things like burned out lights and interference from the skylight causing issues, but it certainly worked a lot better. One of the most noticeable effects of this interference was 'jumps' in the data where it would suddenly think it had moved a lot farther than it had, then go back to normal. I remedied this with a <a href="http://www.cs.unc.edu/~welch/kalman/">Kalman filter</a>. A Kalman filter is a set of mathematical equations, the solution to the question "How do you account for random error conforming to a Gaussian distribution when processing the data from multiple sensors?" They use the previous readings to predict what the next reading should be, and the next reading is depressed if it is too much larger than expected. This has the result of smoothing out the position curve and reducing compounding error.</div><br/>
+
+		<figure style="width:90%;">
+		  <img src="img/kalmangraph.png" alt=""/>
+		  <figcaption>
+			Blue line is raw data, green line is the raw data just added together, red line is after Kalman filter is applied
+		  </figcaption>
+		</figure><br/>
+
+		<div id="body_text">Our most major problem was turning. This was problematic for a number of reasons. The floor was always dusty, and our wheels didn't have amazing traction, so it wasn't uncommon for the robot to begin turning and simply get stuck. In addition, turning altered the view of the camera quite a bit more than linear motion did, so it could easily turn past where it could see the lights if it was near the edge of the playing field. But in general using the lights to turn was simply unreliable; at the time we were experiencing these issues we were frantic and sleep deprived, since our deadline was fast approaching, and solving the problem might have just been beyond me. I suspect that I failed to account for the fact that since we tilted the camera, the rotations of the image were no longer occurring around the center point.</div><br/>
+
+		<div id="paragraph">&nbsp;Okay, yeah, but did it work?</div><br/>
+
+		<div id="body_text">It worked. In fact, it worked really well. When we just wanted to go in a straight line, we could give it a distance to drive, and it would be accurate to within 2 or 3 inches every time. This was, of course, super exciting, and we leveraged this advantage as much as we could during the competition. When we actually ran the robot on the course, all our distances were correct, but most of the time our turns were so far off from where they were supposed to be we didn't get very far. But overall, it functioned very well, we got to the second round of the competition, and we got to feel clever for making it all work. This system was fairly complicated, and computer vision, machine learning, Linux, multiple programming languages, and a lot of teamwork went into making it possible. I worked very hard on this over the course of the entire semester, and for these reasons I kind of see this project as the culmination of my entire educational career up to this point.<br/><br/>
+
+		  If you want more information about our robot and what it did, you can take a look at our <a href="https://drive.google.com/open?id=0B0N_-4gUPE8RVzRtQW5wdEpGdzA">final presentation</a>, or send me an email.</div><br/>
+
+		<figure style="width:90%;">
+		  <img src="img/robot2.png" alt=""/>
+		  <figcaption>
+			The Mandroid
+		  </figcaption>
+		</figure><br/>
 
 	  </p><br/><br/>
 

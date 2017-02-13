@@ -266,7 +266,7 @@ window.onscroll = function() {
 
 var TxtType = function(el, toRotate, period) {
     this.toRotate = toRotate;
-	this.urls = [ "", "rice2.html", "vision.html", "website.html", "knw.html", "vision.html", "spectre.html", "vision.html", "me.html" ];
+	this.urls = [ "", "rice2.html", "knw2.html", "website.html", "knw.html", "vision.html", "spectre.html", "vision.html", "me.html" ];
     this.el = el;
     this.loopNum = 0;
     this.per = parseInt(period, 10) || 2000;
