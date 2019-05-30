@@ -20,7 +20,7 @@ Check out my [technical resume](https://docs.google.com/document/d/1rz5u8hN2BOwT
 ### Pro-Life
 
 | **You Don't Even Have a Uterus** | Men are often told that they have no place in the abortion discuss. Is this true? How can we as men *and* women respond to this argument? And even more, how can we be both pro-life *and* feminist? |
-| **I Don't Want to Start an Argument** | Constructive dialogue with people who disagree with us is always difficult. Through my experiences talking to all kinds of people, I will give pointers on how we can get over our fear of other humans and spread the truth with kindness and boldness. |
+| **I Don't Want to Start an Argument** | Constructive dialogue with people who disagree with us is always difficult. Through my experiences talking to people on campus and all over the country, I will give pointers on how we can get over our fear of other humans and spread the truth with kindness and boldness. |
 | **Just a Clump of Cells** | Many people who are pro-choice have simply never heard a logical argument against abortion. In this talk I present the philosophical and scientific basis for the pro-life position, from a completely secular perspective. |
 | **The&nbsp;Lord&nbsp;Himself&nbsp;Will&nbsp;Give&nbsp;You&nbsp;a&nbsp;Sign** | There are many religious people who are not sure whether they should support the pro-life movement. I will discuss how God reveals his love of life to us, how it is our duty as Christians to defend the unborn, and how the Church has *always* been pro-life. |
 
